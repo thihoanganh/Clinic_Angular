@@ -1,0 +1,270 @@
+<header id="header" class="head">
+    <div class="top-header">
+       <div class="container">
+         <div class="row ">
+           <ul class="contact-detail2 col-md-6 pull-left">
+             <li> <a href="#" target="_blank"><i class="fa fa-mobile"></i>Call US + 1 (1800) 459 123 7</a> </li>
+             <li> <a href="#" target="_blank"><i class="fa fa-envelope-o"></i> example@gmail.com</a> </li>
+           </ul>
+           <div class="social-links col-md-6 pull-right">
+             <ul class="social-icons pull-right">
+               <li> <a href="http://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> </li>
+               <li> <a href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> </li>
+               <li> <a href="http://pinterest.com" target="_blank"><i class="fa fa-pinterest"></i></a> </li>
+               <li> <a href="http://dribble.com/" target="_blank"><i class="fa fa-skype"></i></a> </li>
+               <li> <a href="http://pinterest.com" target="_blank"><i class="fa fa-dribbble"></i></a> </li>
+               
+             </ul>
+           </div>
+         </div>
+       </div>
+      </div>
+      <nav class="navbar navbar-default navbar-menu">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
+              <span class="sr-only">Toggle navigation</span> 
+              <span class="icon-bar"></span> 
+              <span class="icon-bar"></span> 
+              <span class="icon-bar"></span> 
+            </button>
+            <a class="navbar-brand" [routerLink]="['/home']">
+              <div class="logo-text"><span><samp>🅲</samp>𝙲̷𝙻̷𝙸̷</span>𝙽̷𝙸̷𝙲̷</div>
+              <!-- <img src="assets//logo.png" alt="logo"> -->
+            </a> 
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations="fadeIn">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a [routerLink]="['/home']">Home</a></li>
+              <li><a [routerLink]="['/aboutus']" class="format">About us </a></li>
+              <li><a  [routerLink]="['/service']">Services </a></li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a  [routerLink]="['/bloglist']">Blog Listing</a></li>
+                  <li><a [routerLink]="['/blogdetail']">Blog Details</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">App <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a [routerLink]="['/scientific']">Scientific Application</a></li>
+                  <li><a [routerLink]="['/medical']">Medical Application</a></li>
+                  <li><a [routerLink]="['/education']">Education Application</a></li>
+                  <li><a [routerLink]="['/business']">Business Application</a></li>
+                </ul>
+              </li>
+              <li><a [routerLink]="['/contactus']">Contact Us</a></li>
+  
+              <li>
+                <button type="button" class="btn  ml-lg-2 w3ls-btn" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
+                    Login
+                </button>
+            </li>
+            </ul>
+          </div>
+          <!--/.nav-collapse --> 
+        </div>
+      </nav>
+  </header>
+  
+    <!--/body --> 
+  <router-outlet></router-outlet>
+  
+    <!--/end body --> 
+      <!--/.footer --> 
+  <section id="footer-top" class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-top-box">
+            <h4>About Us</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          </div>
+          <div class="footer-top-box">
+            <h4>Office Hour</h4>
+            <b>Mon-Fri :</b> 09am to 06pm<br/>
+            <b>Tues-Wed :</b> Special Appointment
+          </div>
+        </div>
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-top-box">
+            <h4>Latest Posts</h4>
+            <ul>
+              <li>
+                <div class="recent-post-widget">
+                  <a href="#" class="widget-img-thumb">
+                    <img src="assets/images/post-1.jpg" class="img-responsive">
+                  </a>
+                  <div class="widget-content">
+                    <h5><a href="#" class="sidebar-item-title">Enterprise Video Solutions</a></h5>
+                    <a href="#">
+                      <p class="widget-date">Posted: 3 day ago</p>
+                    </a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </li>
+              <li>
+                <div class="recent-post-widget">
+                  <a href="#" class="widget-img-thumb">
+                    <img src="assets/images/post-2.jpg" class="img-responsive">
+                  </a>
+                  <div class="widget-content">
+                    <h5><a href="#" class="sidebar-item-title">Medical Instruments</a></h5>
+                    <a href="#">
+                      <p class="widget-date">Posted: 6 month ago</p>
+                    </a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-top-box">
+            <h4>Tags</h4>
+            <div class="tag"><a href="#">Acupuncture</a></div>
+            <div class="tag"><a href="#">Mammography</a></div>
+            <div class="tag"><a href="#">Neonatology</a></div>
+            <div class="tag"><a href="#">Diabetes Education</a></div>
+            <div class="tag"><a href="#">Geriatrics</a></div>
+            <div class="tag"><a href="#">Kidneys</a></div>
+          </div>
+        </div>
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-top-box">
+            <h4>Contact us</h4>
+            <p><b>Location : 42/2</b> New road, KTM<br/>
+              <b>Mob: </b> +9849494875<br/>
+              <b>Mail: </b> rkwebdesignsinfo@gmail.com </p>
+          </div>
+          <div class="footer-top-box">
+            <h4>Subscribe</h4>
+            <div class="cs-form">
+              <form action="#" method="post">
+                <div class="input-holder">
+                  <input type="email" placeholder="Enter Valid Email Address">
+                  <label> <i class="fa fa-location-arrow fa-2x"></i>
+                    <input class="submit-bgcolor" type="submit" value="submit">
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="footer-bottom" class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-lg-9">
+          <div class="copyright">Copyright &copy; 2016. All Rights Reserved</div>
+        </div>
+        <div class="col-lg-3">
+          <ul class="list-inline social-buttons">
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- login  -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username</label>
+                        <input type="text" class="form-control" placeholder=" " name="Name" id="recipient-name" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-form-label">Password</label>
+                        <input type="password" class="form-control" placeholder=" " name="Password" id="password" required="">
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Login">
+                    </div>
+                    <br>
+                    <div class="row sub-w3l my-3">
+                        <div class="col sub-agile text-center">
+                            <input type="checkbox" id="brand1" value="">
+                            <label for="brand1" class="text-secondary">
+                                <span></span>Remember me?</label>
+                        </div>
+                        <div class="col forgot-w3l text-center">
+                            <a href="#" class="text-secondary">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <p class="text-center dont-do">Don't have an account?
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter2" class="text-dark font-weight-bold ">
+                            Register Now</a>
+            
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- //login -->
+  <!--/Register-->
+  <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login px-4 mx-auto mw-100">
+                    <h5 class="modal-title text-center text-dark mb-4">REGISTER NOW</h5>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label class="col-form-label">First name</label>
+  
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Last name</label>
+                            <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
+                        </div>
+  
+                        <div class="form-group">
+                            <label class="mb-2 col-form-label">Password</label>
+                            <input type="password" class="form-control" id="password1" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="password2" placeholder="" required="">
+                        </div>
+          <div class="reg-w3l">
+            <button type="submit" class="form-control submit mb-4">Register</button>
+                       </div>
+           <p class="text-center pb-4">
+                            <a href="#" class="text-secondary">By clicking Register, I agree to your terms</a>
+                        </p>
+                    </form>
+  
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+  <!--//Register-->
+  
+  
+  
+  
