@@ -2,17 +2,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AdminComponent } from './admincomponent/admin.component';
-import { AdminModule } from './admincomponent/admin.module';
+import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './usercomponent/user.component';
-import { UserModule } from './usercomponent/user.module';
+import { AdminLoginComponent } from './login/login.component';
+import { UserModule } from './user/user.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
