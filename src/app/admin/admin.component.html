@@ -71,24 +71,17 @@
                             </a>
                         </li>
                        
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nc-icon nc-zoom-split"></i>
-                                <span class="d-lg-block">&nbsp;Search</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <span class="no-icon">Account</span>
-                            </a>
-                        </li>
                        
+                    </ul>
+                    <ul class="navbar-nav ml-auto admin-info ">
+                        <li class="nav-item admin-item-info">
+                            <p class="admin-info">Welcome: <b>{{ username }}</b></p>
+                            <p class="admin-info">Role: <b>{{ role }}</b></p>
+                        </li >
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <span class="no-icon">Log out</span>
-                            </a>
+                            <button class="nav-link btn-logout"  (click)="logOut()">
+                               Logout
+                            </button>
                         </li>
                     </ul>
                 </div>

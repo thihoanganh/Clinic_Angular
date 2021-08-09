@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import { UserComponent } from './user.component';
 import { UserRouting } from './user.routing';
 import { HomeComponent } from './component/home/home.component';

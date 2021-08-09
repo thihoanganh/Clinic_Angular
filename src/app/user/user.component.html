@@ -55,9 +55,15 @@
               <li><a [routerLink]="['/contactus']">Contact Us</a></li>
   
               <li>
-                <button type="button" class="btn  ml-lg-2 w3ls-btn" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
-                    Login
-                </button>
+                <div *ngIf="!isAuthenticated()">
+                    <button type="button" class="btn  ml-lg-2 w3ls-btn" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
+                      Login
+                  </button>
+                </div>
+                <div *ngIf="isAuthenticated()">
+                    <p>Hi! <b>{{ username }}</b></p>
+                    <button (click)="logOut()" class="btn btn-danger">Logout</button>
+                </div>
             </li>
             </ul>
           </div>
@@ -179,38 +185,37 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModal>
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
+                <form  (ngSubmit)="login(loginForm)" #loginForm="ngForm">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username</label>
-                        <input type="text" class="form-control" placeholder=" " name="Name" id="recipient-name" required="">
-                    </div>
+                        <input type="text" class="form-control" ngModel   #un="ngModel" name="username" id="recipient-name" required>
+                        <span  class="login-invalid" *ngIf="un.touched && un.errors?.required">Username is required</span>
+                      </div>
                     <div class="form-group">
                         <label for="password" class="col-form-label">Password</label>
-                        <input type="password" class="form-control" placeholder=" " name="Password" id="password" required="">
-                    </div>
+                        <input type="password" class="form-control" ngModel  #pw="ngModel" name="password" id="password" required>
+                        <span class="login-invalid" *ngIf="pw.touched && pw.errors?.required">Password is required</span>
+                      </div>
+                      <span class="login-invalid" *ngIf="isInValid">Invalid login</span>
                     <div class="right-w3l">
                         <input type="submit" class="form-control" value="Login">
                     </div>
                     <br>
                     <div class="row sub-w3l my-3">
-                        <div class="col sub-agile text-center">
-                            <input type="checkbox" id="brand1" value="">
-                            <label for="brand1" class="text-secondary">
-                                <span></span>Remember me?</label>
-                        </div>
+                      
                         <div class="col forgot-w3l text-center">
-                            <a href="#" class="text-secondary">Forgot Password?</a>
+                            <a href="#" data-toggle="modal" data-target="#forgotPwModal" class="text-dark font-weight-bold ">
+                                Forgot Password?</a>
                         </div>
                     </div>
                     <p class="text-center dont-do">Don't have an account?
                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter2" class="text-dark font-weight-bold ">
                             Register Now</a>
-            
                     </p>
                 </form>
             </div>
@@ -218,6 +223,93 @@
     </div>
   </div>
   <!-- //login -->
+ 
+  <!-- forgot passowrd -->
+  <div class="modal fade" id="forgotPwModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeForgotModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="sentEmailCode(forgotForm)" #forgotForm="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username:</label>
+                        <input type="text" class="form-control" ngModel   #fun="ngModel" name="username" id="recipient-name" required >
+                        <div class="loader" *ngIf="loading"></div>
+                        <span  class="invalid" *ngIf="fun.touched && fun.errors?.required">Username is required</span>
+                        <span  class="text-success" *ngIf="checkUsernameSuccess">{{ msgSentMail }}</span>
+                        <span  class="invalid" *ngIf="checkUsernameFailure">Username dosen't exist</span>
+                      </div>               
+                    <div class="right-w3l">
+                       <button class="btn btn-success" [disabled]="!enableBtnSentMail" data-toggle="modal" data-target="#verifyModal">Sent Code</button>
+                    </div>
+                </form>
+                <button class="btn btn-secondary" (click)="checkUsername(fun)">Check</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- end forgot passowrd -->
+
+  <!-- forgot vefiry passowrd -->
+  <div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Verification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeResetPasswordModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="verify(verifyForm)" #verifyForm="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Enter your verify code here:</label>
+                        <div id="verify-form">
+                          <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" name="num1" ngModel />
+                          <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" name="num2" ngModel />
+                          <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" name="num3" ngModel />
+                          <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" name="num4" ngModel />
+                          <p *ngIf="verifyFailureNotify" class="text-danger">Wrong code. Try again !</p>
+                          <p *ngIf="verifySuccessNotify" class="text-success">Done !</p>
+                          <button class="btn btn-primary btn-embossed">Verify</button>
+                        </div>
+                      </div>               
+                </form>
+                <div *ngIf="isDisplayResetPwForm">
+                  <form  (ngSubmit)="updateNewPw(newPwForm)" #newPwForm="ngForm">
+                    <div class="form-group">
+                      <label class="mb-2 col-form-label">New-Password</label>
+                      <input type="password" class="form-control" id="password1" name="password" ngModel #npw="ngModel" required minlength="5">
+                      <span class="invalid"   *ngIf="npw.touched && npw.errors?.required">New-Password is required</span>
+                      <br>
+                      <span class="invalid" *ngIf="npw.touched && npw.errors?.minlength">Password length must be than 5 characters</span>
+                    </div>
+                  <div class="form-group">
+                      <label class="col-form-label">Confirm Password</label>
+                      <input type="password" class="form-control" id="password2" name="repassword" ngModel #cpw="ngModel" required >
+                      <span class="invalid"   *ngIf="cpw.touched && cpw.errors?.required">Password is required</span>
+                      <br>
+                      <span class="invalid" *ngIf="cpw.touched && cpw.value != npw.value ">Confirm password was mismatch</span>
+                    </div>
+                  <div class="reg-w3l">
+                    <button type="submit" class="form-control submit mb-4" [disabled]="newPwForm.invalid">Reset</button>
+                    <div class="loader" *ngIf="loading"></div>
+                 </div>  
+                </form>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- end vefiry passowrd -->
+
+
   <!--/Register-->
   <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -230,31 +322,53 @@
             <div class="modal-body">
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="modal-title text-center text-dark mb-4">REGISTER NOW</h5>
-                    <form action="#" method="post">
+                    <form  method="post" (ngSubmit)="register(registerForm)" #registerForm="ngForm">
                         <div class="form-group">
-                            <label class="col-form-label">First name</label>
-  
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
-                        </div>
+                            <label class="col-form-label">Full Name</label>
+                            <input type="text" class="form-control" id="validationDefault01" name="fname" ngModel #fn="ngModel" required>
+                            <span *ngIf="fn.touched && fn.errors?.required" class="invalid">Full name is required</span>
+                          </div>
                         <div class="form-group">
-                            <label class="col-form-label">Last name</label>
-                            <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
+                          <label class="col-form-label">Phone Number</label>
+                          <input type="text" class="form-control" id="validationDefault01" name="phone" ngModel #pn="ngModel" required>
+                          <span *ngIf="pn.touched && pn.errors?.required" class="invalid">Phone number is required</span>
                         </div>
+                      <div class="form-group">
+                        <label class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" id="validationDefault01" name="email" ngModel #em="ngModel" required email>
+                        <span class="invalid"  *ngIf="em.touched && em.errors?.required">Email is required</span>
+                        <br>
+                        <span class="invalid"  *ngIf="em.touched && em.errors?.email">Email format is incorrect</span>                    
+                       </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Username</label>
+                            <input type="text" class="form-control" id="validationDefault02" name="username" ngModel #rgun="ngModel" required>
+                            <span class="invalid"   *ngIf="rgun.touched && rgun.errors?.required">Username is required</span>
+                            <br>
+                            <span class="invalid" *ngIf="usernameExist">Username is already exist</span>
+                          </div>
   
                         <div class="form-group">
                             <label class="mb-2 col-form-label">Password</label>
-                            <input type="password" class="form-control" id="password1" placeholder="" required="">
-                        </div>
+                            <input type="password" class="form-control" id="password1" name="password" ngModel #rgpw="ngModel" required minlength="5">
+                            <span class="invalid"   *ngIf="rgpw.touched && rgpw.errors?.required">Password is required</span>
+                            <br>
+                            <span class="invalid" *ngIf="rgpw.touched && rgpw.errors?.minlength">Password length must be than 5 characters</span>
+                          </div>
                         <div class="form-group">
                             <label class="col-form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" placeholder="" required="">
-                        </div>
-          <div class="reg-w3l">
-            <button type="submit" class="form-control submit mb-4">Register</button>
+                            <input type="password" class="form-control" id="password2" name="repassword" ngModel #rgrpw="ngModel" required >
+                            <span class="invalid"   *ngIf="rgrpw.touched && rgrpw.errors?.required">Password is required</span>
+                            <br>
+                            <span class="invalid" *ngIf="rgrpw.touched && rgpw.value != rgrpw.value ">Confirm password was mismatch</span>
+                          </div>
+                        <div class="reg-w3l">
+                          <button type="submit" class="form-control submit mb-4" [disabled]="registerForm.invalid">Register</button>
                        </div>
-           <p class="text-center pb-4">
-                            <a href="#" class="text-secondary">By clicking Register, I agree to your terms</a>
-                        </p>
+                       <div class="loader" *ngIf="loading"></div>
+                       <span *ngIf="registerSuccessNotify" class="text-success">Register successfully !</span>
+                       <span *ngIf="registerFailureNotify" class="text-danger">Some wrong was occur. Try again !</span>
+
                     </form>
   
                 </div>

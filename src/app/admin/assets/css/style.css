@@ -1,0 +1,12 @@
+.btn-admin-logout{
+    cursor: pointer;
+}
+.admin-info p{
+    margin-bottom: 0px;
+}
+.admin-info{
+    align-items: center;
+}
+.admin-item-info{
+    margin-right: 30px;
+}

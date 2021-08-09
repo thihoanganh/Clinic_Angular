@@ -2020,7 +2020,6 @@ fieldset[disabled] .form-control {
     margin: 10px 3px;
     position: relative;
     display: inline-flex;
-    line-height: 40px;
 }
 
 .navbar .navbar-nav .nav-item .nav-link.btn {
