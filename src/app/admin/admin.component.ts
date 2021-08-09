@@ -5,8 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
     templateUrl: 'admin.component.html',
      styleUrls:[
-       './assets/css/bootstrap.min.css',
-       './assets/css/light-bootstrap-dashboard.css',
+       'admin.component.css',
        './assets/css/style.css'
  ]
 })

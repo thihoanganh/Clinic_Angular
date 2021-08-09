@@ -6,6 +6,7 @@
 }
 .admin-info{
     align-items: center;
+    float:right;
 }
 .admin-item-info{
     margin-right: 30px;
