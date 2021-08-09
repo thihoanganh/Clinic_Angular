@@ -11,6 +11,7 @@ import { AdminLoginComponent } from './login/login.component';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { UserModule } from './user/user.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { UserModule } from './user/user.module';
     FormsModule,
     ReactiveFormsModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    BrowserAnimationsModule
    
   ],
   providers: [

@@ -1,7 +1,8 @@
 export class User{
-    fullname!:string
+    fullName!:string
     username!:string
     password!:string
     email!:string
     phone!:string
+    id!:any
 }

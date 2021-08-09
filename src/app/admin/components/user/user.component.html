@@ -1,0 +1,36 @@
+<h3 class="title">User management</h3>
+<div class="loader" *ngIf="loading"></div>
+<div class="alert alert-success alert-dismissible" *ngIf="deleteSuccessNotify">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> User deleted !
+</div>
+<table class="table-striped table-hover table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Options</th>
+        </tr>
+       
+    </thead>
+    <tr *ngFor="let user of listUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.fullName?user.fullName:'-' }}</td>
+        <td>
+            <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+    </tr>
+</table>
+<form (ngSubmit)="getDataByPage(pageInput)" #pageInput="ngForm" >
+    <button class="btn btn-success" (click)="getData(page)">Goto </button>
+    <span>&nbsp; page</span>
+    <input type="number" name="page" [(ngModel)]="page" width="40px"> 
+    <span> of {{ totalPage }}</span>
+</form>
+<hr>
+<p><b>Total: </b>{{ totalUsers }}</p>
+

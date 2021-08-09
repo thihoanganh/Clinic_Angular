@@ -7,7 +7,12 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AdminComponent } from './admin.component';
 import { AdminRouting } from './admin.routing';
 import { AuthGuard } from '../guards/auth-guard.service';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StaffComponent } from './components/staff/staff.component';
+import { UserComponent } from './components/user/user.component';
+import { UserService } from '../services/user.service';
+import { StaffService } from '../services/staff.service';
+import { DatePipe } from '@angular/common';
+
 
 export function tokenGetter(){
   return localStorage.getItem('admin-jwt')
@@ -16,7 +21,8 @@ export function tokenGetter(){
 @NgModule({
   declarations: [
     AdminComponent,
-    DashboardComponent
+    StaffComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +35,14 @@ export function tokenGetter(){
         allowedDomains:['localhost:5000'],
         disallowedRoutes:[]
       }
-    })
+    }),
+    
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    UserService,
+    StaffService,
+    DatePipe
   ]
 })
 

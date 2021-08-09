@@ -1,0 +1,131 @@
+<h3 class="title">Staff management</h3>
+<button class="button-add-staff" data-toggle="modal" data-target="#addStaffModal" [disabled]="!enableAddStaff"><span>Add</span></button>
+<div class="alert alert-success alert-dismissible" *ngIf="createStaffNotifySuccess">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Staff created !
+</div>
+<div class="alert alert-danger alert-dismissible" *ngIf="createStaffNotifyFailure">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Failure!</strong> Can not create staff. Try again !
+</div>
+<!-- add new staff modal  -->
+<div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeNewStaffModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login px-4 mx-auto mw-100">
+                    <h2 class="modal-title text-center text-dark mb-4">ADD NEW STAFF</h2>
+                    <form  method="post" (ngSubmit)="addStaff(newStaffForm)" #newStaffForm="ngForm">
+                        <div class="form-group">
+                            <label class="col-form-label">Full Name</label>
+                            <input type="text" class="form-control" id="validationDefault01" name="name" ngModel #fn="ngModel" required>
+                            <span *ngIf="fn.touched && fn.errors?.required" class="invalid">Name is required</span>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="validationDefault01" name="email" ngModel #em="ngModel" required email>
+                            <span class="invalid"  *ngIf="em.touched && em.errors?.required">Email is required</span>
+                            <br>
+                            <span class="invalid"  *ngIf="em.touched && em.errors?.email">Email format is incorrect</span>                    
+                       </div>
+                       <div class="form-group">
+                            <label class="col-form-label">Date Of Birth:</label>
+                            <input type="date" class="form-control" ngModel #dob="ngModel" name="dob" required>
+                            <span class="invalid"  *ngIf="dob.touched && dob.errors?.required">Date of birth is required</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Position:&nbsp;</label>  
+                            <select name="positionid" class="form-control" required ngModel #pos="ngModel">
+                                <option [value]="pos.id" *ngFor="let pos of positions">{{pos.name}}</option>
+                            </select>
+                            <span class="invalid" *ngIf="pos.touched && pos.errors?.required">Choose a position !</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Woking start:&nbsp;</label>  
+                            <input type="date" class="form-control" ngModel #ws="ngModel" name="wokingStart" required>
+                            <span class="invalid"  *ngIf="ws.touched && ws.errors?.required">Choose time of woking start !</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Username</label>
+                            <input type="text" class="form-control" id="validationDefault02" name="username" ngModel #rgun="ngModel" required>
+                            <span class="invalid"   *ngIf="rgun.touched && rgun.errors?.required">Username is required</span>
+                            <br>
+                            <span class="invalid" *ngIf="usernameExist">Username is already exist</span>
+                        </div>
+  
+                        <div class="form-group">
+                            <label class="mb-2 col-form-label">Password</label>
+                            <input type="password" class="form-control" id="password1" name="password" ngModel #rgpw="ngModel" required minlength="5">
+                            <span class="invalid"   *ngIf="rgpw.touched && rgpw.errors?.required">Password is required</span>
+                            <br>
+                            <span class="invalid" *ngIf="rgpw.touched && rgpw.errors?.minlength">Password length must be than 5 characters</span>
+                          </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="password2" name="repassword" ngModel #rgrpw="ngModel" required >
+                            <span class="invalid"   *ngIf="rgrpw.touched && rgrpw.errors?.required">Password is required</span>
+                            <br>
+                            <span class="invalid" *ngIf="rgrpw.touched && rgpw.value != rgrpw.value ">Confirm password was mismatch</span>
+                          </div>
+                        <div class="reg-w3l">
+                          <button type="submit" class="form-control submit mb-4" [disabled]="newStaffForm.invalid">Register</button>
+                       </div>
+                       <div class="loader" *ngIf="loading"></div>
+                       <span *ngIf="addStaffSuccessNotify" class="text-success">Add staff successfully !</span>
+                       <span *ngIf="addStaffFailureNotify" class="text-danger">Some wrong was occur. Try again !</span>
+                    </form>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+<!-- end modal  -->
+<div class="loader" *ngIf="loading"></div>
+<div class="alert alert-success alert-dismissible" *ngIf="deleteSuccessNotify">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Staff deleted !
+</div>
+<table class="table-striped table-hover table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Dob</th>
+            <th>Position</th>
+            <th>Woking Start</th>
+            <th>Options</th>
+        </tr>
+        
+    </thead>
+    <tr *ngFor="let staff of listStaffs">
+        <td>{{staff.id }}</td>
+        <td>{{staff.username }}</td>
+        <td>{{staff.email }}</td>
+        <td>{{staff.name?staff.name:'-' }}</td>
+        <td>{{staff.dob}}</td>
+        <td>{{staff.position.name}}</td>
+        <td>{{staff.wokingStart}}</td>
+        <td>
+            <button class="btn btn-danger" (click)="deleteStaff(staff.id)">Delete</button>
+        </td>
+    </tr>
+</table>
+<form (ngSubmit)="getDataByPage(pageInput)" #pageInput="ngForm" >
+    <button class="btn btn-success" >Goto </button>
+    <span>&nbsp; page</span>
+    <input type="number" name="page" [(ngModel)]="page" width="40px"> 
+    <span> of {{ totalPage }}</span>
+</form>
+<hr>
+<p><b>Total: </b>{{ totalStaffs }}</p>
+

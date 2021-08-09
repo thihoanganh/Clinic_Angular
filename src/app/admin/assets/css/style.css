@@ -11,3 +11,11 @@
 .admin-item-info{
     margin-right: 30px;
 }
+ul{
+    text-decoration: none;
+    list-style: none;
+}
+.admin-account-menu li{
+    margin-bottom: 10px;
+    font-size: 15px;
+}

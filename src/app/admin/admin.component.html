@@ -14,33 +14,9 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="./user.html">
+                    <a class="nav-link" [routerLink]="['user']">
                         <i class="nc-icon nc-circle-09"></i>
                         <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="./table.html">
-                        <i class="nc-icon nc-notes"></i>
-                        <p>Table List</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="./typography.html">
-                        <i class="nc-icon nc-paper-2"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="./icons.html">
-                        <i class="nc-icon nc-atom"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="./maps.html">
-                        <i class="nc-icon nc-pin-3"></i>
-                        <p>Maps</p>
                     </a>
                 </li>
                 <li>
@@ -55,12 +31,15 @@
            <div class="card">
              <div class="card-header">
                <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne">
-                 Collapsible Group Item #1
+                ACCOUNT
                </a>
              </div>
              <div id="collapseOne" class="collapse" data-parent="#accordion">
                <div class="card-body text-dark">
-                 Lorem ipsum..
+                <ul class="admin-account-menu">
+                    <li><a [routerLink]="['user']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>User</a></li>
+                    <li><a [routerLink]="['staff']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Staff</a></li>
+                </ul>
                </div>
              </div>
            </div>
@@ -100,7 +79,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg " color-on-scroll="500">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#pablo"> Dashboard </a>
+               
                 <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar burger-lines"></span>
                     <span class="navbar-toggler-bar burger-lines"></span>
