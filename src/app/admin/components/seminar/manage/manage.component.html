@@ -1,0 +1,89 @@
+<div class="wraper">
+    <h1 class="title">Seminar Management</h1>
+    <button class="button-add-smn"><a [routerLink]="['/admin/seminar/create']"><span><i class="fas fa-calendar-plus"></i> New Seminar</span></a></button>
+
+    <table class="table table-striped table-hover ">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Speaker</th>
+                <th>Place</th>
+                <th>Start At</th>
+                <th>End At</th>
+                <th>Mail</th>
+                <th>Feedback</th>
+                <th>Evaluate</th>
+            </tr>
+            <tr *ngFor="let smn of listSeminars">
+                <td >{{ smn.id }}</td>
+                <td>{{ smn.title }}</td>
+                <td>{{ smn.speaker }}</td>
+                <td>{{ smn.place }}</td>
+                <td>{{ smn.startAt }}</td>
+                <td>{{ smn.endAt }}</td>
+                <td><a routerLink='/admin/seminar/email/{{ smn.id }}'><i class="fas fa-mail-bulk {{ smn.seminarEmail == null ? 'mail-unactive-icon' : 'mail-active-icon' }}"></i></a></td>
+                <td>0</td>
+                <td>50%</td>
+            </tr>
+    </table>
+</div>
+
+<!-- create mail modal -->
+<div class="modal fade" id="createMailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Automatical Email</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="createMail(mailForm)" #mailForm="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Title</label>
+                        <input type="text" class="form-control" ngModel #tt="ngModel" name="title" id="recipient-name" required>
+                        <span  class="login-invalid" *ngIf="tt.touched && tt.errors?.required">Title is required</span>
+                      </div>
+                 
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Create">
+                        <div class="loader" *ngIf="loading"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- update mail modal -->
+<!-- <div class="modal fade" id="updateMailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Automatical Email</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="createMail(mailForm)" #mailForm="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Title</label>
+                        <input type="text" class="form-control" [(ngModel)]="_mailTitle" ngModel #tt="ngModel" name="title" id="recipient-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Content</label>
+                        <ckeditor [(ngModel)]="_mailBody" name="content" ngModel></ckeditor>
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Save">
+                        <div class="loader" *ngIf="loading"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div> -->
+
+  <!-- data-toggle="modal" data-target="#exampleModalCenter2" -->

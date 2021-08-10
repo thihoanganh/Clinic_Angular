@@ -14,5 +14,6 @@ export class Staff{
     wokingStart!:any
     positionid!:any
     roleid!:any
+    contact!:any
     
 }

@@ -1,0 +1,85 @@
+<a [routerLink]="['/admin/seminar/manage']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+<div class="wraper">
+    <h1 class="text-center title">Make Your Own Seminar Now !</h1>
+    <form class="form-horizontal" (ngSubmit)="createSeminar(smnForm)" #smnForm="ngForm">
+
+        <div class="form-group">
+          <label class="control-label col-sm-2">Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="title" ngModel #title="ngModel" required>
+          </div>
+          <span class="text-danger" *ngIf="title.touched && title.errors?.required"><i>Title is required</i></span>
+        </div>
+
+        <div class="form-inline">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="speaker" ngModel placeholder="Speaker" #sk="ngModel" required>
+                </div>
+                <span class="text-danger" *ngIf="sk.touched && sk.errors?.required"><i>Speaker is required</i></span>
+
+              </div>
+                <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="method" ngModel placeholder="Method"  #mt="ngModel" required>
+                </div>
+                 <span class="text-danger" *ngIf="mt.touched && mt.errors?.required"><i>Method is required</i></span>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Place</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="place" ngModel #pl="ngModel" required>
+              <span class="text-danger" *ngIf="pl.touched && pl.errors?.required"><i>Place is required</i></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="control-label col-sm-2">Contact</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="contact" ngModel #ct="ngModel" required>
+              <span class="text-danger" *ngIf="ct.touched && ct.errors?.required"><i>Contact is required</i></span>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label class="control-label col-sm-2">Poster</label>
+            <div class="col-sm-10">
+              <input type="file" name="poster" ngModel #pt="ngModel" required (change)="setFile($event)">
+              <span class="text-danger" *ngIf="pt.touched && pt.errors?.required"><i>Choose one poster</i></span>
+            </div>
+         </div>
+       
+     
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label col-sm-2">Timing Start</label>
+                <div class="col-sm-10">
+                    <input type="datetime-local" class="form-control" name="startAt" ngModel #sa="ngModel" required>
+                    <span class="text-danger" *ngIf="sa.touched && sa.errors?.required"><i>Selecte timing start</i></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Timing End</label>
+                <div class="col-sm-10">
+                    <input type="datetime-local" class="form-control" ngModel name="endAt"   #ea="ngModel" required>
+                    <span class="text-danger" *ngIf="ea.touched && ea.errors?.required"><i>Selecte timing endAt</i></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Content</label>
+            <ckeditor [(ngModel)]="seminarContent" name="content" ngModel></ckeditor>
+        </div>
+
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" [disabled]="smnForm.invalid">Create</button>
+            <div class="algin-center loader" *ngIf="loading"></div>
+          </div>
+        </div>
+      </form>
+</div>
+

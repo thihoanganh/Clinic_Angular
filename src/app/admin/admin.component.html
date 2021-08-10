@@ -43,6 +43,23 @@
                </div>
              </div>
            </div>
+           <div class="card">
+            <div class="card-header">
+              <a class="card-link text-dark" data-toggle="collapse" href="#collapseTwo">
+               SEMINAR
+              </a>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+              <div class="card-body text-dark">
+               <ul class="admin-account-menu">
+                   <li><a [routerLink]="['seminar/manage']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
+                   <li><a [routerLink]="['seminar/mail']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Mail</a></li>
+                   <li><a [routerLink]="['seminar/feedback']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Feedback</a></li>
+
+               </ul>
+              </div>
+            </div>
+          </div>
          
            <div class="card">
              <div class="card-header">
