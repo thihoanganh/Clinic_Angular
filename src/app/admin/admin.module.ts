@@ -21,6 +21,7 @@ import { CKEditorModule } from 'ng2-ckeditor-12';
 import { EmailComponent } from './components/seminar/email/email.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
+import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
 
 
 
@@ -38,7 +39,8 @@ export function tokenGetter(){
     MailComponent,
     CreateComponent,
     EmailComponent,
-    MedicineComponent
+    MedicineComponent,
+    SmnRegisteredComponent
   ],
   imports: [
     BrowserModule,

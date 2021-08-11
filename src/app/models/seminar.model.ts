@@ -10,4 +10,7 @@ export class Seminar{
     poster!:any
     contact!:any
     seminarEmail!:any
+    totalRegistered!:any
+    totalFeedback!:any
+    evaluate!:any
 }

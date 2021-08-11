@@ -1,0 +1,35 @@
+<hr>
+<div class="container wrapper">
+    <div class="row row-item" >
+        <div class="col-sm" *ngFor="let smn of seminarsPartOne">
+            <div class="card">
+                <img src="{{ smn.poster }}" class="card-img-top img">
+                <h2 class="card-title">{{ smn.title }}</h2>
+                <div class="card-body">
+                <p><span><i class="far fa-clock"></i>&nbsp; <b>Start:</b>&nbsp; {{ smn.startAt }}</span></p>
+                <p><span><i class="fas fa-clock"></i>&nbsp; <b>End:</b>&nbsp; {{ smn.endAt }}</span></p>
+                <p><span><i class="fas fa-map-marker-alt"></i>&nbsp; <b>Place:</b>&nbsp; {{ smn.place }}</span></p>
+                </div>
+                <div class="card-footer text-center">
+                    <a routerLink="/seminar/details/{{ smn.id }}" class="btn button ">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-item" >
+        <div class="col-sm" *ngFor="let smn of seminarsPartTwo">
+            <div class="card">
+                <img src="{{ smn.poster }}" class="card-img-top img">
+                <h2 class="card-title">{{ smn.title }}</h2>
+                <div class="card-body">
+                <p><span><i class="far fa-clock"></i>&nbsp; <b>Start:</b>&nbsp; {{ smn.startAt }}</span></p>
+                <p><span><i class="fas fa-clock"></i>&nbsp; <b>End:</b>&nbsp; {{ smn.endAt }}</span></p>
+                <p><span><i class="fas fa-map-marker-alt"></i>&nbsp; <b>Place:</b>&nbsp; {{ smn.place }}</span></p>
+                </div>
+                <div class="card-footer text-center">
+                    <a  routerLink="/seminar/details/{{ smn.id }}" class="btn button">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

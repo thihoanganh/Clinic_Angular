@@ -14,6 +14,8 @@ import { BlogDetailComponent } from './component/blogdetail/blogdetail.component
 import { BusinessAppComponent } from './component/businessapp/business.component';
 import { ContactUsComponent } from './component/contactus/contact.component';
 import { EduccationAppComponent } from './component/educcationapp/educcation.component';
+import { SeminarComponent } from './component/seminar/seminar.component';
+import { SmnDetailComponent } from './component/smn-detail/smn-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { EduccationAppComponent } from './component/educcationapp/educcation.com
     BusinessAppComponent,
     ContactUsComponent,
     EduccationAppComponent,
+    SeminarComponent,
+    SmnDetailComponent,
   ],
   imports: [
     BrowserModule,

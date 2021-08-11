@@ -64,3 +64,17 @@
     font-size: 20px;
     color:rgb(163, 10, 10);
 }
+.file-icon{
+    font-size: 20px;
+    color: cadetblue;
+}
+
+.file-icon:hover{
+    font-size: 20px;
+    color: rgb(52, 87, 88);
+}
+
+.file-badge{
+    font-size: 15px;
+    background-color: #ffdfdf;
+}

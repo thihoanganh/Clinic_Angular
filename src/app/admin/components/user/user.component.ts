@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   listUsers = new Array<User>()
   totalUsers!:any
   totalPage!:any
-  page = 1
+  page  = 1
   deleteSuccessNotify = false
   constructor(
     private userService:UserService

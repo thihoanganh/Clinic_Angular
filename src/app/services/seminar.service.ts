@@ -2,6 +2,7 @@ import { DatePipe } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { observable, Observable } from "rxjs";
+import { RegisterSeminar } from "../models/register-smn.model";
 import { Seminar } from "../models/seminar.model";
 
 @Injectable()
@@ -12,8 +13,8 @@ export class SeminarService{
         private http:HttpClient
     ){}
     
-    getSeminars():Observable<any>{
-        return this.http.get(this.baseUrl,{observe:'body'})
+    getSeminars(page:any):Observable<any>{
+        return this.http.get(this.baseUrl+`?page=${page}`,{observe:'body'})
     }
     
     createSeminar(smn:Seminar):Observable<any>{
@@ -56,5 +57,38 @@ export class SeminarService{
             id:mailId
         }
         return this.http.put(this.baseUrl + '/email',body,{observe:'body'})
+    }
+
+    getSmnDetail(id:any):Observable<any>{
+        return this.http.get(this.baseUrl+`/${id}`,{observe:'body'})
+    }
+
+    registerSeminar(register:RegisterSeminar):Observable<any>{
+        const body = {
+            fname:register.fname,
+            phone:register.phone.toString(),
+            gender:register.gender=="1"?true:false,
+            email:register.email,
+            seminarid:register.seminarid
+        }
+        return this.http.post(this.baseUrl+'/register',body,{observe:'body'})
+    }
+
+    getRegistered(id:any):Observable<any>{
+        return this.http.get(this.baseUrl + `/${id}/registers`,{observe:'body'})
+    }
+
+    sendFeedback(content:any,feeling:any,smnId:any,percent:any){
+        const body = {
+            content : content,
+            satisfiedpercent: percent,
+            feeling: feeling,
+            seminarid:smnId
+        }
+        return this.http.post(this.baseUrl+'/feedback',body,{observe:'body'})
+    }
+
+    getEvaluate(id:any):Observable<any>{
+        return this.http.get(this.baseUrl+`/${id}/evaluate`,{observe:'body'})
     }
 }
