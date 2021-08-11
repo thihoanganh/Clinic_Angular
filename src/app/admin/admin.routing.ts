@@ -8,6 +8,7 @@ import { EmailComponent } from './components/seminar/email/email.component';
 import { FeedbackComponent } from './components/seminar/feedback/feedback.component';
 import { MailComponent } from './components/seminar/mail/mail.component';
 import { ManageComponent } from './components/seminar/manage/manage.component';
+import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
 import { StaffComponent } from './components/staff/staff.component';
 import { UserComponent } from './components/user/user.component';
 
@@ -27,6 +28,8 @@ const routes: Routes = [
          {path:'seminar/feedback',component:FeedbackComponent},
          {path:'seminar/create',component:CreateComponent},
          {path:'seminar/email/:id',component:EmailComponent},
+         {path:'seminar/registered/:id',component:SmnRegisteredComponent},
+
         ]
     }
 ];

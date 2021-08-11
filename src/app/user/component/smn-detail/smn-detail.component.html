@@ -1,0 +1,151 @@
+<hr>
+<div class="container wrapper">
+    <a routerLink="/seminar" class=" btn btn-secondary btn-back"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
+    <div class="alert alert-success alert-dismissible" *ngIf="registerSuccessNotify">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Your registration has been sent. Please check your email for more infomation
+    </div>
+
+    <div class="alert alert-success alert-dismissible" *ngIf="fbNotify">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Thank you for your feedback. We'll improve and give you better services.
+    </div>
+
+    <h1>{{ smnModel.title }}</h1>
+    <div *ngIf="!showFeedback">
+       <img src="../../assets/images/closed.jpg" class="closed-icon">
+    </div>
+    <div *ngIf="showFeedback">
+      <img src="../../assets/images/open.jpg" class="closed-icon" alt="">
+    </div>
+    <br>
+    <p><b>Speaker:</b> {{ smnModel.speaker }}</p>
+    <p><b>Method:</b> {{ smnModel.method }}</p>
+    <br>
+    <p><b>Place: </b>{{ smnModel.place }}</p>
+    <br>
+    <p><span><i class="far fa-clock"></i>&nbsp; <b>Start:</b>&nbsp; {{ smnModel.startAt }}</span></p>
+    <p><span><i class="fas fa-clock"></i>&nbsp; <b>End:</b>&nbsp; {{ smnModel.endAt }}</span></p>
+    <br>
+    <p><span><i class="fas fa-address-book"></i>&nbsp; Contact: &nbsp; {{ smnModel.contact }}</span></p>
+    <br>
+    <h2>Description:</h2>
+    <div [innerHTML]="smnModel.content"></div>
+
+
+
+    <div class="feedback text-center" *ngIf="!showFeedback">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#feedbackSmnModal"> <i class="fas fa-comment-dots feedback-icon"></i> &nbsp; Give our your feedback</button>
+    </div>
+    <div class="register text-center" *ngIf="showFeedback">
+        <button  class="btn btn-primary" data-toggle="modal" data-target="#registerSmnModal"> <i class="far fa-edit"></i> &nbsp; Register now !</button>
+    </div>
+
+</div>
+
+
+<!-- register seminar modal -->
+<div class="modal fade" id="registerSmnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Seminar Registration</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #registerFormModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="registerSmn(registerForm)" #registerForm="ngForm">
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Full Name</label>
+                        <input type="text" class="form-control" ngModel   #fn="ngModel" name="fname" required>
+                        <span  class="login-invalid" *ngIf="fn.touched && fn.errors?.required">Fullname is required</span>
+                    </div>
+              
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Phone</label>
+                        <input type="number" class="form-control" ngModel   #p="ngModel" name="phone" required>
+                        <span  class="login-invalid" *ngIf="p.touched && p.errors?.required">Phone is required</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label" >Male &nbsp;</label>
+                        <input type="radio" name="gender" value="0" [(ngModel)]="gender">
+                        &nbsp;&nbsp;&nbsp;
+                        <label for="recipient-name" class="col-form-label">FeMale &nbsp;</label>
+                        <input type="radio" name="gender" value="1" [(ngModel)]="gender">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Email: <i><span class="text-success">(We'll sent the seminar infomation to this email)</span></i></label>
+                        <input type="text" class="form-control" ngModel   #p="ngModel" name="email" required email>
+                        <span  class="login-invalid" *ngIf="p.touched && p.errors?.required">Email is required</span>
+                    </div>
+              
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Register">
+                        <div class="loader" *ngIf="loading"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- feedback seminar modal -->
+<div class="modal fade" id="feedbackSmnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Feel free to drop our your feedback !</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #fbFormModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form (ngSubmit)="sentFeedback(fbForm)" #fbForm="ngForm" >
+                     <div class="app"> 
+                        <h2>What do you feel about this seminar?</h2>
+                        <div class="fb">
+                          <div class="item">
+                            <label for="1">
+                            <input class="radio" type="radio" ngModel name="feeling" id="1" value="sad">
+                            <span>🙁</span>
+                          </label>
+                          </div>
+                          <div class="item">
+                            <label for="2">
+                            <input class="radio" type="radio" ngModel name="feeling" id="2" value="normal">
+                            <span>😶</span>
+                          </label>
+                          </div>
+                          <div class="item">
+                            <label for="3">
+                            <input class="radio" type="radio" ngModel name="feeling" id="3" value="happy">
+                            <span>😁</span>
+                          </label>
+                          </div>
+                        </div>
+                    </div> 
+                    <div class="range-slider">
+                        <h3>How satisfied are you?</h3>
+                        <input class="range-slider__range" name="percent" [(ngModel)]="percent" type="range" value="50" min="0" max="100">
+                        <span class="range-slider__value">{{ percent }}%</span>
+                    </div>
+                    <h3>Your opinion:</h3>
+                    <textarea class="form-control" name="opinion" ngModel rows="5"></textarea>
+                    <br>
+                    <div class="text-center">
+                        <button class="btn btn-primary text-center">Sent Feedback</button>
+                    </div>
+                </form>
+
+
+              
+              
+            </div>
+        </div>
+    </div>
+  </div>

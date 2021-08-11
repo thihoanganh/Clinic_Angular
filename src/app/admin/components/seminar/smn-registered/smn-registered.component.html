@@ -1,0 +1,20 @@
+<a [routerLink]="['/admin/seminar/manage']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+<div class="wraper">
+    <h1 class="text-center title">Registered Members !</h1>
+    <table class="table table-hover table-stripped">
+        <tr>
+            <th>FullName</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+        </tr>
+        <tr *ngFor="let member of listRegistered">
+            <td>{{ member.fname }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.phone }}</td>
+            <td>{{ member.gender == true ? "Male":"Female" }}</td>
+        </tr>
+    </table>
+    <p><b>Total:&nbsp;</b>{{ listRegistered.length }}</p>
+</div>
+

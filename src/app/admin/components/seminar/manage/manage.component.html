@@ -11,6 +11,7 @@
                 <th>Start At</th>
                 <th>End At</th>
                 <th>Mail</th>
+                <th>Registerd</th>
                 <th>Feedback</th>
                 <th>Evaluate</th>
             </tr>
@@ -22,9 +23,10 @@
                 <td>{{ smn.startAt }}</td>
                 <td>{{ smn.endAt }}</td>
                 <td><a routerLink='/admin/seminar/email/{{ smn.id }}'><i class="fas fa-mail-bulk {{ smn.seminarEmail == null ? 'mail-unactive-icon' : 'mail-active-icon' }}"></i></a></td>
-                <td>0</td>
-                <td>50%</td>
-            </tr>
+                <td><a routerLink="/admin/seminar/registered/{{ smn.id }}"><i class="fas fa-file-export file-icon"></i><span class="badge text-danger file-badge">({{ smn.totalRegistered }})</span></a></td>
+                <td>{{ smn.totalFeedback }}</td>
+                <td> {{ smn.evaluate == null ? 0 : smn.evaluate }}%</td>
+                 </tr>
     </table>
 </div>
 

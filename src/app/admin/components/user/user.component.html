@@ -26,9 +26,9 @@
     </tr>
 </table>
 <form (ngSubmit)="getDataByPage(pageInput)" #pageInput="ngForm" >
-    <button class="btn btn-success" (click)="getData(page)">Goto </button>
+    <button class="btn btn-success">Goto </button>
     <span>&nbsp; page</span>
-    <input type="number" name="page" [(ngModel)]="page" width="40px"> 
+    <input type="number" name="page" [(ngModel)]="page"   width="40px"> 
     <span> of {{ totalPage }}</span>
 </form>
 <hr>

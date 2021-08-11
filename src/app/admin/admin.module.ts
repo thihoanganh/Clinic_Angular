@@ -19,6 +19,7 @@ import { SeminarService } from '../services/seminar.service';
 import { CreateComponent } from './components/seminar/create/create.component';
 import { CKEditorModule } from 'ng2-ckeditor-12';
 import { EmailComponent } from './components/seminar/email/email.component';
+import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
 
 
 
@@ -35,7 +36,8 @@ export function tokenGetter(){
     FeedbackComponent,
     MailComponent,
     CreateComponent,
-    EmailComponent
+    EmailComponent,
+    SmnRegisteredComponent
   ],
   imports: [
     BrowserModule,

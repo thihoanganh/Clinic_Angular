@@ -7,8 +7,10 @@ import { BusinessAppComponent } from './component/businessapp/business.component
 import { ContactUsComponent } from './component/contactus/contact.component';
 import { EduccationAppComponent } from './component/educcationapp/educcation.component';
 import { HomeComponent } from './component/home/home.component';
-
+import { SeminarComponent } from './component/seminar/seminar.component';
 import { ServiceComponent } from './component/services/service.component';
+import { SmnDetailComponent } from './component/smn-detail/smn-detail.component';
+
 
 import { UserComponent } from './user.component';
 
@@ -25,7 +27,9 @@ const routes: Routes = [
             { path: 'blogdetail', component: BlogDetailComponent },
             { path: 'education', component: EduccationAppComponent },
             { path: 'business', component: BusinessAppComponent },
-            { path: 'contactus', component: ContactUsComponent }
+            { path: 'contactus', component: ContactUsComponent },
+            { path: 'seminar', component: SeminarComponent },
+            { path: 'seminar/details/:id', component:SmnDetailComponent }
         ]
     }
 ];
