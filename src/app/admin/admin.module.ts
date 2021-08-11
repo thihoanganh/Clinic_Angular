@@ -19,6 +19,8 @@ import { SeminarService } from '../services/seminar.service';
 import { CreateComponent } from './components/seminar/create/create.component';
 import { CKEditorModule } from 'ng2-ckeditor-12';
 import { EmailComponent } from './components/seminar/email/email.component';
+import { MedicineComponent } from './components/medicine/medicine.component';
+import { MedicineService } from '../services/medicine.service';
 
 
 
@@ -35,7 +37,8 @@ export function tokenGetter(){
     FeedbackComponent,
     MailComponent,
     CreateComponent,
-    EmailComponent
+    EmailComponent,
+    MedicineComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ export function tokenGetter(){
     UserService,
     StaffService,
     DatePipe,
-    SeminarService
+    SeminarService,
+    MedicineService
   ]
 })
 
