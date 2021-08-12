@@ -1,0 +1,24 @@
+<a [routerLink]="['/admin/seminar/feedback']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+<h2 class="title">Feedback Details</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Created Date</th>
+        <th>Content</th>
+        <th>Feeling</th>
+        <th>Satisfied Percent</th>
+    </tr>
+    <tr *ngFor="let fb of feedbacks">
+       <td>{{ fb.id }}</td>
+       <td>{{ fb.createdDate }}</td> 
+       <td>{{ fb.content }}</td> 
+       <td>{{ fb.feeling }}</td> 
+        <td>
+            <div class="progress">
+                <div class="progress-bar" [style.width]="fb.satisfiedPercent + '%'" >{{ fb.satisfiedPercent }}%</div>
+              </div>
+        </td>
+
+    </tr>
+</table>
+

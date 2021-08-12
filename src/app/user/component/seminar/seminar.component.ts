@@ -12,6 +12,9 @@ export class SeminarComponent implements OnInit {
   seminarsPartOne = new Array<Seminar>()
   seminarsPartTwo = new Array<Seminar>()
   page = 1
+  totalPage!:any
+  paginateRange!:any
+  selectedFilter = 'all'
   constructor(
     private seminarService: SeminarService,
     private datePipe:DatePipe
@@ -22,7 +25,7 @@ export class SeminarComponent implements OnInit {
   }
 
   getSeminar(page:any){
-    this.seminarService.getSeminars(page)
+    this.seminarService.getSeminars(page,'all')
     .subscribe(
       res=>{
         res.result.forEach((smn:any) => {
@@ -32,10 +35,43 @@ export class SeminarComponent implements OnInit {
         });
         this.seminarsPartOne = res.result.splice(0,3)
         this.seminarsPartTwo = res.result
-        console.log(this.seminarsPartTwo)
-        
-
+        this.totalPage = res.totalPage       
+        this.paginateRange =  this.range(this.totalPage < 3 ? this.totalPage : 3,1) 
       }
     )
   }
+
+  getPaginationData(event:any){
+    this.page = event.target.textContent
+    this.handlePagination()
+  }
+
+  getFirstData(){
+    this.page = 1
+    this.handlePagination()
+  }
+
+  getLastData(){
+    this.page = this.totalPage
+    this.handlePagination()
+  }
+
+  handlePagination(){
+    this.seminarService.getSeminars(this.page,this.selectedFilter).subscribe(res=>{
+      this.seminarsPartOne = res.result.splice(0,3)
+      this.seminarsPartTwo = res.result
+      this.totalPage = res.totalPage  
+      this.paginateRange = this.range(this.totalPage < 3 ? this.totalPage : 3,this.page == 1 ? 1 : this.page - 1)
+    })
+  }
+
+  onChange(event:any){
+    this.selectedFilter = event.target.value
+    this.getFirstData()
+  }
+
+
+  range(size:any, startAt:any) {
+    return [...Array(size).keys()].map(i => i + startAt);
+}
 }

@@ -1,5 +1,6 @@
 <hr>
 <div class="container wrapper">
+  
     <a routerLink="/seminar" class=" btn btn-secondary btn-back"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
     <div class="alert alert-success alert-dismissible" *ngIf="registerSuccessNotify">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -60,31 +61,32 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Full Name</label>
                         <input type="text" class="form-control" ngModel   #fn="ngModel" name="fname" required>
-                        <span  class="login-invalid" *ngIf="fn.touched && fn.errors?.required">Fullname is required</span>
+                        <span  class="text-danger" *ngIf="fn.touched && fn.errors?.required">Fullname is required</span>
                     </div>
               
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Phone</label>
                         <input type="number" class="form-control" ngModel   #p="ngModel" name="phone" required>
-                        <span  class="login-invalid" *ngIf="p.touched && p.errors?.required">Phone is required</span>
+                        <span  class="text-danger" *ngIf="p.touched && p.errors?.required">Phone is required</span>
                     </div>
 
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label" >Male &nbsp;</label>
-                        <input type="radio" name="gender" value="0" [(ngModel)]="gender">
+                        <input type="radio" name="gender" #gd="ngModel" value="0" [(ngModel)]="gender" required>
                         &nbsp;&nbsp;&nbsp;
                         <label for="recipient-name" class="col-form-label">FeMale &nbsp;</label>
-                        <input type="radio" name="gender" value="1" [(ngModel)]="gender">
+                        <input type="radio" name="gender"  #gd="ngModel" value="1" [(ngModel)]="gender" required>
+                        <span class="text-danger" *ngIf="gd.touched && gd.errors?.required">Selecte your gender!</span>
                     </div>
                     
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Email: <i><span class="text-success">(We'll sent the seminar infomation to this email)</span></i></label>
                         <input type="text" class="form-control" ngModel   #p="ngModel" name="email" required email>
-                        <span  class="login-invalid" *ngIf="p.touched && p.errors?.required">Email is required</span>
+                        <span  class="text-danger" *ngIf="p.touched && p.errors?.required">Email is required</span>
                     </div>
               
-                    <div class="right-w3l">
-                        <input type="submit" class="form-control" value="Register">
+                    <div class="right-w3l text-center">
+                        <button class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
                         <div class="loader" *ngIf="loading"></div>
                     </div>
                 </form>

@@ -29,7 +29,7 @@ export class ManageComponent implements OnInit {
   }
 
   getData(){
-    this.serminarService.getSeminars(this.page).subscribe(res=>{
+    this.serminarService.getSeminars(this.page,'all').subscribe(res=>{
       this.listSeminars = res.result
       this.listSeminars.forEach(s=>{
         s.startAt = this.datePipe.transform(s.startAt,'MM/dd/yyyy hh:mm')

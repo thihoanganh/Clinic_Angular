@@ -1,5 +1,13 @@
 <hr>
 <div class="container wrapper">
+    <div class="filter">
+        <label for="">Filter:&nbsp;</label>
+        <select name="seminar" (change)="onChange($event)">
+            <option value="all" [selected]="selectedFilter == 'all'" >All</option>
+            <option value="coming"  [selected]="selectedFilter == 'coming'">Coming soon</option>
+            <option value="closed" [selected]="selectedFilter == 'closed'">Closed</option>
+        </select>
+    </div>
     <div class="row row-item" >
         <div class="col-sm" *ngFor="let smn of seminarsPartOne">
             <div class="card">
@@ -32,4 +40,13 @@
             </div>
         </div>
     </div>
+    <!-- pagination -->
+    <div class="pagination-wrapper">
+        <button class="btn btn-secondary btn-custom " (click)="getFirstData()">First</button>
+        <ul class="pagination" *ngFor="let ele of paginateRange">
+            <li><span (click)="getPaginationData($event)" [class]=" ele == page ? 'active':''">{{ ele }}</span></li>
+        </ul>
+        <button class="btn btn-secondary btn-custom" (click)="getLastData()">Last</button>
+    </div>
+  
 </div>

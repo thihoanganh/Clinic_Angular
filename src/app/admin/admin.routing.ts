@@ -5,6 +5,7 @@ import { AuthGuard } from '../guards/auth-guard.service';
 import { AdminComponent } from './admin.component';
 import { CreateComponent } from './components/seminar/create/create.component';
 import { EmailComponent } from './components/seminar/email/email.component';
+import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
 import { FeedbackComponent } from './components/seminar/feedback/feedback.component';
 import { MailComponent } from './components/seminar/mail/mail.component';
 import { ManageComponent } from './components/seminar/manage/manage.component';
@@ -29,6 +30,8 @@ const routes: Routes = [
          {path:'seminar/create',component:CreateComponent},
          {path:'seminar/email/:id',component:EmailComponent},
          {path:'seminar/registered/:id',component:SmnRegisteredComponent},
+         {path:'seminar/feedback/details/:id',component:FeedbackDetailComponent},
+
 
         ]
     }
