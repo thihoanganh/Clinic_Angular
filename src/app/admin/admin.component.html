@@ -62,30 +62,34 @@
           </div>
          
            <div class="card">
-             <div class="card-header">
-               <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                 Collapsible Group Item #2
-               </a>
-             </div>
-             <div id="collapseTwo" class="collapse" data-parent="#accordion">
-               <div class="card-body">
-                 Lorem ipsum..
-               </div>
-             </div>
-           </div>
-         
-           <div class="card">
-             <div class="card-header">
-               <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                 Collapsible Group Item #3
-               </a>
-             </div>
-             <div id="collapseThree" class="collapse" data-parent="#accordion">
-               <div class="card-body">
-                 Lorem ipsum..
-               </div>
-             </div>
-           </div>
+            <div class="card-header">
+              <a class="card-link text-dark" data-toggle="collapse" href="#collapseMedicine">
+               MEDICINE
+              </a>
+            </div>
+            <div id="collapseMedicine" class="collapse" data-parent="#accordion">
+              <div class="card-body text-dark">
+               <ul class="admin-account-menu">
+                   <li><a [routerLink]="['updatepricemedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
+               </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link text-dark" data-toggle="collapse" href="#collapseOneEquipScientific">
+               EQUIP SCIENTIFIC
+              </a>
+            </div>
+            <div id="collapseOneEquipScientific" class="collapse" data-parent="#accordion">
+              <div class="card-body text-dark">
+               <ul class="admin-account-menu">
+                   <li><a [routerLink]="['updateprice']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
+               </ul>
+              </div>
+            </div>
+          </div>
          
          </div>
                    </li>

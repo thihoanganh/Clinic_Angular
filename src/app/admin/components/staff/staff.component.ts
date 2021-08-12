@@ -26,7 +26,7 @@ export class StaffComponent implements OnInit {
   createStaffNotifySuccess = false
   createStaffNotifyFailure = false
   enableAddStaff = true
-
+  aaa = [1,2,3]
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
     private staffService:StaffService,

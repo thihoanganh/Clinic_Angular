@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/auth-guard.service';
 
 import { AdminComponent } from './admin.component';
+import { MedicineComponent } from './components/medicine/medicine.component';
 import { CreateComponent } from './components/seminar/create/create.component';
 import { EmailComponent } from './components/seminar/email/email.component';
 import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
          {path:'seminar/feedback',component:FeedbackComponent},
          {path:'seminar/create',component:CreateComponent},
          {path:'seminar/email/:id',component:EmailComponent},
+         {path:'updatepricemedicine',component:MedicineComponent},
          {path:'seminar/registered/:id',component:SmnRegisteredComponent},
          {path:'seminar/feedback/details/:id',component:FeedbackDetailComponent},
 

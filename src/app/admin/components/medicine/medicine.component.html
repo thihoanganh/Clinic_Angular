@@ -1,0 +1,13 @@
+<h3 class="title">Medicine management</h3>
+<div>
+    <input type="text" [(ngModel)] = "selectedMedicine" placeholder="" class="form-control searchName dropdown-toggle" 
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (keyup) = "searchByName()" />
+    <div class="dropdown-menu"  aria-labelledby="myInputId">
+      <ng-container *ngFor="let medicine of medicines">
+        <a class="dropdown-item" (click)="select(medicine)">{{medicine.name}}</a>
+      </ng-container>
+    </div>
+  </div>
+
+
+ 
