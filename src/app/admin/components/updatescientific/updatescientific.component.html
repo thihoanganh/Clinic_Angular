@@ -1,0 +1,82 @@
+<a [routerLink]="['/admin/scientific']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+<h3 class="title" (click)="updateclick()">Scientific Update</h3><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-3"></div>
+        <div class="col-md-5 col-lg-5">
+            <form  method="post" #imageForm=ngForm [formGroup]="formUpdateScientific" (ngSubmit)="saveScientific()">
+                
+                <div class="form-group">
+                    <label class="col-form-label">Full Name</label>
+                    <input type="text" class="form-control" formControlName="name"   required>
+                  
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Invented Year</label>
+                    <input type="text" class="form-control" formControlName="inventedYear"  required>
+                   
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Quantity</label>
+                    <input type="number" class="form-control" formControlName="quantity"  required>
+                   
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-form-label">Image</label>
+                    <input type="file" #Image accept="image/*" class="form-control" (change)="selectFile($event)"  required>
+                    <img [src]="imageUrl"  style="width: 150px;width: 100px;">
+                </div>
+               <div class="form-group">
+                <label class="col-form-label">Description</label>
+                    <textarea class="form-control"  cols="10" rows="10" formControlName="description" ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Brand:&nbsp;</label>  
+                    <select class="form-control" formControlName="brandId">
+                        <option value="{{c.id}}" *ngFor="let c of brandlist">{{c.brand1}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Origin:&nbsp;</label>  
+                    <select class="form-control" formControlName="originId">
+                        <option value="{{c.id}}" *ngFor="let c of originlist">{{c.origin1}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Mecine Type:&nbsp;</label>  
+                    <select class="form-control" formControlName="machineCategoryId">
+                        <option value="{{c.id}}" *ngFor="let c of typelist">{{c.name}}</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-form-label">Price:&nbsp;</label>  
+                    <select class="form-control" formControlName="priceid">
+                        <option value="{{c.id}}" *ngFor="let c of prices">${{c.price1}}({{c.date}})</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Status</label>
+                    <input type="checkbox" class="form-control" formControlName="status">
+                </div>
+               
+                <div class="reg-w3l">
+                  <button type="submit" class="form-control submit mb-4" [disabled]="Image.value=='' || !imageForm.valid" >Update Product</button>
+               </div>
+            
+            </form>
+        </div>
+          <div class="col-md-3 col-lg-3"></div>
+    </div>
+</div>
+<br>
+
+
+
+
+
+

@@ -12,6 +12,8 @@ import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LibraryServiceApi } from './services/Librarysreviceapi';
+import { LibraryServiceMedicineApi } from './services/Librarysreviceapimedicine';
 import { QuizService } from './services/quiz.service';
 
 
@@ -34,6 +36,10 @@ import { QuizService } from './services/quiz.service';
   providers: [
     LoginService,
     RegisterService,
+    LoggedGuard,
+
+    LibraryServiceApi,
+    LibraryServiceMedicineApi,
     QuizService,
     LoggedGuard
     

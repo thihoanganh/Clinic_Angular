@@ -6,8 +6,12 @@ import { BlogDetailComponent } from './component/blogdetail/blogdetail.component
 import { BlogListComponent } from './component/bloglist/bloglist.component';
 import { BusinessAppComponent } from './component/businessapp/business.component';
 import { ContactUsComponent } from './component/contactus/contact.component';
+import { DetailMedicineComponent } from './component/DetailMedicine/detailmedicinecomponent';
+import { DetailScientificComponent } from './component/DetailScientfic/detailscientificcomponent';
 import { EduccationAppComponent } from './component/educcationapp/educcation.component';
 import { HomeComponent } from './component/home/home.component';
+import { MedicineAppUserComponent } from './component/MedicineApp/medicinecomponent';
+import { ScientificAppComponent } from './component/ScientificApp/scientificcomponent';
 import { DetailLectureComponent } from './component/lecture/detail-lecture/detail-lecture.component';
 import { MainLectureComponent } from './component/lecture/main-lecture/main-lecture.component';
 import { QuizExaminationComponent } from './component/lecture/quiz-examination/quiz-examination.component';
@@ -35,6 +39,10 @@ const routes: Routes = [
             { path: 'contactus', component: ContactUsComponent },
             { path: 'seminar', component: SeminarComponent },
             { path: 'seminar/details/:id', component:SmnDetailComponent },
+            { path: 'scientific', component: ScientificAppComponent },
+            { path: 'scientificdetail', component: DetailScientificComponent },
+            { path: 'medical', component: MedicineAppUserComponent },
+            { path: 'medicinedetail', component: DetailMedicineComponent },
 
             { path: 'lecture', component:MainLectureComponent },
             { path: 'lecture/learn/:id', component:DetailLectureComponent },

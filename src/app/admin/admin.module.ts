@@ -22,6 +22,19 @@ import { EmailComponent } from './components/seminar/email/email.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
 import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
+import { ScientificComponent } from './components/scientific/scientific.component';
+import { UpdateScientificComponent } from './components/updatescientific/updatescientific.component';
+import { MedicineDetailComponent } from './components/medicinedetail/medicinedetail.component';
+import { AddMedicineAppComponent } from './components/addmedicinemana/addmedicineapp.component';
+import { UpdateMedicineAppComponent } from './components/updatemedicinemana/updatemedicineapp.component';
+import { BrandComponent } from './components/brand/brand.component';
+import { OriginComponent } from './components/origin/origin.component';
+import { MedicineAppComponent } from './components/medicinemana/medicineapp.component';
+import { LibraryServiceMedicineApi } from '../services/Librarysreviceapimedicine';
+import { LibraryServiceApi } from '../services/Librarysreviceapi';
+import { MedicineTypeComponent } from './components/medicinetype/medicinetype.component';
+import { MecineTypeComponent } from './components/mecinetype/mecinetype.component';
+import { PriceAllComponent } from './components/priceall/price.component';
 
 import { ScientificEquipmentService } from '../services/scientificequipment.service';
 import { Scientificequipment } from '../models/scientificequipment.model';
@@ -66,6 +79,21 @@ export function tokenGetter(){
     FeedbackDetailComponent,
     MedicineComponent,
     SmnRegisteredComponent,
+    ScientificComponent,
+    UpdateScientificComponent,
+    MedicineAppComponent,
+    MedicineDetailComponent,
+    AddMedicineAppComponent,
+    UpdateMedicineAppComponent,
+    BrandComponent,
+    OriginComponent,
+    SmnRegisteredComponent,
+    FeedbackDetailComponent,
+    MedicineComponent,
+    SmnRegisteredComponent,
+    MedicineTypeComponent,
+    MecineTypeComponent,
+    PriceAllComponent,
     ScientificeqipmentComponent,
     WarehouseScientificEquipmentComponent,
     WarehouseMedicineComponent,
@@ -104,6 +132,8 @@ export function tokenGetter(){
     DatePipe,
     SeminarService,
     MedicineService,
+    LibraryServiceApi,
+    LibraryServiceMedicineApi,
     PriceProductService,
     ScientificEquipmentService,
     ReceiptMedicineService,

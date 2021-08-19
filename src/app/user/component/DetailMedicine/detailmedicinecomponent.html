@@ -1,0 +1,107 @@
+<section id="inner-title" class="inner-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6"><h2>Detail Of Medicine</h2></div>
+        <div class="col-md-6 col-lg-6">
+          <div class="breadcrumbs">
+            <ul>
+              <li>Current Page:</li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="">Medicine App</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <br>
+  <br>
+ 
+  <section id="section18" class="section-margine">
+    <div class="container">
+      <div class="section18">
+        <div class="row">
+          <div class="col-md-6" data-wow-delay=".2s">
+              <div class="section-18-img">
+                  <!---->
+                  <img src="https://localhost:5001/Image/{{stringObject.illustration}}" class="img-responsive" style="height: 300px;"><br>
+                <h5 ><b>Name:</b>{{stringObject.name}}</h5>
+                <h5 ><b>date Of Manufacture:</b>{{stringObject.dateOfManufacture}}</h5>
+                <h5><b>expiry:</b>{{stringObject.expiry}}</h5>
+              </div>
+            </div>
+          <div class="col-md-6">
+            <div class="textcont">
+              <h3><b>Ingredient</b></h3>
+              <p>{{stringObject.ingredient}}</p>
+              <h4><b>Presentation Format</b></h4>
+              <p>{{stringObject.presentationFormat}}</p>
+  
+              <h4><b>Point</b></h4>
+              <p>{{stringObject.point}}</p>
+              <h4><b>Using</b></h4>
+              <p>{{stringObject.using}}</p>
+              <h4><b>Special Warning</b></h4>
+              <p>{{stringObject.specialWarning}}</p>
+              
+              <h4><b>Brand</b></h4>  
+              <p>{{stringObject.brand.brand1}}</p>
+              <h4><b>Origin</b></h4>
+              <p>{{stringObject.origin.origin1}}</p>
+              <h4><b>Medicine Type</b></h4>
+              <p>{{stringObject.typeOf.category}}</p>
+            
+              <h4><b>Quantity Left In Stock</b> </h4>
+              <div class="control-group form-group">
+                  <div class="controls">
+                    <input style="width: 100px;" class="form-control" type="number" value="{{stringObject.quantity}}" disabled >
+                    <p class="help-block"></p>
+                  </div>
+                </div>
+                <h4><b>Price </b><h6>({{stringObject.price.date}})</h6></h4>
+                <button type="submit" class="btn btn-success">Add To Cart /$ {{stringObject.price.price1}} </button>
+            </div>         
+          </div>
+        </div>
+        
+      </div>  
+      </div>
+  </section>
+  <br><br>
+  <hr>
+  <hr>
+  <div class="container">
+    <h3 style="color:red;">* Related Products </h3><br>
+    <div class="home-product">
+      <div class="row sm-gutter">
+        <!-- product item -->
+        <div class="col-md-3" *ngFor="let p of medicine">
+          <a style="height: 100%;" class="home-product-item" [routerLink]="['/medicinedetail',{id:p.id}]"> <!--link-->
+            <div class="home-product-item-img" style="background-image: url(https://localhost:5001/Image/{{p.illustration}})">
+            </div>
+            <h4 class="home-product-item-name">Name:{{p.name}}</h4>
+            <div class="home-product-item__origin">
+              <span class="home-product-item__origin-name">NSX:{{p.dateOfManufacture}}</span>
+              <span class="home-product-item__origin-name">Expiry:{{p.expiry}}</span>
+            </div><br>
+            <div class="home-product-item__price">
+              <span class="home-product-item__price-current"><h6 style="color: chartreuse;"><i>click me</i></h6> </span>
+            </div>
+            <div class="home-product-item__favourite">
+              <i class="fas fa-check"></i>
+              <span>Yêu thích</span>
+            </div>
+            <div class="home-product-item__sale-off">
+              <span class="home-product-item__sale-off-percent">10%</span>
+              <span class="home-product-item__sale-off-label">GIẢM</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <hr>

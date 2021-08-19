@@ -1,0 +1,141 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-3"></div>
+        <div class="col-md-5 col-lg-5">
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="keyword" placeholder="Name Product" >
+            </div>
+          </div>
+        
+          <div class="col-md-1 col-lg-1">
+            <button style="font-size: 15px;" type="submit" class="btn btn-success" (click)="searchkey()">Search</button>
+          </div>
+          <div class="col-md-3 col-lg-3"></div>
+    </div>
+</div>
+<br>
+
+
+<h3 class="title">Scientific management</h3>
+<button class="button-add-staff" data-toggle="modal" data-target="#addStaffModal"><span>Add</span></button>
+
+
+
+<!-- add new staff modal  -->
+<div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeNewStaffModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login px-4 mx-auto mw-100">
+                    <h2 class="modal-title text-center text-dark mb-4">ADD NEW Scientific</h2>
+                    <!--cre-->
+                    <form #imageForm=ngForm  method="post" [formGroup]="formAddScientific" (ngSubmit)="saveScientific()">
+                        <div class="form-group">
+                            <label class="col-form-label">Full Name</label>
+                            <input type="text" class="form-control" formControlName="name"  required>
+                          
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Invented Year</label>
+                            <input type="text" class="form-control" formControlName="inventedYear"  required>
+                           
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Quantity</label>
+                            <input type="number" class="form-control" formControlName="quantity"  required>
+                           
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-form-label">Image</label>
+                            <input type="file" #Image accept="image/*" class="form-control" (change)="selectFile($event)"  required>
+                            <img [src]="imageUrl" style="width: 150px;width: 100px;">
+                        </div>
+                       <div class="form-group">
+                        <label class="col-form-label">Description</label>
+                            <textarea class="form-control"  cols="10" rows="10" formControlName="description"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Brand:&nbsp;</label>  
+                            <select class="form-control" formControlName="brandId">
+                                <option value="{{c.id}}" *ngFor="let c of brandlist">{{c.brand1}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Origin:&nbsp;</label>  
+                            <select class="form-control" formControlName="originId">
+                                <option value="{{c.id}}" *ngFor="let c of originlist">{{c.origin1}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Mecine Type:&nbsp;</label>  
+                            <select class="form-control" formControlName="machineCategoryId">
+                                <option value="{{c.id}}" *ngFor="let c of typelist">{{c.name}}</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-form-label">Price:&nbsp;</label>  
+                            <select class="form-control" formControlName="priceid">
+                                <option value="{{c.id}}" *ngFor="let c of prices">${{c.price1}}({{c.date}})</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Status</label>
+                            <input type="checkbox" class="form-control" formControlName="status">
+                        </div>
+                       
+                        <div class="reg-w3l">
+                          <button type="submit"  [disabled]="Image.value=='' || !imageForm.valid" class="form-control submit mb-4" >Add Product</button>
+                       </div>
+                    
+                    </form>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+<!-- end modal  -->
+
+<table class="table-striped table-hover table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Ilustration</th>
+            <th>Invented Year</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Options</th>
+        </tr>
+        
+    </thead>
+    <tr *ngFor="let p of scientfic">
+        <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>
+        <img src="https://localhost:5001/Image/{{p.illustration}}" width="120" height="100">
+      </td>
+      <td>{{p.inventedYear}}</td>
+      <td>{{p.description}}</td>
+      <td>{{p.quantity}}</td>
+      <td>
+         {{p.status}}
+      </td> 
+        <td>
+            <button class="btn btn-primary" [routerLink]="['/admin/scientificdetail',{id:p.id}]">Detail</button>
+            <button class="btn btn-success" [routerLink]="['/admin/updatescientific',{id:p.id}]">Update</button>
+        </td>
+    </tr>
+</table>
+

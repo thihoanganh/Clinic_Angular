@@ -1,0 +1,76 @@
+
+<section id="inner-title" class="inner-titlescientific">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3"><h3>Scientific List</h3></div>
+        
+        <div class="col-md-3 col-lg-3">
+          <div class="form-group">      
+            <select class="form-control" [(ngModel)]="typeid" (change)="selectsearch($event)">
+              <option value="{{c.id}}"  *ngFor="let c of mecinetype">{{c.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-lg-2">
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="keyword" placeholder="Name Product" >
+          </div>
+        </div>
+
+        <div class="col-md-1 col-lg-1">
+          <button style="font-size: 10px;" type="submit" class="btn btn-success" (click)="searchkey()">Search</button>
+        </div>
+
+        <div class="col-md-3 col-lg-3">
+          <div class="breadcrumbs">
+            <ul>
+              <li>Current Page:</li>
+              <li><a [routerLink]="['/home']">Home</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <br>
+  <br>
+  
+  <hr>
+
+  <div class="container">
+    
+  <div class="home-product">
+    <div class="row sm-gutter">
+      <!-- product item -->
+      <div class="col-md-3" *ngFor="let p of scientfic">
+        <a style="height: 100%;" class="home-product-item" [routerLink]="['/scientificdetail',{id:p.id}]"> <!--link-->
+          <div class="home-product-item-img" style="background-image: url(https://localhost:5001/Image/{{p.illustration}})">
+          </div>
+          <h4 class="home-product-item-name">Name:{{p.name}}</h4>
+          <div class="home-product-item__origin">
+            <span class="home-product-item__origin-name">InventedYear:{{p.inventedYear}}</span>
+          </div><br>
+          <div class="home-product-item__price">
+            <span class="home-product-item__price-current"><h6 style="color: chartreuse;"><i>click me</i></h6> </span>
+          </div>
+          <div class="home-product-item__favourite">
+            <i class="fas fa-check"></i>
+            <span>Yêu thích</span>
+          </div>
+          <div class="home-product-item__sale-off">
+            <span class="home-product-item__sale-off-percent">10%</span>
+            <span class="home-product-item__sale-off-label">GIẢM</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <hr>
+
+ 

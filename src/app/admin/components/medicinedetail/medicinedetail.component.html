@@ -1,0 +1,59 @@
+<a [routerLink]="['/admin/medicineapp']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+<h3 class="title">Detail Medicine</h3>
+
+<br><br><br><br><br>
+ 
+    <div class="container">
+    <div class="section18">
+      <div class="row">
+        <div class="col-md-6" data-wow-delay=".2s">
+            <div class="section-18-img">
+                <!---->
+                <img src="https://localhost:5001/Image/{{stringObject.illustration}}" class="img-responsive" style="height: 300px;"><br>
+              <h5 ><b>Name:</b>{{stringObject.name}}</h5>
+              <h5 ><b>date Of Manufacture:</b>{{stringObject.dateOfManufacture}}</h5>
+              <h5><b>expiry:</b>{{stringObject.expiry}}</h5>
+            </div>
+          </div>
+        <div class="col-md-6">
+          <div class="textcont">
+            <h3><b>Ingredient</b></h3>
+            <p>{{stringObject.ingredient}}</p>
+            <h4><b>Presentation Format</b></h4>
+            <p>{{stringObject.presentationFormat}}</p>
+
+            <h4><b>Point</b></h4>
+            <p>{{stringObject.point}}</p>
+            <h4><b>Using</b></h4>
+            <p>{{stringObject.using}}</p>
+            <h4><b>Special Warning</b></h4>
+            <p>{{stringObject.specialWarning}}</p>
+            
+            <h4><b>Brand</b></h4>  
+            <p>{{stringObject.brand.brand1}}</p>
+            <h4><b>Origin</b></h4>
+            <p>{{stringObject.origin.origin1}}</p>
+            <h4><b>Medicine Type</b></h4>
+            <p>{{stringObject.typeOf.category}}</p>
+          
+            <h4><b>Quantity Left In Stock</b> </h4>
+            <div class="control-group form-group">
+                <div class="controls">
+                  <input style="width: 100px;" class="form-control" type="number" value="{{stringObject.quantity}}" disabled >
+                  <p class="help-block"></p>
+                </div>
+              </div>
+              <h4><b>Price </b><h6>({{stringObject.price.date}})</h6></h4>
+              <p>$ {{stringObject.price.price1}}</p>
+          </div>  
+          <button class="btn btn-danger" (click)="deletescientific()" >Delete</button>
+           
+        </div>
+      
+      </div>
+      
+    </div>  
+    </div>
+  
+  <br><br>
+  <hr>
