@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-3"></div>
+        <div class="col-md-5 col-lg-5">
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="keyword" placeholder="Name Product" >
+            </div>
+          </div>
+        
+          <div class="col-md-1 col-lg-1">
+            <button style="font-size: 15px;" type="submit" class="btn btn-success" (click)="searchkey()">Search</button>
+          </div>
+          <div class="col-md-3 col-lg-3"></div>
+    </div>
+</div>
+<br>
+
+
+<h3 class="title">Medicine management</h3>
+<button class="button-add-staff" [routerLink]="['/admin/addmedicineapp']"><span>Add</span></button>
+
+
+
+
+<table class="table-striped table-hover table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Ilustration</th>
+            <th>dateOfManufacture</th>
+            <th>expiry</th>
+            <th>status</th>
+            <th>Options</th>
+        </tr>
+        
+    </thead>
+    <tr *ngFor="let p of medicine">
+        <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>
+        <img src="https://localhost:5001/Image/{{p.illustration}}" width="120" height="100">
+      </td> 
+    
+      <td>{{p.dateOfManufacture}}</td> 
+      <td>{{p.expiry}}</td> 
+      <td>
+         {{p.status}}
+      </td> 
+        <td>
+            <button class="btn btn-primary" [routerLink]="['/admin/medicinedetail',{id:p.id}]">Detail</button>
+            <button class="btn btn-success" [routerLink]="['/admin/updatemedicineapp',{id:p.id}]">Update</button>
+        </td>
+    </tr>
+</table>
+

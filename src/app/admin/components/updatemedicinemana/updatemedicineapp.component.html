@@ -1,0 +1,131 @@
+<a [routerLink]="['/admin/medicineapp']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+<h3 class="title" (click)="updateclick()">Update Medicine</h3><br><br><br>
+<div class="container">
+  
+    <div class="row">
+        
+        <div class="col-md-2 col-lg-2"></div>
+        <div class="col-md-8 col-lg-8">
+            <form  method="post" #imageForm=ngForm [formGroup]="formUpdateMedicine" (ngSubmit)="saveMedicine()">
+                
+                <div class="form-group">
+                    <label class="col-form-label">Full Name</label>
+                    <input type="text" class="form-control" formControlName="name"  required>
+                  
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-form-label">Image</label>
+                    <input type="file" #Image accept="image/*" class="form-control" (change)="selectFile($event)"  required>
+                    <img [src]="imageUrl" style="width: 150px;width: 100px;">
+                </div>
+              
+                        <div class="form-group">
+                            <label class="col-form-label">Ingredient</label>
+                                <textarea class="form-control"  cols="5" rows="5" formControlName="ingredient" ></textarea>
+                            </div>
+                   
+                  
+                        <div class="form-group">
+                        <label class="col-form-label">Presentation Format</label>
+                        <textarea class="form-control"  cols="5" rows="5" formControlName="presentationFormat" ></textarea>
+                    </div>
+                 
+              
+               
+                   
+                    <div class="form-group">
+                        <label class="col-form-label">Point</label>
+                            <textarea class="form-control"   cols="5" rows="5" formControlName="point" ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Using</label>
+                                <textarea class="form-control"   cols="5" rows="5" formControlName="using" ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Special Warning</label>
+                                    <textarea class="form-control"  cols="5" rows="5" formControlName="specialWarning" ></textarea>
+                                </div>
+                <!--combobox-->
+                <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label class="col-form-label">Brand:&nbsp;</label>  
+                        <select class="form-control" formControlName="brandId">
+                            <option value="{{c.id}}" *ngFor="let c of brandlist">{{c.brand1}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label class="col-form-label">Origin:&nbsp;</label>  
+                        <select class="form-control" formControlName="originId">
+                            <option value="{{c.id}}" *ngFor="let c of originlist">{{c.origin1}}</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label">Medicine Type:&nbsp;</label>  
+                            <select class="form-control" formControlName="typeOfId">
+                                <option value="{{c.id}}" *ngFor="let c of typemedicine">{{c.category}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label">Price:&nbsp;</label>  
+                            <select class="form-control" formControlName="priceId">
+                                <option value="{{c.id}}" *ngFor="let c of prices">${{c.price1}}({{c.date}})</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>      
+                 <!--date-->
+                 <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label">Date Of Manufacture</label>
+                            <input type="datetime-local" class="form-control" formControlName="dateOfManufacture"  required>   
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label">Expiry</label>
+                            <input type="datetime-local" class="form-control" formControlName="expiry"  required>                         
+                        </div>
+                    </div>
+                </div>    
+                   <!--quantity-->
+                   <div class="form-group">
+                    <label class="col-form-label">Quantity</label>
+                    <input type="number" class="form-control" formControlName="quantity"  required>                          
+                </div>
+           
+           
+                <div class="form-group">
+                    <label class="col-form-label">Status</label>
+                    <input type="checkbox" class="form-control" formControlName="status">
+                </div>        
+                
+                
+                
+                <div class="reg-w3l">
+                  <button type="submit" class="form-control submit mb-4" [disabled]="Image.value=='' || !imageForm.valid" >Update Product</button>
+               </div>
+            
+            </form>
+        </div>
+        <div class="col-md-2 col-lg-2"></div>
+    </div>
+</div>
+<br>
+
+
+
+
+
+

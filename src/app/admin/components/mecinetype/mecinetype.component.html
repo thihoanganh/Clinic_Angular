@@ -1,0 +1,66 @@
+
+<h3 class="title">Mecine Type</h3><br><br><br>
+<button class="button-add-staff" data-toggle="modal" data-target="#addStaffModal"><span>Add</span></button>
+
+
+
+<!-- add new staff modal  -->
+<div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeNewStaffModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login px-4 mx-auto mw-100">
+                    <h2 class="modal-title text-center text-dark mb-4">ADD NEW MECINE TYPE</h2>
+                    <!--cre-->
+                    <form #imageForm=ngForm  method="post" [formGroup]="formAddMecineType" (ngSubmit)="saveMecineType()">
+                        <div class="form-group">
+                            <label class="col-form-label">Full Name</label>
+                            <input type="text" class="form-control" formControlName="name"  required>
+                          
+                        </div>
+                        
+                        <div class="reg-w3l">
+                          <button type="submit"  [disabled]="!imageForm.valid" class="form-control submit mb-4" >Add New Mecine Type</button>
+                       </div>
+                    
+                    </form>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br>
+<!-- end modal  -->
+
+<div class="container">
+    <table class="table table-light table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th> 
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of mecinetype">
+                <td>{{p.id}}</td>
+              <td>{{p.name}}</td>
+            
+                <td>
+                    <button class="btn btn-danger" (click)="deleteMecine()" [routerLink]="['/admin/mecinetype',{id:p.id}]">Delete</button>
+                   
+                </td>
+            </tr>
+        </tbody>
+       
+       
+    </table>
+</div>
+
+

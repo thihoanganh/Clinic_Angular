@@ -90,7 +90,46 @@
               </div>
             </div>
           </div>
-         
+
+          
+         <!--start-->
+<div class="card">
+    <div class="card-header">
+      <a class="card-link text-dark" data-toggle="collapse" href="#collapseOneApp">
+        APP
+      </a>
+    </div>
+    <div id="collapseOneApp" class="collapse" data-parent="#accordion">
+      <div class="card-body text-dark">
+       <ul class="admin-account-menu">
+           <li><a [routerLink]="['scientific']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Scientific App</a></li>
+           <li><a [routerLink]="['medicineapp']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Medicine App</a></li>
+       </ul>
+      </div>
+    </div>
+  </div>
+         <!--end-->
+         <!--start-->
+         <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseThree">
+              Origin Type Management 
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="admin-account-menu">
+                <li><a [routerLink]="['brand']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Add Brand</a></li>
+                <li><a [routerLink]="['origin']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add Origin</a></li>
+                <li><a [routerLink]="['mecinetype']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add Mecine Type</a></li>
+                <li><a [routerLink]="['medicinetype']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add Medicie Type</a></li>
+                <li><a [routerLink]="['priceall']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add New Price</a></li>
+               </ul>
+            </div>
+          </div>
+        </div>
+        
+       <!--end-->
          </div>
                    </li>
             </ul>

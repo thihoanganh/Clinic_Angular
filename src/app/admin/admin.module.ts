@@ -23,6 +23,19 @@ import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
 import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
 import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
+import { ScientificComponent } from './components/scientific/scientific.component';
+import { UpdateScientificComponent } from './components/updatescientific/updatescientific.component';
+import { MedicineDetailComponent } from './components/medicinedetail/medicinedetail.component';
+import { AddMedicineAppComponent } from './components/addmedicinemana/addmedicineapp.component';
+import { UpdateMedicineAppComponent } from './components/updatemedicinemana/updatemedicineapp.component';
+import { BrandComponent } from './components/brand/brand.component';
+import { OriginComponent } from './components/origin/origin.component';
+import { MedicineAppComponent } from './components/medicinemana/medicineapp.component';
+import { LibraryServiceMedicineApi } from '../services/Librarysreviceapimedicine';
+import { LibraryServiceApi } from '../services/Librarysreviceapi';
+import { MedicineTypeComponent } from './components/medicinetype/medicinetype.component';
+import { MecineTypeComponent } from './components/mecinetype/mecinetype.component';
+import { PriceAllComponent } from './components/priceall/price.component';
 
 
 
@@ -43,7 +56,22 @@ export function tokenGetter(){
     SmnRegisteredComponent,
     FeedbackDetailComponent,
     MedicineComponent,
-    SmnRegisteredComponent
+    SmnRegisteredComponent,
+    ScientificComponent,
+    UpdateScientificComponent,
+    MedicineAppComponent,
+    MedicineDetailComponent,
+    AddMedicineAppComponent,
+    UpdateMedicineAppComponent,
+    BrandComponent,
+    OriginComponent,
+    SmnRegisteredComponent,
+    FeedbackDetailComponent,
+    MedicineComponent,
+    SmnRegisteredComponent,
+    MedicineTypeComponent,
+    MecineTypeComponent,
+    PriceAllComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +95,9 @@ export function tokenGetter(){
     StaffService,
     DatePipe,
     SeminarService,
-    MedicineService
+    MedicineService,
+    LibraryServiceApi,
+    LibraryServiceMedicineApi
   ]
 })
 

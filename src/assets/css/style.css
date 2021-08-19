@@ -1554,7 +1554,10 @@ p {
     background: #00aef0;
     padding: 30px 0;
 }
-
+.inner-titlescientific {
+    background: #00aef0;
+    padding: 15px 0;
+}
 .inner-title h2 {
     color: #fff;
     ;
