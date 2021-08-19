@@ -1,0 +1,22 @@
+.card{
+    box-shadow: cornflowerblue 5px 5px 10px -3px;
+    margin-bottom: 30px;
+}
+
+
+.pagination-wrapper{
+    text-align: center;
+  }
+  
+  .pagination span{
+    cursor: pointer;
+  }
+  
+  .active{
+    background-color: #0082FE;
+    color:white
+  }
+  
+  .btn-custom{
+    margin-bottom: 64px;
+  }

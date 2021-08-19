@@ -1,0 +1,17 @@
+<div class="container quiz-detail" *ngIf="showQuizInfo">
+    <h2>Your quiz detail </h2>
+    <div class="detail">
+        <p><i class="fas fa-layer-group level-icon icon"></i>&nbsp;Level:&nbsp; <i class="fas fa-circle "></i>&nbsp;{{ level }}</p>
+        <p><i class="fas fa-stopwatch duration-icon icon"></i>&nbsp; Duration:&nbsp;<i>{{ duration }}&nbsp;minutes</i></p>
+        <p><i class="fas fa-question-circle question-icon icon"></i>&nbsp;Total Question:&nbsp;<i>{{ totalQuestion }}</i></p>
+    </div>
+    <hr>
+    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start">Let's go!</a>
+</div>
+<div class="container quiz-detail" *ngIf="!showQuizInfo">
+    <h2>You'd done all of quizzes of this lecture ! </h2>
+    
+    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start mr-3">Try Orthers</a>
+    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start mr-3">History</a>
+    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start">Go Back</a>
+</div>

@@ -4,38 +4,38 @@
     <form class="form-horizontal" (ngSubmit)="createSeminar(smnForm)" #smnForm="ngForm">
 
         <div class="form-group">
-          <label class="control-label col-sm-2">Title</label>
+          <label class="control-label col-sm-1">Title</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="title" ngModel #title="ngModel" required>
+            <span class="text-danger" *ngIf="title.touched && title.errors?.required"><i>Title is required</i></span>
           </div>
-          <span class="text-danger" *ngIf="title.touched && title.errors?.required"><i>Title is required</i></span>
         </div>
 
-        <div class="form-inline">
-            <div class="form-group">
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="speaker" ngModel placeholder="Speaker" #sk="ngModel" required>
-                </div>
-                <span class="text-danger" *ngIf="sk.touched && sk.errors?.required"><i>Speaker is required</i></span>
-
-              </div>
-                <div class="form-group">
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="method" ngModel placeholder="Method"  #mt="ngModel" required>
-                </div>
-                 <span class="text-danger" *ngIf="mt.touched && mt.errors?.required"><i>Method is required</i></span>
-            </div>
-        </div>
-        <br>
         <div class="form-group">
-            <label class="control-label col-sm-2">Place</label>
+          <label class="control-label col-sm-1">Speaker</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="speaker" ngModel placeholder="Speaker" #sk="ngModel" required>
+            <span class="text-danger" *ngIf="sk.touched && sk.errors?.required"><i>Speaker is required</i></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-1">Method</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" name="method" ngModel placeholder="Method"  #mt="ngModel" required>
+              <span class="text-danger" *ngIf="mt.touched && mt.errors?.required"><i>Method is required</i></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1">Place</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="place" ngModel #pl="ngModel" required>
               <span class="text-danger" *ngIf="pl.touched && pl.errors?.required"><i>Place is required</i></span>
             </div>
          </div>
          <div class="form-group">
-            <label class="control-label col-sm-2">Contact</label>
+            <label class="control-label col-sm-1">Contact</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="contact" ngModel #ct="ngModel" required>
               <span class="text-danger" *ngIf="ct.touched && ct.errors?.required"><i>Contact is required</i></span>
@@ -43,7 +43,7 @@
          </div>
 
          <div class="form-group">
-            <label class="control-label col-sm-2">Poster</label>
+            <label class="control-label col-sm-1">Poster</label>
             <div class="col-sm-10">
               <input type="file" name="poster" ngModel #pt="ngModel" required (change)="setFile($event)">
               <span class="text-danger" *ngIf="pt.touched && pt.errors?.required"><i>Choose one poster</i></span>
@@ -53,24 +53,23 @@
      
         <div class="form-inline">
             <div class="form-group">
-                <label class="control-label col-sm-2">Timing Start</label>
+                <label class="control-label col-sm-1">Timing Start</label>
                 <div class="col-sm-10">
                     <input type="datetime-local" class="form-control" name="startAt" ngModel #sa="ngModel" required>
                     <span class="text-danger" *ngIf="sa.touched && sa.errors?.required"><i>Selecte timing start</i></span>
                 </div>
             </div>
-
             <div class="form-group">
-                <label class="control-label col-sm-2">Timing End</label>
+                <label class="control-label col-sm-1">Timing End</label>
                 <div class="col-sm-10">
                     <input type="datetime-local" class="form-control" ngModel name="endAt"   #ea="ngModel" required>
                     <span class="text-danger" *ngIf="ea.touched && ea.errors?.required"><i>Selecte timing endAt</i></span>
                 </div>
             </div>
         </div>
-        <br>
         <div class="form-group">
-            <label class="control-label col-sm-2">Content</label>
+            <label class="control-label mb-3">Content</label>
+            <br>
             <ckeditor [(ngModel)]="seminarContent" name="content" ngModel></ckeditor>
         </div>
 

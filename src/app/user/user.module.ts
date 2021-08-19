@@ -16,6 +16,7 @@ import { ContactUsComponent } from './component/contactus/contact.component';
 import { EduccationAppComponent } from './component/educcationapp/educcation.component';
 import { SeminarComponent } from './component/seminar/seminar.component';
 import { SmnDetailComponent } from './component/smn-detail/smn-detail.component';
+<<<<<<< HEAD
 import { ScientificAppComponent } from './component/ScientificApp/scientificcomponent';
 import { LibraryServiceApi } from '../services/Librarysreviceapi';
 import { LibraryServiceMedicineApi } from '../services/Librarysreviceapimedicine';
@@ -23,7 +24,18 @@ import { DetailScientificComponent } from './component/DetailScientfic/detailsci
 import { MedicineAppUserComponent } from './component/MedicineApp/medicinecomponent';
 import { DetailMedicineComponent } from './component/DetailMedicine/detailmedicinecomponent';
 
+=======
+import { MainLectureComponent } from './component/lecture/main-lecture/main-lecture.component';
+import { DetailLectureComponent } from './component/lecture/detail-lecture/detail-lecture.component';
+import { QuizPreparationComponent } from './component/lecture/quiz-preparation/quiz-preparation.component';
+import { QuizExaminationComponent } from './component/lecture/quiz-examination/quiz-examination.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { UserAuthGuard } from '../guards/user-auth-guard.service';
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
 
+export function tokenGetter(){
+  return localStorage.getItem('user-jwt')
+}
 @NgModule({
   declarations: [
     UserComponent,
@@ -37,20 +49,38 @@ import { DetailMedicineComponent } from './component/DetailMedicine/detailmedici
     EduccationAppComponent,
     SeminarComponent,
     SmnDetailComponent,
+<<<<<<< HEAD
     ScientificAppComponent,
     DetailScientificComponent,
     MedicineAppUserComponent,
     DetailMedicineComponent
+=======
+    MainLectureComponent,
+    DetailLectureComponent,
+    QuizPreparationComponent,
+    QuizExaminationComponent,
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    UserRouting
+    UserRouting,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter:tokenGetter,
+        allowedDomains:['localhost:5000'],
+        disallowedRoutes:[]
+      }
+    }),
   ],
   providers: [
+<<<<<<< HEAD
     LibraryServiceApi,
     LibraryServiceMedicineApi
+=======
+    UserAuthGuard
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
   ]
 })
 

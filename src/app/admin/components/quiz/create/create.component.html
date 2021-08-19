@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <a [routerLink]="['/admin/lecture/quiz']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+    <div class="alert alert-danger alert-dismissible" *ngIf="errorNotify">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error!</strong> Some thing went wrong. Try again !
+    </div>
+    <h1>Create Quiz</h1>
+    <hr>
+    <div class="content">
+        <form  (ngSubmit)="createNewQuiz(newQuizForm)" #newQuizForm="ngForm">
+            <div class="form-group">
+                <i class="fas fa-search"></i>&nbsp;Lecture:
+               <input type="text" class="form-control form-search" placeholder="Enter your lecture name" name="term" (keyup)="onSearchChange($event)">
+               <i> {{ searchTotalResult }} result was found:</i>
+                <select name="lectureid" class="form-control" ngModel>
+                    <option [value]="lecture.id" *ngFor="let lecture of lectures">{{ lecture.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Level: </label>
+                <select name="levelid" class="form-control" ngModel required>
+                    <option value="1">Easy</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Hard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Duration<i>(minutes)</i>:</label>
+                <input type="number" class="form-control" ngModel   #dur="ngModel" name="duration" required>
+                <span  class="text-danger" *ngIf="dur.touched && dur.errors?.required">Duration is required</span>
+            </div>
+            <hr>
+            <div id="question-container">
+                <div class="question-item">
+                    <p>Question:</p>
+                    <input type="text" class="form-control" name="question">
+                    <p>Answers:</p>
+                    <div id="answer-wrapper">
+                        <div class="row answer">
+                            <div class="col-sm-1">
+                                <input type="checkbox" class="form-control" name="iscorrect">
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="answer">
+                            </div>
+                        </div>
+                        <div class="row answer">
+                            <div class="col-sm-1">
+                                <input type="checkbox" class="form-control" name="iscorrect">
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  name="answer">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+              
+            </div>
+            <div class="setting-area">
+                <button type="button" class="btn btn-success mr-3" (click)="addAnswer()" ><i class="fas fa-plus"></i>&nbsp;Add Answer</button>
+                <button type="button" class="btn btn-dark mr-3" (click)="addQuestion()"><i class="fas fa-plus-square"></i>&nbsp;Add Question</button>
+                <button type="button" class="btn btn-danger mr-3" (click)="removeQuestion()"><i class="fas fa-minus-circle"></i>&nbsp;Remove Question</button>
+
+                
+
+            </div>
+            
+            <div class="right-w3l text-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="loader" *ngIf="loading"></div>
+            </div>
+        </form>
+    </div>
+</div>

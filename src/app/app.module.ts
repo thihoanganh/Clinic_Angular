@@ -12,8 +12,12 @@ import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { LibraryServiceApi } from './services/Librarysreviceapi';
 import { LibraryServiceMedicineApi } from './services/Librarysreviceapimedicine';
+=======
+import { QuizService } from './services/quiz.service';
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
 
 
 @NgModule({
@@ -35,10 +39,15 @@ import { LibraryServiceMedicineApi } from './services/Librarysreviceapimedicine'
   providers: [
     LoginService,
     RegisterService,
+<<<<<<< HEAD
     LoggedGuard,
 
     LibraryServiceApi,
     LibraryServiceMedicineApi
+=======
+    QuizService,
+    LoggedGuard
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
     
   ],
   bootstrap: [AppComponent]

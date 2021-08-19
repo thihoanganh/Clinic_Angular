@@ -40,6 +40,7 @@ export class ManageComponent implements OnInit {
 
   notifyEvent(){
     this.createdNotify = true
+    console.log('event call')
   }
 
   createMail(mailForm:any){

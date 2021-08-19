@@ -1,0 +1,77 @@
+
+
+.button-add-smn {
+    border-radius: 4px;
+    background-color: #00d399;
+    border: none;
+    padding: 10px;
+    width: 160px;
+    transition: all 0.5s;
+    float: right;
+    margin: 18px 100px;
+}
+
+.button-add-smn a{
+    color:white;
+}
+
+.button-add-smn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+    .button-add-smn span:after {
+        content: '+';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+.button-add-smn:hover span {
+    padding-right: 25px;
+}
+
+    .button-add-smn:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+    .title{
+        float:left;
+        font-size: 30px;
+    }
+
+    .cate{
+        cursor: pointer;
+    }
+
+    .trash-icon{
+        font-size: 17px;
+        color:rgb(202, 17, 17);
+        cursor: pointer;
+        
+    }
+
+    .loader {
+        border: 3px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 3px solid green;
+        border-bottom: 3px solid green;
+        width: 30px;
+        height: 30px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
+      
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }

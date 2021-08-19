@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { Medicine } from "src/app/models/medicine.model";
+import { PriceProduct } from "src/app/models/priceproduct.model";
 import { MedicineService } from "src/app/services/medicine.service";
+import { PriceProductService } from "src/app/services/priceproduct.service";
 
 
 @Component({
@@ -15,12 +18,23 @@ export class MedicineComponent implements OnInit {
 
     selectedMedicine! : string;
 
+    updatePriceForm! : FormGroup;
+
+    medicineId! : number
 
     constructor(
-        private medicineService : MedicineService
+        private medicineService : MedicineService,
+        private formBuilder : FormBuilder,
+        private priceMedicineService : PriceProductService
       ){}
 
     ngOnInit(): void {
+        this.updatePriceForm = this.formBuilder.group({
+            productId : Number,
+            price : 0,
+            date : Date,
+        });
+        
         this.medicineService.getAll().then(
             res => {
                 this.medicines = res;
@@ -29,18 +43,16 @@ export class MedicineComponent implements OnInit {
                 console.log(err);
             }
         );
-        this.selectedMedicine = 'Insert Name Of Medicine';
+        this.selectedMedicine = '';
     }
 
     select(medicine : Medicine){
-        console.log(medicine.id);
         this.selectedMedicine = medicine.name;
-        
     }
 
     searchByName(){
         console.log(this.selectedMedicine);
-        if(this.selectedMedicine != null){
+        if(this.selectedMedicine != ""){
             this.medicineService.searchByName(this.selectedMedicine).then(
                 res => {
                     this.medicines = res;
@@ -60,5 +72,34 @@ export class MedicineComponent implements OnInit {
                 }
             );
         }
+    }
+
+    update(){
+        var priceMedicine : PriceProduct = this.updatePriceForm.value;
+        console.log('idMedicine: ' + priceMedicine.productId);
+        console.log('Price: ' + priceMedicine.price);
+        console.log('Date: ' + priceMedicine.date);
+
+        var medicine : Medicine = this.searchMedicineByName(this.selectedMedicine);
+        if(medicine != null){
+            priceMedicine.productId = medicine.id;
+            console.log('Medicine id: ' + priceMedicine.productId);
+            this.priceMedicineService.createPriceMedicine(priceMedicine);
+        }
+        else
+        {
+            alert('Invalid Name');
+        }
+    }
+
+    searchMedicineByName(name : string) : any{
+
+        for(let medicine of this.medicines){
+            if(medicine.name == name){
+                return medicine;
+            }
+        }
+        return null;
+
     }
 }

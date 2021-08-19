@@ -22,6 +22,7 @@ import { EmailComponent } from './components/seminar/email/email.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
 import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
+<<<<<<< HEAD
 import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
 import { ScientificComponent } from './components/scientific/scientific.component';
 import { UpdateScientificComponent } from './components/updatescientific/updatescientific.component';
@@ -36,7 +37,32 @@ import { LibraryServiceApi } from '../services/Librarysreviceapi';
 import { MedicineTypeComponent } from './components/medicinetype/medicinetype.component';
 import { MecineTypeComponent } from './components/mecinetype/mecinetype.component';
 import { PriceAllComponent } from './components/priceall/price.component';
+=======
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
 
+import { ScientificEquipmentService } from '../services/scientificequipment.service';
+import { Scientificequipment } from '../models/scientificequipment.model';
+import { ScientificeqipmentComponent } from './components/scientificequipment/scientificequipment.component';
+import { WarehouseScientificEquipmentComponent } from './components/scientificequipment/warehousescientificequipment.component';
+import { WarehouseMedicineComponent } from './components/medicine/warehousemedicine.component';
+import { InventoryMedicineComponent } from './components/medicine/inventorymedicine.component';
+import { InventoryScientificEquipmentComponent } from './components/scientificequipment/inventoryscientificequipment.component';
+import { StatisticalCustomerComponent } from './components/statistical/customer.component';
+import { StatisticalMedicineComponent } from './components/statistical/medicine.component';
+import { ReceiptMedicineService } from '../services/receipmedicineservice.service';
+import { ReceiptScientificEquipmentService } from '../services/receiptscientificequipment.service';
+import { PriceProductService } from '../services/priceproduct.service';
+import { StatisticalService } from '../services/statistical.service';
+import { StatisticalScientificEquipmentComponent } from './components/statistical/scientificequipment.component';
+
+import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
+import { ManageLectureComponent } from './components/lecture/manage/manage.component';
+import { LectureService } from '../services/lecture.service';
+import { CategoryComponent } from './components/lecture/category/category.component';
+import { LectureCreateComponent } from './components/lecture/create/create.component';
+import { QuizComponent } from './components/quiz/quiz/quiz.component';
+import { CreateQuizComponent } from './components/quiz/create/create.component';
+import { QuizUpdateComponent } from './components/quiz/update/update.component';
 
 
 export function tokenGetter(){
@@ -57,6 +83,7 @@ export function tokenGetter(){
     FeedbackDetailComponent,
     MedicineComponent,
     SmnRegisteredComponent,
+<<<<<<< HEAD
     ScientificComponent,
     UpdateScientificComponent,
     MedicineAppComponent,
@@ -72,6 +99,22 @@ export function tokenGetter(){
     MedicineTypeComponent,
     MecineTypeComponent,
     PriceAllComponent
+=======
+    ScientificeqipmentComponent,
+    WarehouseScientificEquipmentComponent,
+    WarehouseMedicineComponent,
+    InventoryMedicineComponent,
+    InventoryScientificEquipmentComponent,
+    StatisticalMedicineComponent,
+    StatisticalCustomerComponent,
+    StatisticalScientificEquipmentComponent,
+    ManageLectureComponent,
+    CategoryComponent,
+    LectureCreateComponent,
+    QuizComponent,
+    CreateQuizComponent,
+    QuizUpdateComponent
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
   ],
   imports: [
     BrowserModule,
@@ -96,8 +139,17 @@ export function tokenGetter(){
     DatePipe,
     SeminarService,
     MedicineService,
+<<<<<<< HEAD
     LibraryServiceApi,
     LibraryServiceMedicineApi
+=======
+    PriceProductService,
+    ScientificEquipmentService,
+    ReceiptMedicineService,
+    ReceiptScientificEquipmentService,
+    StatisticalService,
+    LectureService
+>>>>>>> 5f2f0199d13d3297ebb75101dbdfe9aec94480e9
   ]
 })
 

@@ -1,0 +1,47 @@
+<div class="container quiz-container">
+    <div id="clock"></div>
+    <div id="quiz">
+        <div id="question">
+            <p><b>Question {{ index+1 }}:&nbsp;</b><span>{{ questionName }}</span></p>
+        </div>
+        <div class="answer" *ngFor="let answer of answers">
+            <div class="row">
+                <div class="col-sm-1">
+                    <input type="radio" class="form-control" name="answerid" [value]="answer.id" (change)="answerChange($event)" [checked]="answer.id==selected[index]">
+                </div>
+                <div class="col-sm-3 answer-content">
+                    <span>{{ answer.content }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-control">
+        <button class="btn btn-prev btn-primary mr-3" (click)="prev()" [disabled]="buttonPrevDisabled">Prev</button>
+        <button class="btn btn-next btn-primary mr-3" (click)="next()" [disabled]="buttonNextDisabled">Next</button>
+        <button class="btn btn-next btn-success btn-submit" (click)="submit()" [disabled]="showBtnSubmit"><i class="fas fa-rocket rocket-icon"></i>&nbsp;Submit</button>
+    </div>   
+</div>
+
+ <!-- submit result modal  -->
+<div *ngIf="true">
+    <button class="submit-hidden" data-toggle="modal" data-target="#resultModal" data-backdrop="static" data-keyboard="false" #resultModal>aaa</button>
+</div>
+ <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModal>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h1>Result</h1>
+                <p><i class="far fa-question-circle"></i>&nbsp;<b>Total Questions:&nbsp;</b>{{ questions.length }}</p>
+                <p><i class="far fa-check-circle text-success"></i>&nbsp;<b>Correct Answers:&nbsp;</b>{{ correctAnswers }}</p>
+                <p><i class="far fa-times-circle text-danger"></i>&nbsp;<b>No Answers:&nbsp;</b>{{ noAnswers }}</p>
+                <p><b>Evaluation:&nbsp;</b>{{ percent }}%</p>
+            <div class="modal-footer">
+                <button class="btn btn-secondary " (click)="redirection()">Ok</button>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>

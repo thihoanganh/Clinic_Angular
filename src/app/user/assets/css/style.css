@@ -1002,6 +1002,7 @@ p {
     background-color: #1a1e21;
     color: #7e7e7e;
     font-size: 14px !important;
+    height: 500px;
 }
 
 .footer-top p {
@@ -1079,6 +1080,7 @@ p {
     padding: 20px;
     line-height: 0;
     text-indent: -999px;
+    height: 500px;
 }
 
 .footer-top .submit-bgcolor {

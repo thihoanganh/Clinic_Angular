@@ -1,0 +1,103 @@
+<div class="wrapper">
+    <div class="alert alert-success alert-dismissible" *ngIf="notify">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> {{ msg }}!
+    </div>
+    
+    <button class="button-add-smn"><a routerLink="/admin/lecture/quiz/create"><span><i class="fas fa-hand-holding-medical"></i> New Quiz</span></a></button>
+    <h1 class="title">Quizzes Management</h1>
+    
+    <div class="form-group form-search  ">
+        <div class="row">
+            <div class="col-sm-0">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" class="form-control form-search" placeholder="Enter your lecture name" name="term" (keyup)="onSearchChange($event)">
+                <i> {{ searchTotalResult }} lectures was found:</i>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-sm-3">
+            <select name="lectureid" class="form-control" ngModel (change)="filterQuiz($event)">
+                <option value="0">All</option>
+                <option [value]="lecture.id" *ngFor="let lecture of lectures" >{{ lecture.name }}</option>
+            </select>
+           </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Duration</th>
+            <th>Level</th>
+            <th>Total Question</th>
+            <th colspan="2">Options</th>
+        </tr>
+        <tr *ngFor="let quiz of quizzes">
+            <td>{{ quiz.id }}</td>
+            <td>{{ quiz.duration }}&nbsp;<i>minutes</i></td>
+            <td>{{ quiz.level_name }}</td>
+            <td>{{ quiz.total_question }}</td>
+            <td><i class="fas fa-trash-alt trash-icon" (click)="showConfirm(quiz.id)"></i>&nbsp;</td>
+            <td><a routerLink="/admin/lecture/quiz/update/{{ quiz.id }}"><i class="fas fa-tools"></i>&nbsp;Upgrade</a></td>
+        </tr>
+    </table>
+    <p><b>Total:&nbsp;</b>{{ totalQuiz }}</p>
+    <hr>
+    <div *ngIf="!disablePagination">
+        <form (ngSubmit)="getQuizByPage(pageInput)" #pageInput="ngForm" >
+            <button class="btn btn-success">Goto </button>
+            <span>&nbsp; page</span>
+            <input type="number" name="page" [(ngModel)]="page"   width="40px"> 
+            <span> of {{ totalPage }}</span>
+        </form>
+    </div>
+   
+</div>
+
+<!-- renaming category modal -->
+ <div class="modal fade" id="createQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Create Quiz</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">New Name:</label>
+                        <input type="text" class="form-control" ngModel [(ngModel)]="cateName" id="recipient-name" required>
+                      </div>
+                    <div class="right-w3l">
+                        <button type="submit" class="btn btn-primary" (click)="saveNewCateName()" >Save</button>
+                        <div class="loader" *ngIf="loading"></div>
+                    </div>
+            </div> -->
+        </div>
+    </div>
+  </div> 
+<!-- delete confirm modal -->
+<button style="display: none;" data-toggle="modal" data-target="#confirmModal" #confirmModal></button>
+<div id="confirmModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Confirm</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeConfirmModal>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure to delete quiz and related data?.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="deleteQuiz()">Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <div class="loader" *ngIf="loading"></div>
+        </div>
+      </div>
+    </div>
+  </div>

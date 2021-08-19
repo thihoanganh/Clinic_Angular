@@ -49,7 +49,7 @@
                 <ul class="dropdown-menu" role="menu">
                   <li><a class="dropdown-item" [routerLink]="['/scientific']">Scientific Application</a></li>
                   <li><a class="dropdown-item" [routerLink]="['/medical']">Medical Application</a></li>
-                  <li><a class="dropdown-item" [routerLink]="['/education']">Education Application</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/lecture']">Education Application</a></li>
                   <li><a class="dropdown-item" [routerLink]="['/business']">Business Application</a></li>
                 </ul>
               </li>
@@ -57,8 +57,8 @@
   
               <li class="nav-item">
                   <div *ngIf="!isAuthenticated()">
-                      <button type="button" class="btn btn-primary" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
-                       Login
+                      <button type="button" class="btn btn-primary btn-login" data-toggle="modal" aria-pressed="false" data-target="#exampleModal" #btnLogin>
+                        <i class="fas fa-sign-in-alt"></i>&nbsp;Login
                     </button>
                   </div>
                   <div *ngIf="isAuthenticated()">
@@ -75,11 +75,11 @@
   </header>
 
     <!--/body --> 
-  <router-outlet></router-outlet>
+  <router-outlet  (activate)="onActivate($event)"></router-outlet>
   
     <!--/end body --> 
       <!--/.footer --> 
-  <section id="footer-top" class="footer-top">
+   <section id="footer-top" class="footer-top" >
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-lg-3">
@@ -162,24 +162,8 @@
         </div>
       </div>
     </div>
-  </section>
-  <section id="footer-bottom" class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9 col-lg-9">
-          <div class="copyright">Copyright &copy; 2016. All Rights Reserved</div>
-        </div>
-        <div class="col-lg-3">
-          <ul class="list-inline social-buttons">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  </section> -->
+ 
   
   <!-- login  -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
