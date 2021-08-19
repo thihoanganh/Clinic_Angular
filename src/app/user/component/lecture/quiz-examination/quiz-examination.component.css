@@ -1,0 +1,43 @@
+.btn-control{
+    float:right;
+}
+.answer-content{
+    line-height: 40px;
+}
+
+#clock{
+    text-align: center;
+    font-size: 30px;
+    font-family: fantasy;
+    color: cornflowerblue;
+    margin-bottom: 20px;
+}
+
+.quiz-container{
+    height: 400px;
+}
+#quiz{
+    height: 300px;
+}
+
+.btn-submit{
+    text-align: center;
+}
+
+.rocket-icon{
+    font-size: 20px;
+}
+.btn-submit{
+    width: 150px;
+    height: 50px;
+    font-size: 17px;
+    box-shadow: grey 2px 2px 8px 1px;
+}
+.modal-footer{
+    text-align: center;
+}
+
+.fas{
+    font-size: 20px;
+    line-height: 30px;
+}

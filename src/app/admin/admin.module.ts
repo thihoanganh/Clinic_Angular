@@ -23,7 +23,13 @@ import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
 import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
 import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
-
+import { ManageLectureComponent } from './components/lecture/manage/manage.component';
+import { LectureService } from '../services/lecture.service';
+import { CategoryComponent } from './components/lecture/category/category.component';
+import { LectureCreateComponent } from './components/lecture/create/create.component';
+import { QuizComponent } from './components/quiz/quiz/quiz.component';
+import { CreateQuizComponent } from './components/quiz/create/create.component';
+import { QuizUpdateComponent } from './components/quiz/update/update.component';
 
 
 export function tokenGetter(){
@@ -43,7 +49,13 @@ export function tokenGetter(){
     SmnRegisteredComponent,
     FeedbackDetailComponent,
     MedicineComponent,
-    SmnRegisteredComponent
+    SmnRegisteredComponent,
+    ManageLectureComponent,
+    CategoryComponent,
+    LectureCreateComponent,
+    QuizComponent,
+    CreateQuizComponent,
+    QuizUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +79,8 @@ export function tokenGetter(){
     StaffService,
     DatePipe,
     SeminarService,
-    MedicineService
+    MedicineService,
+    LectureService
   ]
 })
 

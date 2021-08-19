@@ -1,0 +1,33 @@
+<div class="container mb-5">
+    <input type="hidden" [value]="lecture.id">
+    <h2>{{ lecture.name }}</h2>
+    <a routerLink="/lecture" class=" btn btn-secondary btn-back"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
+    <br>
+    <br>
+    <p><b>Category:&nbsp;</b>{{ lecture.cate_name }}</p>
+    <p><b>Sumary: &nbsp;</b>{{ lecture.sumary }}</p>
+    <p><b>Content:</b></p>
+    <div class="content" [innerHTML]="lecture.content">
+    </div>
+    <div class="download mb-3" *ngIf="displayDownload">
+        <hr>
+        <p>Get more infomation by downloading our attachments in below...</p>
+        <a href="http://localhost:5000/api/lecture/{{ lecture.id }}/attachs/zip"><img src="../../../assets/images/zip.png" width="50px" alt="download">Download Zip</a>
+    </div>
+    <div class="center" *ngIf="dislayQuizNow">
+        <a routerLink="/quiz/preparation/{{ lecture.id }}" (click)="createQuiz()"><div class="pulse">Quiz Now!</div></a>
+     </div>
+
+     <div class="news-comment">
+        <p>Comments({{ comments.length }})</p>
+        <textarea placeholder="Enter your comment..." ></textarea>
+        <button id="SentComment" class="btn btn-primary ml-3" (click)="createComment()">Sent</button>
+        <div class="comment-area">
+            <div class="comment" *ngFor="let comment of comments">
+                <img src="../../../assets/images/no-avatar.png" class="avatar" />
+                <span><b>{{ comment.createdby }} </b></span><span>{{ comment.content }} </span>
+                <p>{{ comment.createddate | date:'short'}}</p>
+            </div>
+        </div>
+    </div>
+</div>

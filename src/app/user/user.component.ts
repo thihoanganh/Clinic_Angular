@@ -5,6 +5,8 @@ import { ViewChild, ElementRef} from '@angular/core';
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { RegisterService } from '../services/register.service';
 import { User } from '../models/user.model';
+import { DetailLectureComponent } from './component/lecture/detail-lecture/detail-lecture.component';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './user.component.html',
@@ -38,6 +40,7 @@ export class UserComponent implements OnInit {
 
   
     @ViewChild('closeModal') closeModal!: ElementRef;
+    @ViewChild('btnLogin') btnLogin!: ElementRef;
     @ViewChild('closeForgotModal') closeForgotModal!: ElementRef;
     @ViewChild('closeResetPasswordModal') closeResetPasswordModal!: ElementRef;
 
@@ -46,7 +49,8 @@ export class UserComponent implements OnInit {
     constructor(
         private jwtHelper:JwtHelperService,
         private loginService:LoginService,
-        private registerService:RegisterService
+        private registerService:RegisterService,
+        private router:Router
         
     ) { }
 
@@ -64,6 +68,7 @@ export class UserComponent implements OnInit {
     }
     logOut(){
         localStorage.removeItem('user-jwt')
+        this.router.navigate(['/'])
     }
 
     login(loginForm:any){
@@ -191,4 +196,14 @@ export class UserComponent implements OnInit {
             }
         )
     }
+
+    onActivate(event:any){
+       if(event instanceof DetailLectureComponent){
+           event.childrenEvent.subscribe(()=>{
+                this.btnLogin.nativeElement.click()
+           })
+       }
+    }
+
+   
 }

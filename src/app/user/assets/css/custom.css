@@ -55,3 +55,8 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .btn-login{
+    height: 40px;
+    width: 100px;
+    margin-top: 5px;
+  }

@@ -3,7 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/auth-guard.service';
 
 import { AdminComponent } from './admin.component';
+import { CategoryComponent } from './components/lecture/category/category.component';
+import { LectureCreateComponent } from './components/lecture/create/create.component';
+import { ManageLectureComponent } from './components/lecture/manage/manage.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
+import { CreateQuizComponent } from './components/quiz/create/create.component';
+import { QuizComponent } from './components/quiz/quiz/quiz.component';
+import { QuizUpdateComponent } from './components/quiz/update/update.component';
 import { CreateComponent } from './components/seminar/create/create.component';
 import { EmailComponent } from './components/seminar/email/email.component';
 import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
@@ -33,6 +39,18 @@ const routes: Routes = [
          {path:'updatepricemedicine',component:MedicineComponent},
          {path:'seminar/registered/:id',component:SmnRegisteredComponent},
          {path:'seminar/feedback/details/:id',component:FeedbackDetailComponent},
+
+         {path:'lecture',component:ManageLectureComponent},
+         {path:'lecture/create',component:LectureCreateComponent},
+         {path:'lecture/category',component:CategoryComponent},
+
+         {path:'lecture/quiz',component:QuizComponent},
+         {path:'lecture/quiz/create',component:CreateQuizComponent},
+         {path:'lecture/quiz/update/:id',component:QuizUpdateComponent},
+
+
+
+         
 
 
         ]

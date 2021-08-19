@@ -1,7 +1,10 @@
 <div class="wraper">
     <h1 class="title">Seminar Management</h1>
     <button class="button-add-smn"><a [routerLink]="['/admin/seminar/create']"><span><i class="fas fa-calendar-plus"></i> New Seminar</span></a></button>
-
+    <div class="alert alert-success alert-dismissible" *ngIf="createdNotify">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Create successfully !
+    </div>
     <table class="table table-striped table-hover ">
             <tr>
                 <th>Id</th>
