@@ -47,3 +47,24 @@
 .row-item{
   margin-bottom: 50px;
 }
+
+.filter {
+  margin-bottom: 30px;
+}
+
+.pagination-wrapper{
+  text-align: center;
+}
+
+.pagination span{
+  cursor: pointer;
+}
+
+.active{
+  background-color: #0082FE;
+  color:white
+}
+
+.btn-custom{
+  margin-bottom: 64px;
+}

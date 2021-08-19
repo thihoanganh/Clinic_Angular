@@ -38,6 +38,14 @@ import { PriceProductService } from '../services/priceproduct.service';
 import { StatisticalService } from '../services/statistical.service';
 import { StatisticalScientificEquipmentComponent } from './components/statistical/scientificequipment.component';
 
+import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
+import { ManageLectureComponent } from './components/lecture/manage/manage.component';
+import { LectureService } from '../services/lecture.service';
+import { CategoryComponent } from './components/lecture/category/category.component';
+import { LectureCreateComponent } from './components/lecture/create/create.component';
+import { QuizComponent } from './components/quiz/quiz/quiz.component';
+import { CreateQuizComponent } from './components/quiz/create/create.component';
+import { QuizUpdateComponent } from './components/quiz/update/update.component';
 
 
 export function tokenGetter(){
@@ -54,6 +62,8 @@ export function tokenGetter(){
     MailComponent,
     CreateComponent,
     EmailComponent,
+    SmnRegisteredComponent,
+    FeedbackDetailComponent,
     MedicineComponent,
     SmnRegisteredComponent,
     ScientificeqipmentComponent,
@@ -63,8 +73,13 @@ export function tokenGetter(){
     InventoryScientificEquipmentComponent,
     StatisticalMedicineComponent,
     StatisticalCustomerComponent,
-    StatisticalScientificEquipmentComponent
-
+    StatisticalScientificEquipmentComponent,
+    ManageLectureComponent,
+    CategoryComponent,
+    LectureCreateComponent,
+    QuizComponent,
+    CreateQuizComponent,
+    QuizUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +108,8 @@ export function tokenGetter(){
     ScientificEquipmentService,
     ReceiptMedicineService,
     ReceiptScientificEquipmentService,
-    StatisticalService
+    StatisticalService,
+    LectureService
   ]
 })
 

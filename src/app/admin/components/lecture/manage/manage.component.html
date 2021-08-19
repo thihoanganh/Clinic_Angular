@@ -1,0 +1,124 @@
+<div class="wrapper">
+    <div class="loader" *ngIf="loading"></div>
+    <div class="alert alert-success alert-dismissible" *ngIf="delLectureSuccess">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Delete successfully !
+    </div>
+    <button class="button-add-smn"><a [routerLink]="['/admin/lecture/create']"><span><i class="fas fa-book-open book-icon"></i> New Lecture</span></a></button>
+    <h1 class="title">Lecture Management</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Created Date</th>
+            <th>Modify By</th>
+            <th>Modify Date</th>
+            <th>Category</th>
+            <th>Quizzes</th>
+            <th>Attachments</th>
+            <th>Comments</th>
+            <td>Options</td>
+        </tr>
+        <tr *ngFor="let lec of lectures">
+            <td>{{ lec.id }}</td>
+            <td>{{ lec.name }}</td>
+            <td>{{ lec.createddate }}</td>
+            <td>{{ lec.modifyby == null ? '--' : lec.modifyby }}</td>
+            <td>{{ lec.modifydate == null ? '--' : lec.modifydate }}</td>
+            <td>{{ lec.cate_name }}</td>
+            <td>({{ lec.total_quizzes }})</td>
+            <td><i class="fas fa-link attach-icon" data-toggle ="modal" data-target="#attachModal" (click)="setAttach(lec.id)"></i>({{ lec.total_attachs }})</td>
+            <td><i class="fas fa-comments cmt-icon" data-toggle ="modal" data-target="#commentModal" (click)="setComment(lec.id)" ></i>({{ lec.total_comments }})</td>
+            <td><i class="fas fa-trash-alt trash-icon" (click)="deleteLec(lec.id)"></i></td>
+        </tr>
+    </table>
+    <p><b>Total:&nbsp;</b>{{ totalLectures }}</p>
+    <hr>
+    <form (ngSubmit)="getDataByPage(pageInput)" #pageInput="ngForm" >
+        <button class="btn btn-success">Goto </button>
+        <span>&nbsp; page</span>
+        <input type="number" name="page" [(ngModel)]="page"   width="40px"> 
+        <span> of {{ totalPage }}</span>
+    </form>
+</div>
+<!-- attach modal -->
+<div class="modal fade" id="attachModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Lecture Attachments</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="dynamic-form" >
+                    <div class="item"></div>
+                </div>
+                <div class="form-group">
+                    <input type="file" (change)="addItem($event)" class="form-control new-item" ngModel name="attach" id="recipient-name" required>
+                </div>
+            </div>
+            <div class="right-w3l btn-save-wrapper">
+                <button class=" btn btn-primary" (click)="saveAttach()"><i class="fas fa-save"></i>&nbsp;Save</button>
+                <div class="loader" *ngIf="loading"></div>
+            </div>
+            <button class="btn btn-success" (click)="addNewForm()">Add</button>
+        </div>
+    </div>
+  </div>
+
+  <!-- comment modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Lecture Comments</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeCmtModal>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="comment" *ngFor="let comment of comments">
+                    <i class="fas fa-trash-alt trash-icon btn-delete" (click)="deleteComment(comment.id,$event)"></i>
+                    <p><b>{{ comment.createdby }}:&nbsp;</b><span>{{ comment.content }}</span></p>
+                    <p><i>{{ comment.createddate|date:'short' }}</i></p>
+                </div>
+             
+            </div>
+            <div class="right-w3l btn-save-wrapper">
+                <button class=" btn btn-primary" (click)="closeCommentModal()">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- notify  Modal -->
+  <button style="display: none;" data-toggle="modal" data-target="#notifyModal" #showNotify></button>
+  <div class="modal" id="notifyModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Notify</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="container notify-body">
+            <p>{{ addCount }}(s) was added.</p>
+            <p>{{ removeCount }}(s) was deleted.</p>
+            <p class="text-danger"><i>{{ errorCount }}(s) errors was occur.</i></p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

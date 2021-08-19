@@ -13,8 +13,8 @@ export class SeminarService{
         private http:HttpClient
     ){}
     
-    getSeminars(page:any):Observable<any>{
-        return this.http.get(this.baseUrl+`?page=${page}`,{observe:'body'})
+    getSeminars(page:any,filter:any):Observable<any>{
+        return this.http.get(this.baseUrl+`?page=${page}&filter=${filter}`,{observe:'body'})
     }
     
     createSeminar(smn:Seminar):Observable<any>{
@@ -90,5 +90,9 @@ export class SeminarService{
 
     getEvaluate(id:any):Observable<any>{
         return this.http.get(this.baseUrl+`/${id}/evaluate`,{observe:'body'})
+    }
+
+    getAllFeedbacks(smnId:any):Observable<any>{
+        return this.http.get(this.baseUrl+`/${smnId}/feedbacks`,{observe:'body'})
     }
 }

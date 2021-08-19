@@ -12,6 +12,7 @@ import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuizService } from './services/quiz.service';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     LoginService,
     RegisterService,
+    QuizService,
     LoggedGuard
     
   ],

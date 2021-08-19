@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <a [routerLink]="['/admin/lecture']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+    <h1>New Lecture</h1>
+    <hr>
+    <form  (ngSubmit)="newLecture(newLecForm)" #newLecForm="ngForm">
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Category: </label>
+            <select name="cateid" class="form-control" ngModel required>
+                <option [value]="cate.id" *ngFor="let cate of cates">{{ cate.name }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name</label>
+            <input type="text" class="form-control" ngModel   #n="ngModel" name="name" required>
+            <span  class="text-danger" *ngIf="n.touched && n.errors?.required">Name is required</span>
+        </div>
+  
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Sumary</label>
+            <input type="text" class="form-control" ngModel   #smr="ngModel" name="sumary" required>
+            <span  class="text-danger" *ngIf="smr.touched && smr.errors?.required">Sumary is required</span>
+        </div>
+  
+        <div class="form-group">
+            <ckeditor name="content" ngModel class="editor"></ckeditor>
+        </div>
+
+        <div class="right-w3l text-center">
+            <button class="btn btn-primary" [disabled]="newLecForm.invalid">Create</button>
+            <div class="loader" *ngIf="loading"></div>
+        </div>
+    </form>
+</div>

@@ -1,3 +1,16 @@
-<h3 class="title">Feedback</h3>
-
+<h3 class="title">Feedbacks</h3>
+<table class="table table-hover">
+    <tr>
+        <th>Seminar Id</th>
+        <th>Seminar Name</th>
+        <th>Feedbacks</th>
+        <th>Options</th>
+    </tr>
+    <tr *ngFor="let smn of seminars">
+       <td>{{ smn.id }}</td>
+       <td>{{ smn.title }}</td> 
+       <td>{{ smn.totalFeedback }}</td> 
+       <td><a routerLink="/admin/seminar/feedback/details/{{ smn.id }}" class="btn btn-secondary">List</a></td>
+    </tr>
+</table>
 

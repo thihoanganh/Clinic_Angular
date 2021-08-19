@@ -9,8 +9,15 @@ import { WarehouseMedicineComponent } from './components/medicine/warehousemedic
 import { InventoryScientificEquipmentComponent } from './components/scientificequipment/inventoryscientificequipment.component';
 import { ScientificeqipmentComponent } from './components/scientificequipment/scientificequipment.component';
 import { WarehouseScientificEquipmentComponent } from './components/scientificequipment/warehousescientificequipment.component';
+import { CategoryComponent } from './components/lecture/category/category.component';
+import { LectureCreateComponent } from './components/lecture/create/create.component';
+import { ManageLectureComponent } from './components/lecture/manage/manage.component';
+import { CreateQuizComponent } from './components/quiz/create/create.component';
+import { QuizComponent } from './components/quiz/quiz/quiz.component';
+import { QuizUpdateComponent } from './components/quiz/update/update.component';
 import { CreateComponent } from './components/seminar/create/create.component';
 import { EmailComponent } from './components/seminar/email/email.component';
+import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
 import { FeedbackComponent } from './components/seminar/feedback/feedback.component';
 import { MailComponent } from './components/seminar/mail/mail.component';
 import { ManageComponent } from './components/seminar/manage/manage.component';
@@ -46,9 +53,22 @@ const routes: Routes = [
          {path:'inventoryscientificequipment',component:InventoryMedicineComponent},
          {path:'statisticalsoldmedicine',component:StatisticalMedicineComponent},
          {path:'statisticalsoldscientificequipment',component:StatisticalScientificEquipmentComponent},
-         {path:'statisticalcustomer',component:StatisticalCustomerComponent}
+         {path:'statisticalcustomer',component:StatisticalCustomerComponent},
+         
+         {path:'seminar/feedback/details/:id',component:FeedbackDetailComponent},
+
+         {path:'lecture',component:ManageLectureComponent},
+         {path:'lecture/create',component:LectureCreateComponent},
+         {path:'lecture/category',component:CategoryComponent},
+
+         {path:'lecture/quiz',component:QuizComponent},
+         {path:'lecture/quiz/create',component:CreateQuizComponent},
+         {path:'lecture/quiz/update/:id',component:QuizUpdateComponent},
+
+
 
          
+
 
         ]
     }
