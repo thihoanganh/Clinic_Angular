@@ -1,38 +1,38 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
 import { Medicine } from "src/app/models/medicine.model";
-import { PriceProduct } from "src/app/models/priceproduct.model";
 import { MedicineService } from "src/app/services/medicine.service";
-import { PriceProductService } from "src/app/services/priceproduct.service";
-
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { ReceiptMedicineService } from "src/app/services/receipmedicineservice.service";
+import { ReceiptMedicine } from "src/app/models/receiptmedicine.model";
 
 @Component({
-    templateUrl: './medicine.component.html'
+    templateUrl: './warehousemedicine.component.html'
   })
-
   
-export class MedicineComponent implements OnInit {
-
+export class WarehouseMedicineComponent implements OnInit {
 
     medicines = new Array<Medicine>();
 
     selectedMedicine! : string;
 
-    updatePriceForm! : FormGroup;
+    receiptMedicineupdatePriceForm! : FormGroup;
 
     medicineId! : number
 
     constructor(
         private medicineService : MedicineService,
         private formBuilder : FormBuilder,
-        private priceMedicineService : PriceProductService
+        private receiptMedicineService :ReceiptMedicineService
       ){}
 
     ngOnInit(): void {
-        this.updatePriceForm = this.formBuilder.group({
+        this.receiptMedicineupdatePriceForm = this.formBuilder.group({
             productId : Number,
-            price : 0,
+            pricebuy : 0,
+            amount : 0,
             date : Date,
+            expirydate : Date,
+            nameOfMedicine : ""
         });
         
         this.medicineService.getAll().then(
@@ -74,21 +74,23 @@ export class MedicineComponent implements OnInit {
         }
     }
 
-    update(){
-        var priceMedicine : PriceProduct = this.updatePriceForm.value;
-        console.log('idMedicine: ' + priceMedicine.productId);
-        console.log('Price: ' + priceMedicine.price);
-        console.log('Date: ' + priceMedicine.date);
+    create(){
+      
+        var receiptProduct : ReceiptMedicine = this.receiptMedicineupdatePriceForm.value;
+        console.log('idMedicine: ' + receiptProduct.medicineId);
+        console.log('Price: ' + receiptProduct.priceBuy);
+        console.log('Date: ' + receiptProduct.date);
 
         var medicine : Medicine = this.searchMedicineByName(this.selectedMedicine);
         if(medicine != null){
-            priceMedicine.productId = medicine.id;
-            console.log('Medicine id: ' + priceMedicine.productId);
-            this.priceMedicineService.createPriceMedicine(priceMedicine);
+            receiptProduct.medicineId = medicine.id;
+            receiptProduct.nameOfMedicine = medicine.name;
+            console.log('Medicine id: ' + receiptProduct.medicineId);
+            this.receiptMedicineService.createReceiptMedicine(receiptProduct);
         }
         else
         {
-            alert('Invalid Name');
+            alert('Invalid Medicine Name');
         }
     }
 
@@ -102,4 +104,5 @@ export class MedicineComponent implements OnInit {
         return null;
 
     }
+
 }

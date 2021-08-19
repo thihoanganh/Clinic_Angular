@@ -1,15 +1,15 @@
-<h2 class="title">Medicine management</h2>
+<h2 class="title">Scientific Equipment Management</h2>
 <form class="col-md-6" [formGroup] = "updatePriceForm" (ngSubmit) = "update()">
   <div class="form-group">
-      <input type="text" [(ngModel)] = "selectedMedicine" placeholder="Select Medicine" class="form-control searchName dropdown-toggle" 
+      <input type="text" [(ngModel)] = "selectedScientificeqipment" placeholder="Select Scientific Equipment" class="form-control searchName dropdown-toggle" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (keyup) = "searchByName()" formControlName = "productId" />
       <div class="dropdown-menu"  aria-labelledby="myInputId">
-        <ng-container *ngFor="let medicine of medicines">
-          <a class="dropdown-item" (click)="select(medicine)">{{medicine.name}}</a>
+        <ng-container *ngFor="let scientificEquipment of scientificeqipments">
+          <a class="dropdown-item" (click)="select(scientificEquipment)">{{scientificEquipment.name}}</a>
         </ng-container>
       </div>
     </div>
- 
+
     <div class="form-group">
       <input type="text" placeholder="Insert Price" class="form-control" aria-haspopup="true" aria-expanded="false" formControlName = "price" />
     </div>

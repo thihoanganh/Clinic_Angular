@@ -1,0 +1,32 @@
+<h2 class="title">Warehouse ScientificEquipment management</h2>
+<form class="col-md-6" [formGroup] = "receiptScientificEquipmentupdatePriceForm" (ngSubmit) = "create()">
+  <div class="form-group">
+      <label for="scientificeqipment">Scientific Eqipment'Name</label>
+      <input type="text" [(ngModel)] = "selectedScientificeqipment" placeholder="Select Scientific Eqipment" class="form-control searchName dropdown-toggle" 
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (keyup) = "searchByName()" formControlName = "scientificEquipmentId" id="scientificeqipment" />
+      <div class="dropdown-menu"  aria-labelledby="myInputId">
+        <ng-container *ngFor="let scientificEquipment of scientificeqipments">
+            <a class="dropdown-item" (click)="select(scientificEquipment)">{{scientificEquipment.name}}</a>
+        </ng-container>
+      </div>
+    </div>
+ 
+    <div class="form-group">
+      <label for="pricebuy">Price Buy</label>
+      <input type="text" placeholder="Price Buy" class="form-control" aria-haspopup="true" aria-expanded="false" formControlName = "pricebuy" id="pricebuy"/>
+    </div>
+
+    <div class="form-group">
+      <label for="amout">Amount</label>
+      <input type="text" placeholder="Amout" class="form-control" aria-haspopup="true" aria-expanded="false" formControlName = "amount" id="amount"/>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="datetime-local" placeholder="Select Date" class="form-control" aria-haspopup="true" aria-expanded="false" formControlName = "date" id="date" />
+    </div>
+
+    <div class="form-group justify-content-between">
+      <input type="submit"  class="btn btn-primary" value="Import" />
+    </div>
+</form>

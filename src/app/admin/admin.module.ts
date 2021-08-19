@@ -23,6 +23,21 @@ import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
 import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
 
+import { ScientificEquipmentService } from '../services/scientificequipment.service';
+import { Scientificequipment } from '../models/scientificequipment.model';
+import { ScientificeqipmentComponent } from './components/scientificequipment/scientificequipment.component';
+import { WarehouseScientificEquipmentComponent } from './components/scientificequipment/warehousescientificequipment.component';
+import { WarehouseMedicineComponent } from './components/medicine/warehousemedicine.component';
+import { InventoryMedicineComponent } from './components/medicine/inventorymedicine.component';
+import { InventoryScientificEquipmentComponent } from './components/scientificequipment/inventoryscientificequipment.component';
+import { StatisticalCustomerComponent } from './components/statistical/customer.component';
+import { StatisticalMedicineComponent } from './components/statistical/medicine.component';
+import { ReceiptMedicineService } from '../services/receipmedicineservice.service';
+import { ReceiptScientificEquipmentService } from '../services/receiptscientificequipment.service';
+import { PriceProductService } from '../services/priceproduct.service';
+import { StatisticalService } from '../services/statistical.service';
+import { StatisticalScientificEquipmentComponent } from './components/statistical/scientificequipment.component';
+
 
 
 export function tokenGetter(){
@@ -40,7 +55,16 @@ export function tokenGetter(){
     CreateComponent,
     EmailComponent,
     MedicineComponent,
-    SmnRegisteredComponent
+    SmnRegisteredComponent,
+    ScientificeqipmentComponent,
+    WarehouseScientificEquipmentComponent,
+    WarehouseMedicineComponent,
+    InventoryMedicineComponent,
+    InventoryScientificEquipmentComponent,
+    StatisticalMedicineComponent,
+    StatisticalCustomerComponent,
+    StatisticalScientificEquipmentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -64,7 +88,12 @@ export function tokenGetter(){
     StaffService,
     DatePipe,
     SeminarService,
-    MedicineService
+    MedicineService,
+    PriceProductService,
+    ScientificEquipmentService,
+    ReceiptMedicineService,
+    ReceiptScientificEquipmentService,
+    StatisticalService
   ]
 })
 

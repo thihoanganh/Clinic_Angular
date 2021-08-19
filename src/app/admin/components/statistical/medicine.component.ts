@@ -1,40 +1,38 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { ArgumentStatistical } from "src/app/models/argumentstatistical.model";
 import { Medicine } from "src/app/models/medicine.model";
-import { PriceProduct } from "src/app/models/priceproduct.model";
+import { StatisticalMedicine } from "src/app/models/statisticalmedicine.model";
 import { MedicineService } from "src/app/services/medicine.service";
-import { PriceProductService } from "src/app/services/priceproduct.service";
-
+import { StatisticalService } from "src/app/services/statistical.service";
 
 @Component({
     templateUrl: './medicine.component.html'
   })
-
   
-export class MedicineComponent implements OnInit {
-
+export class StatisticalMedicineComponent implements OnInit {
 
     medicines = new Array<Medicine>();
 
-    selectedMedicine! : string;
+    selectedMedicine : any = '';
+    
+    argumentForm! : FormGroup;
 
-    updatePriceForm! : FormGroup;
-
-    medicineId! : number
-
+    statisticalMedicines = new Array<StatisticalMedicine>();
+    
     constructor(
         private medicineService : MedicineService,
         private formBuilder : FormBuilder,
-        private priceMedicineService : PriceProductService
+        private statisticalService : StatisticalService
       ){}
 
     ngOnInit(): void {
-        this.updatePriceForm = this.formBuilder.group({
-            productId : Number,
-            price : 0,
-            date : Date,
+        this.argumentForm = this.formBuilder.group({
+            idProduct : Number,
+            fromDate : Date,
+            toDate : Date,
         });
-        
+
         this.medicineService.getAll().then(
             res => {
                 this.medicines = res;
@@ -47,6 +45,7 @@ export class MedicineComponent implements OnInit {
     }
 
     select(medicine : Medicine){
+        console.log(medicine.name);
         this.selectedMedicine = medicine.name;
     }
 
@@ -74,17 +73,22 @@ export class MedicineComponent implements OnInit {
         }
     }
 
-    update(){
-        var priceMedicine : PriceProduct = this.updatePriceForm.value;
-        console.log('idMedicine: ' + priceMedicine.productId);
-        console.log('Price: ' + priceMedicine.price);
-        console.log('Date: ' + priceMedicine.date);
+    search(){
+        var argumentStatistical : ArgumentStatistical = this.argumentForm.value;
+       
 
         var medicine : Medicine = this.searchMedicineByName(this.selectedMedicine);
         if(medicine != null){
-            priceMedicine.productId = medicine.id;
-            console.log('Medicine id: ' + priceMedicine.productId);
-            this.priceMedicineService.createPriceMedicine(priceMedicine);
+            argumentStatistical.idProduct = medicine.id;
+            console.log('Medicine id: ' + argumentStatistical.idProduct);
+            this.statisticalService.orderProfitOfMedicine(argumentStatistical).then(
+                res => {
+                    this.statisticalMedicines = res;
+                },
+                err =>{
+                    console.log(err);
+                }
+            );;
         }
         else
         {
