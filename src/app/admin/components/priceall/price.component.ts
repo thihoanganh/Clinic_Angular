@@ -23,6 +23,7 @@ export class PriceAllComponent implements OnInit {
   
   price!:PriceInfo[];
   id!:number;
+  p:number=1;
 
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
@@ -70,6 +71,7 @@ savePrice(){
 }
  //delete
  deleteprice(){
+  if(confirm(`Are you sure to delete ?`)){
   this.activatedroute.paramMap.subscribe(params =>{
     var id=params.get('id');
     this.libraryseviceapi.DeletePrice(id).toPromise().then(
@@ -85,6 +87,7 @@ savePrice(){
     );
 });
  }
+}
 }
 
   

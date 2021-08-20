@@ -22,7 +22,7 @@ export class MedicineAppUserComponent implements OnInit{
   typeid!:number;
   keyword!:string;
   id!:number;
-  
+  p:number=1;
  
 constructor(
     private libraryseviceapi:LibraryServiceMedicineApi

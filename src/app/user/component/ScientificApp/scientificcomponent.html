@@ -39,11 +39,11 @@
   <hr>
 
   <div class="container">
-    
+
   <div class="home-product">
     <div class="row sm-gutter">
       <!-- product item -->
-      <div class="col-md-3" *ngFor="let p of scientfic">
+      <div class="col-md-3" *ngFor="let p of scientfic | paginate:{itemsPerPage:12,currentPage:p}">
         <a style="height: 100%;" class="home-product-item" [routerLink]="['/scientificdetail',{id:p.id}]"> <!--link-->
           <div class="home-product-item-img" style="background-image: url(https://localhost:5001/Image/{{p.illustration}})">
           </div>
@@ -66,7 +66,13 @@
       </div>
     </div>
   </div>
-  </div>
+  <!-- pagination -->
+  <br><br>
+  <pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
+  
+</div>
+
+
 
   <br>
   <br>

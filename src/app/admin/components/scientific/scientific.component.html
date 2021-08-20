@@ -113,29 +113,30 @@
             <th>Name</th>
             <th>Ilustration</th>
             <th>Invented Year</th>
-            <th>Description</th>
             <th>Quantity</th>
             <th>Status</th>
             <th>Options</th>
         </tr>
         
     </thead>
-    <tr *ngFor="let p of scientfic">
+    <tr *ngFor="let p of scientfic | paginate:{itemsPerPage:5,currentPage:p}">
         <td>{{p.id}}</td>
       <td>{{p.name}}</td>
       <td>
         <img src="https://localhost:5001/Image/{{p.illustration}}" width="120" height="100">
       </td>
       <td>{{p.inventedYear}}</td>
-      <td>{{p.description}}</td>
       <td>{{p.quantity}}</td>
       <td>
          {{p.status}}
       </td> 
         <td>
-            <button class="btn btn-primary" [routerLink]="['/admin/scientificdetail',{id:p.id}]">Detail</button>
-            <button class="btn btn-success" [routerLink]="['/admin/updatescientific',{id:p.id}]">Update</button>
+            <button class="btn btn-primary" [routerLink]="['/admin/scientificdetail',{id:p.id}]"><i class="fas fa-pen">Detail</i></button>
+            <button class="btn btn-success" [routerLink]="['/admin/updatescientific',{id:p.id}]"><i class="fas fa-link attach-icon">Update</i></button>
         </td>
     </tr>
 </table>
+<!-- pagination -->
+<br><br>
+<pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
 

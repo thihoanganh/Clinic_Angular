@@ -1,5 +1,5 @@
 
-<h3 class="title">Brand</h3><br><br><br>
+<h3 class="title">Brand List</h3><br><br><br>
 <button class="button-add-staff" data-toggle="modal" data-target="#addStaffModal"><span>Add</span></button>
 
 
@@ -48,19 +48,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of brandlist">
+            <tr *ngFor="let p of brandlist | paginate:{itemsPerPage:5,currentPage:p}">
                 <td>{{p.id}}</td>
               <td>{{p.brand1}}</td>
             
                 <td>
-                    <button class="btn btn-danger" (click)="deletebrand()" [routerLink]="['/admin/brand',{id:p.id}]">Delete</button>
+                    <button class="btn btn-danger" (click)="deletebrand()" [routerLink]="['/admin/brand',{id:p.id}]"><i class="fas fa-trash-alt trash-icon">Delete</i></button>
                    
                 </td>
             </tr>
-        </tbody>
-       
-       
+        </tbody>   
     </table>
+    <!-- pagination -->
+<br><br>
+<pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
+
 </div>
 
 

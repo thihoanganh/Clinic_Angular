@@ -48,19 +48,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of originlist">
+            <tr *ngFor="let p of originlist | paginate:{itemsPerPage:5,currentPage:p}">
                 <td>{{p.id}}</td>
               <td>{{p.origin1}}</td>
             
                 <td>
-                    <button class="btn btn-danger" (click)="deleteOrigin()" [routerLink]="['/admin/origin',{id:p.id}]">Delete</button>
+                    <button class="btn btn-danger" (click)="deleteOrigin()" [routerLink]="['/admin/origin',{id:p.id}]"><i class="fas fa-trash-alt trash-icon">Delete</i></button>
                    
                 </td>
             </tr>
         </tbody>
-       
-       
     </table>
+    <!-- pagination -->
+<br><br>
+<pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
+
 </div>
 
 
