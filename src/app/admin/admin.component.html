@@ -1,282 +1,281 @@
 <div class="wrapper">
-    <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
-        <div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="" class="simple-text">
-                    Clinic Management
-                </a>
-            </div>
-            <ul class="nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.html">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" [routerLink]="['user']">
-                        <i class="nc-icon nc-circle-09"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="./notifications.html">
-                        <i class="nc-icon nc-bell-55"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <div id="accordion">
-         
-           <div class="card">
-             <div class="card-header">
-               <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne">
-                ACCOUNT
-               </a>
-             </div>
-             <div id="collapseOne" class="collapse" data-parent="#accordion">
-               <div class="card-body text-dark">
-                <ul class="admin-account-menu">
-                    <li><a [routerLink]="['user']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>User</a></li>
-                    <li><a [routerLink]="['staff']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Staff</a></li>
-                </ul>
-               </div>
-             </div>
-           </div>
-           <div class="card">
-            <div class="card-header">
-              <a class="card-link text-dark" data-toggle="collapse" href="#collapseTwo">
-               SEMINAR
-              </a>
-            </div>
-            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-              <div class="card-body text-dark">
-               <ul class="admin-account-menu">
-                   <li><a [routerLink]="['seminar/manage']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
-                   <li><a [routerLink]="['seminar/feedback']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Feedback</a></li>
-               </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="card-link text-dark" data-toggle="collapse" href="#collapseLecture">
-               LECTURE
-              </a>
-            </div>
-            <div id="collapseLecture" class="collapse" data-parent="#accordion">
-              <div class="card-body text-dark">
-               <ul class="admin-account-menu">
-                   <li><a [routerLink]="['lecture']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
-                   <li><a [routerLink]="['lecture/category']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Category</a></li>
-                   <li><a [routerLink]="['lecture/quiz']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Quiz</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-         
-           <div class="card">
-            <div class="card-header">
-              <a class="card-link text-dark" data-toggle="collapse" href="#collapseMedicine">
-               MEDICINE
-              </a>
-            </div>
-            <div id="collapseMedicine" class="collapse" data-parent="#accordion">
-              <div class="card-body text-dark">
-               <ul class="admin-account-menu">
-                   <li><a [routerLink]="['updatepricemedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
-                   <li><a [routerLink]="['inventorymedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Inventory</a></li>
-                   <li><a [routerLink]="['warehousemedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Ware House</a></li>
-               </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="card-link text-dark" data-toggle="collapse" href="#collapseOneEquipScientific">
-               EQUIP SCIENTIFIC
-              </a>
-            </div>
-
-            <div id="collapseOneEquipScientific" class="collapse" data-parent="#accordion">
-              <div class="card-body text-dark">
-               <ul class="admin-account-menu">
-                   <li><a [routerLink]="['updatepricescientificequipment']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
-               </ul>
-              </div>
-            </div>
-
-            <div id="collapseOneEquipScientific" class="collapse" data-parent="#accordion">
-                <div class="card-body text-dark">
-                 <ul class="admin-account-menu">
-                     <li><a [routerLink]="['inventoryscientificequipment']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Inventory</a></li>
-                 </ul>
-                </div>
-              </div>
-
-            <div id="collapseOneEquipScientific" class="collapse" data-parent="#accordion">
-                <div class="card-body text-dark">
-                 <ul class="admin-account-menu">
-                     <li><a [routerLink]="['warehousescientificequipment']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Ware House</a></li>
-                 </ul>
-                </div>
-              </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="card-link text-dark" data-toggle="collapse" href="#collapseStatistical">
-                STATISTICAL
-              </a>
-            </div>
-
-            <div id="collapseStatistical" class="collapse" data-parent="#accordion">
-              <div class="card-body text-dark">
-               <ul class="admin-account-menu">
-                   <li><a [routerLink]="['statisticalsoldmedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Sold Medicine</a></li>
-               </ul>
-              </div>
-            </div>
-
-            <div id="collapseStatistical" class="collapse" data-parent="#accordion">
-                <div class="card-body text-dark">
-                 <ul class="admin-account-menu">
-                     <li><a [routerLink]="['statisticalsoldscientificequipment']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Sold ScientificEquipment</a></li>
-                 </ul>
-                </div>
-              </div>
-
-            <div id="collapseStatistical" class="collapse" data-parent="#accordion">
-                <div class="card-body text-dark">
-                 <ul class="admin-account-menu">
-                     <li><a [routerLink]="['statisticalcustomer']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Customer</a></li>
-                 </ul>
-                </div>
-              </div>
-
-          </div>
-
-          
-         <!--start-->
-<div class="card">
-    <div class="card-header">
-      <a class="card-link text-dark" data-toggle="collapse" href="#collapseOneApp">
-        APP
-      </a>
-    </div>
-    <div id="collapseOneApp" class="collapse" data-parent="#accordion">
-      <div class="card-body text-dark">
-       <ul class="admin-account-menu">
-           <li><a [routerLink]="['scientific']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Scientific App</a></li>
-           <li><a [routerLink]="['medicineapp']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Medicine App</a></li>
-       </ul>
+  <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar-wrapper">
+      <div class="logo">
+        <a href="" class="simple-text">
+          Clinic Management
+        </a>
       </div>
+      <ul class="nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard.html">
+            <i class="nc-icon nc-chart-pie-35"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" [routerLink]="['user']">
+            <i class="nc-icon nc-circle-09"></i>
+            <p>User Profile</p>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="./notifications.html">
+            <i class="nc-icon nc-bell-55"></i>
+            <p>Notifications</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <div id="accordion">
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne">
+                  ACCOUNT
+                </a>
+              </div>
+              <div id="collapseOne" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['user']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>User</a></li>
+                    <li><a [routerLink]="['staff']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span>
+                        Staff</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseTwo">
+                  SEMINAR
+                </a>
+              </div>
+              <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['seminar/manage']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
+                    <li><a [routerLink]="['seminar/feedback']"><span><i
+                            class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Feedback</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseLecture">
+                  LECTURE
+                </a>
+              </div>
+              <div id="collapseLecture" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['lecture']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
+                    <li><a [routerLink]="['lecture/category']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Category</a></li>
+                    <li><a [routerLink]="['lecture/quiz']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Quiz</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseMedicine">
+                  MEDICINE
+                </a>
+              </div>
+              <div id="collapseMedicine" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['updatepricemedicine']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
+                    <li><a [routerLink]="['inventorymedicine']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Inventory</a></li>
+                    <li><a [routerLink]="['warehousemedicine']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Ware House</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseOneEquipScientific1">
+                  EQUIP SCIENTIFIC
+                </a>
+              </div>
+              <div id="collapseOneEquipScientific1" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['updatepricescientificequipment']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
+                    <li><a [routerLink]="['inventoryscientificequipment']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Inventory</a></li>
+                    <li><a [routerLink]="['warehousescientificequipment']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Ware House</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseStatistical">
+                  STATISTICAL
+                </a>
+              </div>
+
+              <div id="collapseStatistical" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['statisticalsoldmedicine']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Sold Medicine</a></li>
+                    <li><a [routerLink]="['statisticalsoldscientificequipment']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Sold ScientificEquipment</a>
+                    </li>
+                    <li><a [routerLink]="['statisticalcustomer']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Customer</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!--start-->
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link text-dark" data-toggle="collapse" href="#collapseOneApp">
+                  APP
+                </a>
+              </div>
+              <div id="collapseOneApp" class="collapse" data-parent="#accordion">
+                <div class="card-body text-dark">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['scientific']"><i
+                          class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Scientific
+                        App</a></li>
+                    <li><a [routerLink]="['medicineapp']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span>
+                        Medicine
+                        App</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+            <!--start-->
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseThree">
+                  Origin Type Management
+                </a>
+              </div>
+              <div id="collapseThree" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <ul class="admin-account-menu">
+                    <li><a [routerLink]="['brand']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Add
+                        Brand</a>
+                    </li>
+                    <li><a [routerLink]="['origin']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add
+                        Origin</a></li>
+                    <li><a [routerLink]="['mecinetype']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add
+                        Mecine
+                        Type</a></li>
+                    <li><a [routerLink]="['medicinetype']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span>
+                        Add Medicie
+                        Type</a></li>
+                    <li><a [routerLink]="['priceall']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add
+                        New Price</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-         <!--end-->
-         <!--start-->
-         <div class="card">
-          <div class="card-header">
-            <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseThree">
-              Origin Type Management 
-            </a>
-          </div>
-          <div id="collapseThree" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-              <ul class="admin-account-menu">
-                <li><a [routerLink]="['brand']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Add Brand</a></li>
-                <li><a [routerLink]="['origin']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add Origin</a></li>
-                <li><a [routerLink]="['mecinetype']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add Mecine Type</a></li>
-                <li><a [routerLink]="['medicinetype']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add Medicie Type</a></li>
-                <li><a [routerLink]="['priceall']"><span><i class="fas fa-users">&nbsp;&nbsp;&nbsp;</i></span> Add New Price</a></li>
-               </ul>
-            </div>
-          </div>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+      <div class="container-fluid">
+
+        <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar burger-lines"></span>
+          <span class="navbar-toggler-bar burger-lines"></span>
+          <span class="navbar-toggler-bar burger-lines"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-toggle="dropdown">
+                <span class="d-lg-none">Dashboard</span>
+              </a>
+            </li>
+
+
+          </ul>
+          <ul class="navbar-nav ml-auto admin-info ">
+            <li class="nav-item admin-item-info">
+              <p class="admin-info">Welcome: <b>{{ username }}</b></p>
+              <p class="admin-info">Role: <b>{{ role }}</b></p>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-danger btn-logout" (click)="logOut()">
+                <i class="fas fa-sign-out-alt logout-icon"></i>&nbsp;Logout
+              </button>
+            </li>
+          </ul>
         </div>
-        
-       <!--end-->
-         </div>
-                   </li>
-            </ul>
-        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <!--content will go here-->
+        <router-outlet></router-outlet>
+      </div>
     </div>
-    <div class="main-panel">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-            <div class="container-fluid">
-               
-                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-bar burger-lines"></span>
-                    <span class="navbar-toggler-bar burger-lines"></span>
-                    <span class="navbar-toggler-bar burger-lines"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="dropdown">
-                                <span class="d-lg-none">Dashboard</span>
-                            </a>
-                        </li>
-                       
-                       
-                    </ul>
-                    <ul class="navbar-nav ml-auto admin-info ">
-                        <li class="nav-item admin-item-info">
-                            <p class="admin-info">Welcome: <b>{{ username }}</b></p>
-                            <p class="admin-info">Role: <b>{{ role }}</b></p>
-                        </li >
-                        <li class="nav-item">
-                            <button class="btn btn-danger btn-logout"  (click)="logOut()">
-                                <i class="fas fa-sign-out-alt logout-icon"></i>&nbsp;Logout
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav>
+          <ul class="footer-menu">
+            <li>
+              <a href="#">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Company
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Blog
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-center">
+            ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script>
+            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+          </p>
         </nav>
-        <!-- End Navbar -->
-        <div class="content">
-            <div class="container-fluid">
-              <!--content will go here-->
-              <router-outlet></router-outlet>
-            </div>
-        </div>
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav>
-                    <ul class="footer-menu">
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-center">
-                        ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                    </p>
-                </nav>
-            </div>
-        </footer>
-    </div>
+      </div>
+    </footer>
+  </div>
 </div>

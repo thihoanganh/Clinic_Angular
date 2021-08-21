@@ -1,7 +1,7 @@
 <h2 class="title">Scientific Equipment Management</h2>
 <form class="col-md-6" [formGroup] = "updatePriceForm" (ngSubmit) = "update()">
   <div class="form-group">
-      <input type="text" [(ngModel)] = "selectedScientificeqipment" placeholder="Select Scientific Equipment" class="form-control searchName dropdown-toggle" 
+      <input type="text" [(ngModel)]="selectedScientificeqipment" ngModel placeholder="Select Scientific Equipment" class="form-control searchName dropdown-toggle" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (keyup) = "searchByName()" formControlName = "productId" />
       <div class="dropdown-menu"  aria-labelledby="myInputId">
         <ng-container *ngFor="let scientificEquipment of scientificeqipments">

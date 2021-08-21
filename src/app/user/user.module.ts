@@ -28,7 +28,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { UserAuthGuard } from '../guards/user-auth-guard.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-
 export function tokenGetter(){
   return localStorage.getItem('user-jwt')
 }
