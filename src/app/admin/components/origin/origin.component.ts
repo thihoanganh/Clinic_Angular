@@ -18,6 +18,7 @@ export class OriginComponent implements OnInit {
   
   originlist!:OriginInfo[];
   id!:number;
+  p:number=1;
    
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
@@ -65,6 +66,7 @@ saveOrigin(){
 }
  //
  deleteOrigin(){
+  if(confirm(`Are you sure to delete ?`)){
   this.activatedroute.paramMap.subscribe(params =>{
     var id=params.get('id');
     this.libraryseviceapi.DeleteOrigin(id).toPromise().then(
@@ -80,6 +82,7 @@ saveOrigin(){
     );
 });
  }
+}
 }
 
   

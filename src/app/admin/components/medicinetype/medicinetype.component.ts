@@ -16,6 +16,7 @@ export class MedicineTypeComponent implements OnInit {
   
   medicinetype!:MedicineTypeInfo[];
   id!:number;
+  p:number=1;
 
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
@@ -61,7 +62,9 @@ saveMedicineType(){
   
 }
  //delete
+ 
  deletemedicinetype(){
+  if(confirm(`Are you sure to delete ?`)){
   this.activatedroute.paramMap.subscribe(params =>{
     var id=params.get('id');
     this.librarysevicemedicineapi.DeleteType(id).toPromise().then(
@@ -76,6 +79,7 @@ saveMedicineType(){
       }
     );
 });
+  }
  }
 }
 

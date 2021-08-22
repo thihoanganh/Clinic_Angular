@@ -48,19 +48,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of medicinetype">
+            <tr *ngFor="let p of medicinetype | paginate:{itemsPerPage:5,currentPage:p}">
                 <td>{{p.id}}</td>
               <td>{{p.category}}</td>
             
                 <td>
-                    <button class="btn btn-danger" (click)="deletemedicinetype()" [routerLink]="['/admin/medicinetype',{id:p.id}]">Delete</button>
+                    <button class="btn btn-danger" (click)="deletemedicinetype()" [routerLink]="['/admin/medicinetype',{id:p.id}]"><i class="fas fa-trash-alt trash-icon">Delete</i></button>
                    
                 </td>
             </tr>
-        </tbody>
-       
-       
+        </tbody> 
     </table>
+    <!-- pagination -->
+<br><br>
+<pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
+
 </div>
 
 

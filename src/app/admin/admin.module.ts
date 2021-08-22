@@ -22,6 +22,7 @@ import { EmailComponent } from './components/seminar/email/email.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineService } from '../services/medicine.service';
 import { SmnRegisteredComponent } from './components/seminar/smn-registered/smn-registered.component';
+import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
 import { ScientificComponent } from './components/scientific/scientific.component';
 import { UpdateScientificComponent } from './components/updatescientific/updatescientific.component';
 import { MedicineDetailComponent } from './components/medicinedetail/medicinedetail.component';
@@ -35,7 +36,6 @@ import { LibraryServiceApi } from '../services/Librarysreviceapi';
 import { MedicineTypeComponent } from './components/medicinetype/medicinetype.component';
 import { MecineTypeComponent } from './components/mecinetype/mecinetype.component';
 import { PriceAllComponent } from './components/priceall/price.component';
-
 import { ScientificEquipmentService } from '../services/scientificequipment.service';
 import { Scientificequipment } from '../models/scientificequipment.model';
 import { ScientificeqipmentComponent } from './components/scientificequipment/scientificequipment.component';
@@ -50,8 +50,6 @@ import { ReceiptScientificEquipmentService } from '../services/receiptscientific
 import { PriceProductService } from '../services/priceproduct.service';
 import { StatisticalService } from '../services/statistical.service';
 import { StatisticalScientificEquipmentComponent } from './components/statistical/scientificequipment.component';
-
-import { FeedbackDetailComponent } from './components/seminar/feedback-detail/feedback-detail.component';
 import { ManageLectureComponent } from './components/lecture/manage/manage.component';
 import { LectureService } from '../services/lecture.service';
 import { CategoryComponent } from './components/lecture/category/category.component';
@@ -61,6 +59,7 @@ import { CreateQuizComponent } from './components/quiz/create/create.component';
 import { QuizUpdateComponent } from './components/quiz/update/update.component';
 import { MailsupportComponent } from './components/mailsupport/mailsupport.component';
 import { LectureUpdateComponent } from './components/lecture/update/update.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 export function tokenGetter(){
@@ -112,8 +111,10 @@ export function tokenGetter(){
     QuizUpdateComponent,
     MailsupportComponent,
     LectureUpdateComponent,
+
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     FormsModule,
     CKEditorModule,

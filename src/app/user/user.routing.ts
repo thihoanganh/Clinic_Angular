@@ -38,7 +38,6 @@ const routes: Routes = [
             { path: 'scientificdetail', component: DetailScientificComponent },
             { path: 'medical', component: MedicineAppUserComponent },
             { path: 'medicinedetail', component: DetailMedicineComponent },
-
             { path: 'lecture', component:MainLectureComponent },
             { path: 'lecture/learn/:id', component:DetailLectureComponent },
             { path: 'quiz/preparation/:id', component:QuizPreparationComponent, canActivate:[UserAuthGuard]},

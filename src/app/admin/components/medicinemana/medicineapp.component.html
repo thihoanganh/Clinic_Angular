@@ -35,7 +35,7 @@
         </tr>
         
     </thead>
-    <tr *ngFor="let p of medicine">
+    <tr *ngFor="let p of medicine | paginate:{itemsPerPage:5,currentPage:p}">
         <td>{{p.id}}</td>
       <td>{{p.name}}</td>
       <td>
@@ -48,9 +48,13 @@
          {{p.status}}
       </td> 
         <td>
-            <button class="btn btn-primary" [routerLink]="['/admin/medicinedetail',{id:p.id}]">Detail</button>
-            <button class="btn btn-success" [routerLink]="['/admin/updatemedicineapp',{id:p.id}]">Update</button>
+            <button class="btn btn-primary" [routerLink]="['/admin/medicinedetail',{id:p.id}]"><i class="fas fa-pen">Detail</i></button>
+            <button class="btn btn-success" [routerLink]="['/admin/updatemedicineapp',{id:p.id}]"><i class="fas fa-link attach-icon">Update</i></button>
         </td>
     </tr>
 </table>
+<!-- pagination -->
+<br><br>
+<pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
+
 

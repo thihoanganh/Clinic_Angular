@@ -30,7 +30,7 @@ export class MedicineAppComponent implements OnInit {
     typelist!:MecineInfo[];
   
 
-  
+    p:number=1;
    medicine!:MedicineInfo[];
     keyword!:string;
 

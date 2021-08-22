@@ -23,6 +23,7 @@ export class MecineTypeComponent implements OnInit {
   
   mecinetype!:MecineInfo[];
   id!:number;
+  p:number=1;
 
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
@@ -69,6 +70,7 @@ saveMecineType(){
 }
  //delete
  deleteMecine(){
+  if(confirm(`Are you sure to delete ?`)){
   this.activatedroute.paramMap.subscribe(params =>{
     var id=params.get('id');
     this.libraryseviceapi.DeleteType(id).toPromise().then(
@@ -84,6 +86,7 @@ saveMecineType(){
     );
 });
  }
+}
 }
 
   

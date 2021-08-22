@@ -28,8 +28,8 @@ export class ScientificComponent implements OnInit {
     stringObject:any;
     stringJson:any;
     keyword!:string;
-    page=1;
-
+    p:number=1;
+    
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
     private libraryseviceapi:LibraryServiceApi,

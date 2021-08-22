@@ -23,6 +23,7 @@ export class BrandComponent implements OnInit {
   
   brandlist!:BrandInfo[];
   id!:number;
+  p:number=1;
 
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
@@ -69,6 +70,7 @@ saveBrand(){
 }
  //delete
  deletebrand(){
+  if(confirm(`Are you sure to delete ?`)){
   this.activatedroute.paramMap.subscribe(params =>{
     var id=params.get('id');
     this.libraryseviceapi.DeleteBrand(id).toPromise().then(
@@ -84,6 +86,7 @@ saveBrand(){
     );
 });
  }
+}
 }
 
   

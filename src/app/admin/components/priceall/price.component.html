@@ -53,19 +53,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of price">
+            <tr *ngFor="let p of price | paginate:{itemsPerPage:5,currentPage:p}">
                 <td>{{p.id}}</td>
               <td>$ {{p.price1}}</td>
             <td>{{p.date}}</td>
                 <td>
-                    <button class="btn btn-danger" (click)="deleteprice()" [routerLink]="['/admin/priceall',{id:p.id}]">Delete</button>
+                    <button class="btn btn-danger" (click)="deleteprice()" [routerLink]="['/admin/priceall',{id:p.id}]"><i class="fas fa-trash-alt trash-icon">Delete</i></button>
                    
                 </td>
             </tr>
         </tbody>
-       
-       
     </table>
+    <!-- pagination -->
+<br><br>
+<pagination-controls style="text-align: center;" (pageChange)="p= $event"></pagination-controls>
+
 </div>
 
 
