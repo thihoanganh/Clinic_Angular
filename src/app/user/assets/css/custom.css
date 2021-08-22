@@ -60,3 +60,39 @@
     width: 100px;
     margin-top: 5px;
   }
+
+  .slide-sub-title{
+    font-size: 50px;
+    text-shadow: grey 2px 2px 2px;
+  }
+
+  .seminar-item{
+    margin-top: 250px;
+  }
+
+  .slider-description {
+    font-size: 30px;
+    color: #3d3fbd;
+    font-weight: 500;
+  }
+
+  .my-member-post{
+    border-top: 1px solid #f3f3f3;
+  }
+
+  .my-member-name{
+    height: 70px;
+  }
+
+  .img-responsive-x{
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .education-area p{
+    color:white;
+  }
+
+  .comments a{
+    cursor: pointer;
+  }

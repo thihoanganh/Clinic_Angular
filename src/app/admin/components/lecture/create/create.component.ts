@@ -28,7 +28,6 @@ export class LectureCreateComponent implements OnInit {
       this.router.navigate(['/admin/lecture'])
       this.loading = false
     })
-    console.log(newLecForm.value)
   }
 
   getAllCates(){

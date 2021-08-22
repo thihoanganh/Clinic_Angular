@@ -39,6 +39,9 @@ import { StatisticalCustomerComponent } from './components/statistical/customer.
 import { StatisticalMedicineComponent } from './components/statistical/medicine.component';
 import { StatisticalScientificEquipmentComponent } from './components/statistical/scientificequipment.component';
 import { UserComponent } from './components/user/user.component';
+import { MailsupportComponent } from './components/mailsupport/mailsupport.component';
+import { LectureUpdateComponent } from './components/lecture/update/update.component';
+import { NotfoundComponent } from '../user/component/notfound/notfound.component';
 
 
 
@@ -48,7 +51,7 @@ const routes: Routes = [
         component: AdminComponent,
         canActivate:[AuthGuard],
         children: [
-       //  {path:'',component:DashboardComponent},
+         {path:'',component:UserComponent},
          {path:'user',component:UserComponent},
          {path:'staff',component:StaffComponent},
          {path:'seminar/manage',component:ManageComponent},
@@ -91,14 +94,13 @@ const routes: Routes = [
          {path:'lecture/quiz',component:QuizComponent},
          {path:'lecture/quiz/create',component:CreateQuizComponent},
          {path:'lecture/quiz/update/:id',component:QuizUpdateComponent},
+         {path:'lecture/update/:id',component:LectureUpdateComponent},
 
-
-
-         
-
-
+         {path:'mail/support',component:MailsupportComponent},
         ]
-    }
+    },
+    {path:'**',component:NotfoundComponent}
+   
 ];
 
 export const AdminRouting = RouterModule.forRoot(routes);

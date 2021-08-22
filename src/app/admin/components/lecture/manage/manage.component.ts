@@ -28,6 +28,8 @@ export class ManageLectureComponent implements OnInit {
   updateMsg!:any
   attach!:any
   comments!:any
+  notifySuccess = true
+  notifyError = false
 
   @ViewChild('showNotify') showNotify!: ElementRef;
   @ViewChild('closeModal') closeModal!: ElementRef;
@@ -83,9 +85,11 @@ export class ManageLectureComponent implements OnInit {
         this.lecService.deleteAttach(itemId).subscribe(
           res=>{
             this.removeCount = this.removeCount + 1
+            this.notifyError = false
           },
           err=>{
             this.errorCount = this.errorCount + 1
+
           }
         )
       })
@@ -98,9 +102,13 @@ export class ManageLectureComponent implements OnInit {
         this.lecService.createAttach(this.lecId,item).subscribe(
           res=>{
             this.addCount = this.addCount + 1
+            this.notifyError = false
+            this.notifySuccess = true
           },
           err=>{
             this.errorCount = this.errorCount + 1
+            this.notifyError = true
+            this.notifySuccess = false
           }
         )
       })

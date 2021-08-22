@@ -1,3 +1,19 @@
+<section id="inner-title" class="inner-title mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-6"><h2>Lecture</h2></div>
+      <div class="col-md-6 col-lg-6">
+        <div class="breadcrumbs">
+          <ul>
+            <li>Current Page:</li>
+            <li><a routerLink="/home">Home</a></li>
+            <li><p>Lecture</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
 <div class="container lecture-container">
     <h1>Lectures</h1>
     <b>Category:&nbsp;</b>
@@ -5,6 +21,7 @@
       <option value="all">All</option>
       <option [value]="cate.id" *ngFor="let cate of categories">{{ cate.name }}</option>
     </select>
+    <a (click)="verifyUserLogin()"><i class="fas fa-history btn-history mr-5">&nbsp;Quiz History</i></a>
     <div class="no-lecture" *ngIf="lectures.length==0">
       <p><i>There's no lecture for this category.</i></p>
     </div>

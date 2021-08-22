@@ -12,5 +12,6 @@ export class Seminar{
     seminarEmail!:any
     totalRegistered!:any
     totalFeedback!:any
+    createdDate!:any
     evaluate!:any
 }

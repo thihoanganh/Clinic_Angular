@@ -2,39 +2,22 @@
     <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="" class="simple-text">
-                    Clinic Management
+                <a routerLink="/admin" class="simple-text">
+                  <!-- <i class="fas fa-users-cog setting-icon"></i> -->
+                   Clinic Management
                 </a>
             </div>
             <ul class="nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.html">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" [routerLink]="['user']">
-                        <i class="nc-icon nc-circle-09"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="./notifications.html">
-                        <i class="nc-icon nc-bell-55"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <div id="accordion">
-         
+              
+      <li class="nav-item ">
+          <div id="accordion">
            <div class="card">
              <div class="card-header">
                <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne">
                 ACCOUNT
                </a>
              </div>
-             <div id="collapseOne" class="collapse" data-parent="#accordion">
+             <div id="collapseOne" class="collapse" >
                <div class="card-body text-dark">
                 <ul class="admin-account-menu">
                     <li><a [routerLink]="['user']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>User</a></li>
@@ -49,7 +32,7 @@
                SEMINAR
               </a>
             </div>
-            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div id="collapseTwo" class="collapse" >
               <div class="card-body text-dark">
                <ul class="admin-account-menu">
                    <li><a [routerLink]="['seminar/manage']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
@@ -65,12 +48,27 @@
                LECTURE
               </a>
             </div>
-            <div id="collapseLecture" class="collapse" data-parent="#accordion">
+            <div id="collapseLecture" class="collapse" >
               <div class="card-body text-dark">
                <ul class="admin-account-menu">
                    <li><a [routerLink]="['lecture']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Mange</a></li>
                    <li><a [routerLink]="['lecture/category']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Category</a></li>
                    <li><a [routerLink]="['lecture/quiz']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Quiz</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link text-dark" data-toggle="collapse" href="#mailSupport">
+               EMAIL
+              </a>
+            </div>
+            <div id="mailSupport" class="collapse" >
+              <div class="card-body text-dark">
+               <ul class="admin-account-menu">
+                   <li><a [routerLink]="['mail/support']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Email Support</a></li>
                 </ul>
               </div>
             </div>
@@ -82,7 +80,7 @@
                MEDICINE
               </a>
             </div>
-            <div id="collapseMedicine" class="collapse" data-parent="#accordion">
+            <div id="collapseMedicine" class="collapse" >
               <div class="card-body text-dark">
                <ul class="admin-account-menu">
                    <li><a [routerLink]="['updatepricemedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
@@ -102,7 +100,7 @@
               </a>
             </div>
 
-            <div id="collapseOneEquipScientific1" class="collapse" data-parent="#accordion">
+            <div id="collapseOneEquipScientific1" class="collapse">
               <div class="card-body text-dark">
                <ul class="admin-account-menu">
                    <li><a [routerLink]="['updatepricescientificequipment']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Update Price</a></li>
@@ -120,7 +118,7 @@
               </a>
             </div>
 
-            <div id="collapseStatistical" class="collapse" data-parent="#accordion">
+            <div id="collapseStatistical" class="collapse">
               <div class="card-body text-dark">
                <ul class="admin-account-menu">
                    <li><a [routerLink]="['statisticalsoldmedicine']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Sold Medicine</a></li>
@@ -139,7 +137,7 @@
         APP
       </a>
     </div>
-    <div id="collapseOneApp" class="collapse" data-parent="#accordion">
+    <div id="collapseOneApp" class="collapse" >
       <div class="card-body text-dark">
        <ul class="admin-account-menu">
            <li><a [routerLink]="['scientific']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Scientific App</a></li>
@@ -153,10 +151,10 @@
          <div class="card">
           <div class="card-header">
             <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseThree">
-              Origin Type Management 
+              ORGIN TYPE MANAGEMENT 
             </a>
           </div>
-          <div id="collapseThree" class="collapse" data-parent="#accordion">
+          <div id="collapseThree" class="collapse">
             <div class="card-body">
               <ul class="admin-account-menu">
                 <li><a [routerLink]="['brand']"><i class="fas fa-chalkboard-teacher">&nbsp;&nbsp;&nbsp;&nbsp;</i>Add Brand</a></li>
@@ -193,8 +191,8 @@
                     </ul>
                     <ul class="navbar-nav ml-auto admin-info ">
                         <li class="nav-item admin-item-info">
-                            <p class="admin-info">Welcome: <b>{{ username }}</b></p>
-                            <p class="admin-info">Role: <b>{{ role }}</b></p>
+                          <p class="admin-info"><i class="fas fa-key"></i>&nbsp;<b>{{ role }}</b></p>
+                          <p class="admin-info"><i class="fas fa-user"></i>&nbsp;<b>{{ username }}</b></p>  
                         </li >
                         <li class="nav-item">
                             <button class="btn btn-danger btn-logout"  (click)="logOut()">
@@ -215,34 +213,12 @@
         <footer class="footer">
             <div class="container-fluid">
                 <nav>
-                    <ul class="footer-menu">
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
                     <p class="copyright text-center">
                         ©
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <a href="http://localhost:4200/home">Power by Clinic Team</a>
                     </p>
                 </nav>
             </div>

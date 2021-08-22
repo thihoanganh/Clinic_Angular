@@ -1,0 +1,42 @@
+<section id="inner-title" class="inner-title mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6"><h2>Quizzes History</h2></div>
+        <div class="col-md-6 col-lg-6">
+          <div class="breadcrumbs">
+            <ul>
+              <li>Current Page:</li>
+              <li><a routerLink="/home">Home</a></li>
+              <li><a routerLink="/lecture">Lecture</a></li>
+              <li><p>Quiz History</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+<div class="container quiz-container mb-5">
+  <div *ngIf="quizzes?.length == 0">
+    <p><i>There's no result to show.</i></p>
+    <a routerLink="/lecture" class="btn btn-danger btn-start">Go Back</a>
+  </div>
+  <div *ngIf="quizzes?.length != 0">
+    <div  class="card mr-5" style="width:400px" *ngFor="let quiz of quizzes">
+      <div class="c100 p{{ quiz.percent }} {{ quiz.percent < 40 ? 'pink' :  quiz.percent < 70 ? 'orange':'green' }}">
+          <span>{{ quiz.percent }}%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+      </div>
+      <hr>
+      <div class="card-body text-center">
+        <h4 class="card-title"><i class="fas fa-circle {{ quiz.levelName == 'Easy' ? 'text-success' :  quiz.levelName  == 'Medium' ? 'text-warning':'text-danger' }} " ></i>&nbsp;{{ quiz.levelName }}</h4>
+        <p class="card-text"><b>Total Question:</b>&nbsp;{{ quiz.totalQuestion }}</p>
+        <p class="card-text"><b>Correct Answers:</b>&nbsp;{{ quiz.correctAnswer }}</p>
+        <p class="card-text"><b>No Answers:</b>&nbsp;{{ quiz.noAnswer }}</p>
+      </div>
+    </div>
+  </div>
+  
+</div>

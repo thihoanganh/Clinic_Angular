@@ -45,7 +45,6 @@ export class StaffComponent implements OnInit {
       if(token && !this.jwtHelper.isTokenExpired(token)){
         var decodeToken = this.jwtHelper.decodeToken(token)
         this.enableAddStaff = decodeToken.IsAdmin == 'true' ? true : false
-        console.log(this.enableAddStaff)
       }
 
 
@@ -114,7 +113,6 @@ export class StaffComponent implements OnInit {
               }
             }
           )
-          console.log(this.staff)
           this.loading = false
         }
       }

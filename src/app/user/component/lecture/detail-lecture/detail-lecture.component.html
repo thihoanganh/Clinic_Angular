@@ -1,3 +1,21 @@
+<section id="inner-title" class="inner-title mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6"><h2>Lecture Detail</h2></div>
+        <div class="col-md-6 col-lg-6">
+          <div class="breadcrumbs">
+            <ul>
+              <li>Current Page:</li>
+              <li><a routerLink="/home">Home</a></li>
+              <li><a routerLink="/lecture">Lecture</a></li>
+              <li><a routerLink="/lecture/learn/{{ lectureId }}">Lecture Detail</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
 <div class="container mb-5">
     <input type="hidden" [value]="lecture.id">
     <h2>{{ lecture.name }}</h2>
@@ -19,7 +37,7 @@
      </div>
 
      <div class="news-comment">
-        <p>Comments({{ comments.length }})</p>
+        <p>Comments({{ comments?.length }})</p>
         <textarea placeholder="Enter your comment..." ></textarea>
         <button id="SentComment" class="btn btn-primary ml-3" (click)="createComment()">Sent</button>
         <div class="comment-area">

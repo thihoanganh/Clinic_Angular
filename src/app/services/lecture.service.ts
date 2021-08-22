@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Lecture } from "../models/lecture.model";
 
 @Injectable()
 export class LectureService{
@@ -101,5 +102,21 @@ export class LectureService{
 
     deleteComment(cmtId:any):Observable<any>{
         return this.http.delete(this.BaseUrl+`/comment/${cmtId}`,{observe:'body'})
+    }
+
+    getUserQuiz(userId:any):Observable<any>{
+        return this.http.get(this.BaseUrl+`/user/${userId}/quiz`,{observe:'body'})
+    }
+
+    updateLecture(lecture:any):Observable<any>{
+        const body = {
+            id : parseInt(lecture.id),
+            name:lecture.name,
+            content:lecture.content,
+            sumary:lecture.sumary,
+            cateid:parseInt(lecture.cateid),
+            modifyby:lecture.modifyby
+        }
+        return this.http.put(this.BaseUrl,body,{observe:'body'})
     }
 }

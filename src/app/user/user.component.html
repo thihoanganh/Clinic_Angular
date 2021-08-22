@@ -4,18 +4,8 @@
          <div class="row ">
            <ul class="contact-detail2 col-md-6 pull-left">
              <li> <a href="#" target="_blank"><i class="fa fa-mobile"></i>Call US + 1 (1800) 459 123 7</a> </li>
-             <li> <a href="#" target="_blank"><i class="fa fa-envelope-o"></i> example@gmail.com</a> </li>
+             <li> <a href="#" target="_blank"><i class="fa fa-envelope-o"></i> clinicteam@gmail.com</a> </li>
            </ul>
-           <div class="social-links col-md-6 pull-right">
-             <ul class="social-icons pull-right">
-               <li> <a href="http://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> </li>
-               <li> <a href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> </li>
-               <li> <a href="http://pinterest.com" target="_blank"><i class="fa fa-pinterest"></i></a> </li>
-               <li> <a href="http://dribble.com/" target="_blank"><i class="fa fa-skype"></i></a> </li>
-               <li> <a href="http://pinterest.com" target="_blank"><i class="fa fa-dribbble"></i></a> </li>
-               
-             </ul>
-           </div>
          </div>
        </div>
       </div>
@@ -37,14 +27,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="nav-item active"><a class="nav-link" [routerLink]="['/home']">Home</a></li>
               <li class="nav-item"><a class="nav-link" [routerLink]="['/aboutus']" class="format">About us </a></li>
-              <li class="nav-item"><a  class="nav-link" [routerLink]="['/service']">Services </a></li>
               <li class="nav-item"><a  class="nav-link" [routerLink]="['/seminar']">Seminars </a></li>
-              <li class="nav-item"> <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" [routerLink]="['/bloglist']">Blog Listing</a></li>
-                  <li><a class="dropdown-item" [routerLink]="['/blogdetail']">Blog Details</a></li>
-                </ul>
-              </li>
               <li class="nav-item"> <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">App <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a class="dropdown-item" [routerLink]="['/scientific']">Scientific Application</a></li>
@@ -75,7 +58,7 @@
   </header>
 
     <!--/body --> 
-  <router-outlet  (activate)="onActivate($event)"></router-outlet>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
   
     <!--/end body --> 
       <!--/.footer --> 
@@ -85,7 +68,7 @@
         <div class="col-md-3 col-lg-3">
           <div class="footer-top-box">
             <h4>About Us</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+            <p>Our team try to build a system with huge management of medicine, medical machine, or lots of equipment in hospital. Beside that we aslo provide the various documentation in this field. The website usually update the latest seminar imfomation with the hope of widely spread.   </p>
           </div>
           <div class="footer-top-box">
             <h4>Office Hour</h4>
@@ -95,31 +78,17 @@
         </div>
         <div class="col-md-3 col-lg-3">
           <div class="footer-top-box">
-            <h4>Latest Posts</h4>
+            <h4>Latest Seminars</h4>
             <ul>
-              <li>
+              <li *ngFor="let smn of seminars">
                 <div class="recent-post-widget">
-                  <a href="#" class="widget-img-thumb">
-                    <img src="assets/images/post-1.jpg" class="img-responsive">
+                  <a routerLink="/seminar/details/{{ smn.id }}" class="widget-img-thumb">
+                    <img [src]="smn.poster" class="img-responsive">
                   </a>
                   <div class="widget-content">
-                    <h5><a href="#" class="sidebar-item-title">Enterprise Video Solutions</a></h5>
-                    <a href="#">
-                      <p class="widget-date">Posted: 3 day ago</p>
-                    </a>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-              </li>
-              <li>
-                <div class="recent-post-widget">
-                  <a href="#" class="widget-img-thumb">
-                    <img src="assets/images/post-2.jpg" class="img-responsive">
-                  </a>
-                  <div class="widget-content">
-                    <h5><a href="#" class="sidebar-item-title">Medical Instruments</a></h5>
-                    <a href="#">
-                      <p class="widget-date">Posted: 6 month ago</p>
+                    <h5><a routerLink="/seminar/details/{{ smn.id }}" class="sidebar-item-title">{{ smn.title.slice(0,25) }}...</a></h5>
+                    <a routerLink="/seminar/details/{{ smn.id }}">
+                      <p class="widget-date">Posted: {{ smn.createdDate | dateAgo }}</p>
                     </a>
                   </div>
                   <div class="clearfix"></div>
@@ -131,12 +100,10 @@
         <div class="col-md-3 col-lg-3">
           <div class="footer-top-box">
             <h4>Tags</h4>
-            <div class="tag"><a href="#">Acupuncture</a></div>
-            <div class="tag"><a href="#">Mammography</a></div>
-            <div class="tag"><a href="#">Neonatology</a></div>
-            <div class="tag"><a href="#">Diabetes Education</a></div>
-            <div class="tag"><a href="#">Geriatrics</a></div>
-            <div class="tag"><a href="#">Kidneys</a></div>
+            <div class="tag"><a routerLink="/scientific">#Scientific</a></div>
+            <div class="tag"><a routerLink="/medical">#Medical</a></div>
+            <div class="tag"><a routerLink="/lecture">#Education</a></div>
+            <div class="tag"><a routerLink="/contactus">#Contact Us</a></div>
           </div>
         </div>
         <div class="col-md-3 col-lg-3">
@@ -144,20 +111,7 @@
             <h4>Contact us</h4>
             <p><b>Location : 42/2</b> New road, KTM<br/>
               <b>Mob: </b> +9849494875<br/>
-              <b>Mail: </b> rkwebdesignsinfo@gmail.com </p>
-          </div>
-          <div class="footer-top-box">
-            <h4>Subscribe</h4>
-            <div class="cs-form">
-              <form action="#" method="post">
-                <div class="input-holder">
-                  <input type="email" placeholder="Enter Valid Email Address">
-                  <label> <i class="fa fa-location-arrow fa-2x"></i>
-                    <input class="submit-bgcolor" type="submit" value="submit">
-                  </label>
-                </div>
-              </form>
-            </div>
+              <b>Mail: </b> clinicteam@gmail.com </p>
           </div>
         </div>
       </div>
@@ -179,7 +133,7 @@
                 <form  (ngSubmit)="login(loginForm)" #loginForm="ngForm">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username</label>
-                        <input type="text" class="form-control" ngModel   #un="ngModel" name="username" id="recipient-name" required>
+                        <input type="text" class="form-control" ngModel   #un="ngModel" name="username" required>
                         <span  class="login-invalid" *ngIf="un.touched && un.errors?.required">Username is required</span>
                       </div>
                     <div class="form-group">
@@ -224,7 +178,7 @@
                 <form  (ngSubmit)="sentEmailCode(forgotForm)" #forgotForm="ngForm">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username:</label>
-                        <input type="text" class="form-control" ngModel   #fun="ngModel" name="username" id="recipient-name" required >
+                        <input type="text" class="form-control" ngModel   #fun="ngModel" name="username" required >
                         <div class="loader" *ngIf="loading"></div>
                         <span  class="invalid" *ngIf="fun.touched && fun.errors?.required">Username is required</span>
                         <span  class="text-success" *ngIf="checkUsernameSuccess">{{ msgSentMail }}</span>
@@ -311,24 +265,24 @@
                     <form  method="post" (ngSubmit)="register(registerForm)" #registerForm="ngForm">
                         <div class="form-group">
                             <label class="col-form-label">Full Name</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="fullname" ngModel #fn="ngModel" required>
+                            <input type="text" class="form-control" name="fullname" ngModel #fn="ngModel" required>
                             <span *ngIf="fn.touched && fn.errors?.required" class="invalid">Full name is required</span>
                           </div>
                         <div class="form-group">
                           <label class="col-form-label">Phone Number</label>
-                          <input type="text" class="form-control" id="validationDefault01" name="phone" ngModel #pn="ngModel" required>
+                          <input type="text" class="form-control" name="phone" ngModel #pn="ngModel" required>
                           <span *ngIf="pn.touched && pn.errors?.required" class="invalid">Phone number is required</span>
                         </div>
                       <div class="form-group">
                         <label class="col-form-label">Email:</label>
-                        <input type="text" class="form-control" id="validationDefault01" name="email" ngModel #em="ngModel" required email>
+                        <input type="text" class="form-control" name="email" ngModel #em="ngModel" required email>
                         <span class="invalid"  *ngIf="em.touched && em.errors?.required">Email is required</span>
                         <br>
                         <span class="invalid"  *ngIf="em.touched && em.errors?.email">Email format is incorrect</span>                    
                        </div>
                         <div class="form-group">
                             <label class="col-form-label">Username</label>
-                            <input type="text" class="form-control" id="validationDefault02" name="username" ngModel #rgun="ngModel" required>
+                            <input type="text" class="form-control"  name="username" ngModel #rgun="ngModel" required>
                             <span class="invalid"   *ngIf="rgun.touched && rgun.errors?.required">Username is required</span>
                             <br>
                             <span class="invalid" *ngIf="usernameExist">Username is already exist</span>

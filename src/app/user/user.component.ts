@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChild, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginService } from '../services/login.service';
 import { ViewChild, ElementRef} from '@angular/core';
@@ -7,10 +7,14 @@ import { RegisterService } from '../services/register.service';
 import { User } from '../models/user.model';
 import { DetailLectureComponent } from './component/lecture/detail-lecture/detail-lecture.component';
 import { Router } from '@angular/router';
+import { SeminarService } from '../services/seminar.service';
+import { Seminar } from '../models/seminar.model';
+import { MainLectureComponent } from './component/lecture/main-lecture/main-lecture.component';
 
 @Component({
     templateUrl: './user.component.html',
-    styleUrls:['./assets/css/custom.css']
+    styleUrls:['./assets/css/custom.css'],
+    providers: [MainLectureComponent]
 })
 
 export class UserComponent implements OnInit {
@@ -37,12 +41,7 @@ export class UserComponent implements OnInit {
     usernameResetPassword = ''
     resetSuccessNotify = false
     resetFailureNotify = false
-
-  
-    @ViewChild('closeModal') closeModal!: ElementRef;
-    @ViewChild('btnLogin') btnLogin!: ElementRef;
-    @ViewChild('closeForgotModal') closeForgotModal!: ElementRef;
-    @ViewChild('closeResetPasswordModal') closeResetPasswordModal!: ElementRef;
+    seminars = new Array<Seminar>()
 
 
     
@@ -50,11 +49,25 @@ export class UserComponent implements OnInit {
         private jwtHelper:JwtHelperService,
         private loginService:LoginService,
         private registerService:RegisterService,
-        private router:Router
-        
+        private router:Router,
+        private smnService:SeminarService
     ) { }
 
     ngOnInit() {
+        if(this.router.url == '/') this.router.navigate(['/home'])
+        this.getSeminars()
+    }
+    
+    @ViewChild('closeModal') closeModal!: ElementRef;
+    @ViewChild('btnLogin') btnLogin!: ElementRef;
+    @ViewChild('closeForgotModal') closeForgotModal!: ElementRef;
+    @ViewChild('closeResetPasswordModal') closeResetPasswordModal!: ElementRef;
+
+
+    getSeminars(){
+        this.smnService.getSeminars(1,'all').subscribe(res=>{
+            this.seminars = res.result.slice(0,3)
+        })
     }
 
     isAuthenticated(){
@@ -96,7 +109,6 @@ export class UserComponent implements OnInit {
         this.registerService.checkUserExist(registerForm.value.username)
         .subscribe(
             res=>{
-                console.log(registerForm.value.username)
                 if(res.exist){
                     // username exist !
                     this.usernameExist = true
@@ -132,6 +144,7 @@ export class UserComponent implements OnInit {
             res=>{
                 if(res.exist){
                     //username exist
+                    this.checkUsernameFailure = false
                      this.msgSentMail = `We will sent code verify to email ${res.email}`
                      this.checkUsernameSuccess = true
                      this.checkUsernameFailure = false
@@ -141,6 +154,8 @@ export class UserComponent implements OnInit {
                      this.loading = false
                 }else{
                     this.checkUsernameFailure = true
+                    this.msgSentMail = ''
+                    this.enableBtnSentMail = false
                     this.loading = false
                 }
             }
@@ -198,9 +213,9 @@ export class UserComponent implements OnInit {
     }
 
     onActivate(event:any){
-       if(event instanceof DetailLectureComponent){
+       if(event instanceof DetailLectureComponent || event instanceof MainLectureComponent){
            event.childrenEvent.subscribe(()=>{
-                this.btnLogin.nativeElement.click()
+                this.btnLogin!.nativeElement.click()
            })
        }
     }

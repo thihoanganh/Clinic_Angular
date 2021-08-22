@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <a [routerLink]="['/admin/lecture']"><button class="btn btn-light"><i class="fas fa-arrow-circle-left"></i> Back</button></a>
+    <h1>Update Lecture</h1>
+    <hr>
+    <form  (ngSubmit)="updateLecture(updateLecForm)" #updateLecForm="ngForm">
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Category: </label>
+            <select name="cateid" class="form-control" required [(ngModel)]="cateSelection">
+                <option [value]="cate.id" *ngFor="let cate of cates">{{ cate.name }} </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name</label>
+            <input type="text" class="form-control" ngModel  name="name" required [(ngModel)]="lecture.name">
+        </div>
+  
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Sumary</label>
+            <input type="text" class="form-control" ngModel   name="sumary" required [(ngModel)]="lecture.sumary">
+        </div>
+  
+        <div class="form-group">
+            <ckeditor name="content" ngModel class="editor" [(ngModel)]="lecture.content"></ckeditor>
+        </div>
+
+        <div class="right-w3l text-center">
+            <button class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>

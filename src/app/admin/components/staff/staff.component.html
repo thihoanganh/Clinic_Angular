@@ -23,13 +23,13 @@
                     <form  method="post" (ngSubmit)="addStaff(newStaffForm)" #newStaffForm="ngForm">
                         <div class="form-group">
                             <label class="col-form-label">Full Name</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="name" ngModel #fn="ngModel" required>
+                            <input type="text" class="form-control"  name="name" ngModel #fn="ngModel" required>
                             <span *ngIf="fn.touched && fn.errors?.required" class="invalid">Name is required</span>
                         </div>
                       
                         <div class="form-group">
                             <label class="col-form-label">Email:</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="email" ngModel #em="ngModel" required email>
+                            <input type="text" class="form-control" name="email" ngModel #em="ngModel" required email>
                             <span class="invalid"  *ngIf="em.touched && em.errors?.required">Email is required</span>
                             <br>
                             <span class="invalid"  *ngIf="em.touched && em.errors?.email">Email format is incorrect</span>                    

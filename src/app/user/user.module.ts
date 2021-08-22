@@ -8,10 +8,6 @@ import { UserComponent } from './user.component';
 import { UserRouting } from './user.routing';
 import { HomeComponent } from './component/home/home.component';
 import { AboutUsComponent } from './component/aboutus/aboutus.component';
-import { ServiceComponent } from './component/services/service.component';
-import { BlogListComponent } from './component/bloglist/bloglist.component';
-import { BlogDetailComponent } from './component/blogdetail/blogdetail.component';
-import { BusinessAppComponent } from './component/businessapp/business.component';
 import { ContactUsComponent } from './component/contactus/contact.component';
 import { EduccationAppComponent } from './component/educcationapp/educcation.component';
 import { SeminarComponent } from './component/seminar/seminar.component';
@@ -29,6 +25,9 @@ import { QuizPreparationComponent } from './component/lecture/quiz-preparation/q
 import { QuizExaminationComponent } from './component/lecture/quiz-examination/quiz-examination.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { UserAuthGuard } from '../guards/user-auth-guard.service';
+import { DateAgoPipe } from '../pipes/date-ago.pipe';
+import { QuizHistoryComponent } from './component/lecture/quiz-history/quiz-history.component';
+import { NotfoundComponent } from './component/notfound/notfound.component';
 
 export function tokenGetter(){
   return localStorage.getItem('user-jwt')
@@ -38,10 +37,6 @@ export function tokenGetter(){
     UserComponent,
     HomeComponent,
     AboutUsComponent,
-    ServiceComponent,
-    BlogListComponent,
-    BlogDetailComponent,
-    BusinessAppComponent,
     ContactUsComponent,
     EduccationAppComponent,
     SeminarComponent,
@@ -54,6 +49,10 @@ export function tokenGetter(){
     DetailLectureComponent,
     QuizPreparationComponent,
     QuizExaminationComponent,
+    DateAgoPipe,
+    QuizHistoryComponent,
+    NotfoundComponent
+
   ],
   imports: [
     BrowserModule,
@@ -71,7 +70,7 @@ export function tokenGetter(){
   providers: [
     LibraryServiceApi,
     LibraryServiceMedicineApi,
-    UserAuthGuard
+    UserAuthGuard,
   ]
 })
 

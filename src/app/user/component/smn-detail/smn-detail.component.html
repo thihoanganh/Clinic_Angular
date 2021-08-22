@@ -1,4 +1,20 @@
-<hr>
+<section id="inner-title" class="inner-title mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6"><h2>Seminar</h2></div>
+        <div class="col-md-6 col-lg-6">
+          <div class="breadcrumbs">
+            <ul>
+              <li>Current Page:</li>
+              <li><a routerLink="/home">Home</a></li>
+              <li><a routerLink="/seminar">Seminar</a></li>
+              <li><p>Seminar Detail</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
 <div class="container wrapper">
   
     <a routerLink="/seminar" class=" btn btn-secondary btn-back"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
@@ -12,7 +28,7 @@
         <strong>Success!</strong> Thank you for your feedback. We'll improve and give you better services.
     </div>
 
-    <h1>{{ smnModel.title }}</h1>
+    <h1>{{ smnModel?.title }}</h1>
     <div *ngIf="!showFeedback">
        <img src="../../assets/images/closed.jpg" class="closed-icon">
     </div>
@@ -20,18 +36,18 @@
       <img src="../../assets/images/open.jpg" class="closed-icon" alt="">
     </div>
     <br>
-    <p><b>Speaker:</b> {{ smnModel.speaker }}</p>
-    <p><b>Method:</b> {{ smnModel.method }}</p>
+    <p><b>Speaker:</b> {{ smnModel?.speaker }}</p>
+    <p><b>Method:</b> {{ smnModel?.method }}</p>
     <br>
-    <p><b>Place: </b>{{ smnModel.place }}</p>
+    <p><b>Place: </b>{{ smnModel?.place }}</p>
     <br>
-    <p><span><i class="far fa-clock"></i>&nbsp; <b>Start:</b>&nbsp; {{ smnModel.startAt }}</span></p>
-    <p><span><i class="fas fa-clock"></i>&nbsp; <b>End:</b>&nbsp; {{ smnModel.endAt }}</span></p>
+    <p><span><i class="far fa-clock"></i>&nbsp; <b>Start:</b>&nbsp; {{ smnModel?.startAt }}</span></p>
+    <p><span><i class="fas fa-clock"></i>&nbsp; <b>End:</b>&nbsp; {{ smnModel?.endAt }}</span></p>
     <br>
-    <p><span><i class="fas fa-address-book"></i>&nbsp; Contact: &nbsp; {{ smnModel.contact }}</span></p>
+    <p><span><i class="fas fa-address-book"></i>&nbsp; Contact: &nbsp; {{ smnModel?.contact }}</span></p>
     <br>
     <h2>Description:</h2>
-    <div [innerHTML]="smnModel.content"></div>
+    <div [innerHTML]="smnModel?.content"></div>
 
 
 

@@ -105,3 +105,6 @@
           margin-top: 20px;
           margin-right: 15px;
       }
+      .fix-icon{
+        cursor: pointer;
+      }

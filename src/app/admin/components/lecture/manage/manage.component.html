@@ -17,7 +17,7 @@
             <th>Quizzes</th>
             <th>Attachments</th>
             <th>Comments</th>
-            <td>Options</td>
+            <td colspan="2">Options</td>
         </tr>
         <tr *ngFor="let lec of lectures">
             <td>{{ lec.id }}</td>
@@ -30,6 +30,7 @@
             <td><i class="fas fa-link attach-icon" data-toggle ="modal" data-target="#attachModal" (click)="setAttach(lec.id)"></i>({{ lec.total_attachs }})</td>
             <td><i class="fas fa-comments cmt-icon" data-toggle ="modal" data-target="#commentModal" (click)="setComment(lec.id)" ></i>({{ lec.total_comments }})</td>
             <td><i class="fas fa-trash-alt trash-icon" (click)="deleteLec(lec.id)"></i></td>
+            <td><a routerLink="/admin/lecture/update/{{ lec.id }}"><i class="fas fa-wrench fix-icon text-warning"></i>&nbsp;Update</a></td>
         </tr>
     </table>
     <p><b>Total:&nbsp;</b>{{ totalLectures }}</p>
@@ -108,9 +109,20 @@
         
         <!-- Modal body -->
         <div class="container notify-body">
-            <p>{{ addCount }}(s) was added.</p>
-            <p>{{ removeCount }}(s) was deleted.</p>
-            <p class="text-danger"><i>{{ errorCount }}(s) errors was occur.</i></p>
+            <div class="notify-success" *ngIf="notifySuccess">
+                <p>{{ addCount }}(s) was added.</p>
+                <p>{{ removeCount }}(s) was deleted.</p>
+            </div>
+            <div class="notify-error" *ngIf="notifyError">
+                <p class="text-danger"><i>{{ errorCount }}(s) errors was occur.</i></p>
+                <p class="text-danger">File size must be less than 1GB</p>
+                <p class="text-danger"> Accepted format: *.jpg, *.txt, *.png, *.docx, *.xlsx, *.mp3, *.mp4</p>
+            </div>
+           
+          
+
+            
+            
         </div>
         
         <!-- Modal footer -->

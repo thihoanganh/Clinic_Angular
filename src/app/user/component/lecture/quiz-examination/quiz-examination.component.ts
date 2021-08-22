@@ -117,9 +117,8 @@ export class QuizExaminationComponent implements OnInit {
   }
 
   redirection(){
-    console.log(this.closeModal)
     this.closeModal.nativeElement.click()
-    this.router.navigate(['/lecture'])
+    this.router.navigate([`/quiz/history/${this.userId}`])
   }
    
 }

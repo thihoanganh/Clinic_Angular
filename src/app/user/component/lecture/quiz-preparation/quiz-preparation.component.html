@@ -1,3 +1,20 @@
+<section id="inner-title" class="inner-title mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6"><h2>Quiz Preparation</h2></div>
+        <div class="col-md-6 col-lg-6">
+          <div class="breadcrumbs">
+            <ul>
+              <li>Current Page:</li>
+              <li><a routerLink="/home">Home</a></li>
+              <li><a routerLink="/lecture">Lecture</a></li>
+              <li><p>Quiz Preparation</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
 <div class="container quiz-detail" *ngIf="showQuizInfo">
     <h2>Your quiz detail </h2>
     <div class="detail">
@@ -11,7 +28,7 @@
 <div class="container quiz-detail" *ngIf="!showQuizInfo">
     <h2>You'd done all of quizzes of this lecture ! </h2>
     
-    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start mr-3">Try Orthers</a>
-    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start mr-3">History</a>
-    <a routerLink="/quiz/exam/{{ userId }}/{{ quizId }}" class="btn btn-danger btn-start">Go Back</a>
+    <a routerLink="/lecture" class="btn btn-danger btn-start mr-3">Try Orthers</a>
+    <a routerLink="/quiz/history/{{ userId }}" class="btn btn-danger btn-start mr-3">History</a>
+    <a routerLink="/lecture" class="btn btn-danger btn-start">Go Back</a>
 </div>

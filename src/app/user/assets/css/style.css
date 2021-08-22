@@ -784,13 +784,20 @@ p {
     padding: 6px 6px;
     position: relative;
 }
+.my-team-detail a{
+    text-decoration: none;
+    font-size: 17px;
+}
 .my-team .my-member-name {
     color: #FFF; 
-    margin: 15px 0       
+    margin: 15px 0;
 }
 .my-team .my-member-post {
     color: #FFF;    
     font-size: 14px;
+}
+.my-member-post{
+    border-top: 1px solid wheat;
 }
 .my-team .my-member-social {
     position: absolute;
@@ -1319,6 +1326,7 @@ p {
     padding: 30px;
     border: 1px solid #eeeeee;
     background: #f6f6f6;
+    text-align: center;
 }
 .blog-list .section-14-box{
     padding:0;
@@ -1360,7 +1368,6 @@ p {
 }
 .section-14-box .comments a {
     color: #fff;
-    cursor: none;
 }
 .blog-list  .section-14-box .comments a {
     color: #212121;

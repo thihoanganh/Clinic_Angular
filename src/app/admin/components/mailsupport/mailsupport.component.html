@@ -1,0 +1,18 @@
+<div>
+    <h1>Support Letter</h1>
+    <table class="table table-hover">
+        <thead>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Subject</td>
+            <td>Content</td>
+        </thead>
+        <tr *ngFor="let emailSupport of emailSupports">
+            <td>{{ emailSupport?.name }}</td>
+            <td>{{ emailSupport?.email }}</td>
+            <td>{{ emailSupport?.subject }}</td>
+            <td>{{ emailSupport?.content }}</td>
+        </tr>
+    </table>
+    <p><b>Total:&nbsp;</b>{{ emailSupports?.length }}</p>
+</div>

@@ -33,8 +33,8 @@
             <div class="loc-icon">
               <i class="fa fa-envelope fa-2x"></i>
             </div>
-            <span class="loc-content">example@gmail.com</span>
-            <span class="loc-content">info@example.net</span>
+            <span class="loc-content">clinicteam@gmail.com</span>
+            <span class="loc-content">clinicsupport@gamil.net</span>
           </div>
         </div>
         <div class="col-md-3">
@@ -49,35 +49,34 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-lg-6">
-          <form id="contact" role="form">
-            <!-- successfully -->
-            <p class="success alert alert-success"><i class="fa fa-check"></i> Your message has been sent successfully. </p>
-            <!-- unsuccessfully -->
-            <p class="error alert alert-danger"><i class="fa fa-times"></i> E-mail must be valid and message must be longer than 1 character. </p>
+          <form (ngSubmit)="createMailSupport(mailForm)" #mailForm="ngForm">
             <div class="control-group form-group">
               <div class="controls">
-                <input  class="form-control" id="cf-name" type="text" name="cf-name" placeholder="NAME">
-                <p class="help-block"></p>
+                <input  class="form-control" type="text" name="name" ngModel #name="ngModel" placeholder="NAME" required>
+                <span class="text-danger" *ngIf="name.touched && name.errors?.required"><i>Name is required</i></span>
               </div>
             </div>
             <div class="control-group form-group">
               <div class="controls">
-                <input class="form-control" id="cf-email" type="email" name="cf-email" placeholder="EMAIL">
+                <input class="form-control" type="email" name="email" ngModel #email="ngModel" placeholder="EMAIL" email required>
+                <span class="text-danger" *ngIf="email.touched && email.errors?.required"><i>Email is required</i></span>
+                <span class="text-danger"  *ngIf="email.touched && email.errors?.email">Email format is incorrect</span>
               </div>
             </div>
             <div class="control-group form-group">
               <div class="controls">
-               <input class="form-control" id="cf-subject" type="text" name="cf-subject" placeholder="SUBJECT">
+               <input class="form-control" type="text" name="subject" ngModel #subject="ngModel"  placeholder="SUBJECT" required>
+               <span class="text-danger" *ngIf="subject.touched && subject.errors?.required"><i>Subject is required</i></span>
               </div>
             </div>
             <div class="control-group form-group">
               <div class="controls">
-                <textarea class="form-control custom-control" id="cf-message" rows="4" name="cf-message" placeholder="HOW CAN I HELP? "></textarea>
+                <textarea class="form-control custom-control" rows="4" name="content" ngModel #content="ngModel" placeholder="HOW CAN I HELP?" required></textarea>
+                <span class="text-danger" *ngIf="content.touched && content.errors?.required"><i>Subject is required</i></span>
               </div>
             </div>
-            <div id="success"></div>
-            <!-- For success/fail messages -->
-            <button type="submit" id="cf-submit" name="submit" class="btn btn-primary">SUBMIT</button>
+            <div class="text-success" *ngIf="alertFlag">Thanks for your mailing. We'll response to you as soon as possible !</div>
+            <button type="submit"  name="submit" class="btn btn-primary">SUBMIT</button>
           </form>
         </div>
         <div class="col-md-6 col-lg-6">

@@ -20,3 +20,10 @@
   .btn-custom{
     margin-bottom: 64px;
   }
+
+  .btn-history{
+    float:right;
+    font-size: 17px;
+    color:#0082FE;
+    cursor: pointer;
+  }

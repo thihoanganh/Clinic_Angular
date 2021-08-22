@@ -7,7 +7,7 @@
             <input type="text" class="form-control" [(ngModel)]="mailTitle"  ngModel #tt="ngModel" name="title" id="recipient-name" required>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2">Content</label>
+            <label class="control-label">Content</label>
             <ckeditor name="content" [(ngModel)]="mailContent" ngModel></ckeditor>
         </div>
         <div class="right-w3l" *ngIf="flagCreate">

@@ -20,7 +20,7 @@ import { QuizService } from './services/quiz.service';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +37,6 @@ import { QuizService } from './services/quiz.service';
     LoginService,
     RegisterService,
     LoggedGuard,
-
     LibraryServiceApi,
     LibraryServiceMedicineApi,
     QuizService,

@@ -59,6 +59,8 @@ import { LectureCreateComponent } from './components/lecture/create/create.compo
 import { QuizComponent } from './components/quiz/quiz/quiz.component';
 import { CreateQuizComponent } from './components/quiz/create/create.component';
 import { QuizUpdateComponent } from './components/quiz/update/update.component';
+import { MailsupportComponent } from './components/mailsupport/mailsupport.component';
+import { LectureUpdateComponent } from './components/lecture/update/update.component';
 
 
 export function tokenGetter(){
@@ -107,7 +109,9 @@ export function tokenGetter(){
     LectureCreateComponent,
     QuizComponent,
     CreateQuizComponent,
-    QuizUpdateComponent
+    QuizUpdateComponent,
+    MailsupportComponent,
+    LectureUpdateComponent,
   ],
   imports: [
     BrowserModule,
