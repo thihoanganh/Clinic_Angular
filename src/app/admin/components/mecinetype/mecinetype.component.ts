@@ -58,7 +58,7 @@ saveMecineType(){
   
       this.libraryseviceapi.AddTypeMecine(mecine).then(
         res =>{
-          alert("add thanh cong");
+          alert("add successful");
         console.log(res);
         window.location.reload();
         },
@@ -77,7 +77,7 @@ saveMecineType(){
       res =>{
         console.log(id);
         console.log('done');
-        alert('xoa thanh cong');
+        alert('successful delete');
         window.location.reload();
       },
       err =>{

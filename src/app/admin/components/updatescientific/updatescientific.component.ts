@@ -159,7 +159,7 @@ this.libraryseviceapi.PriceList().then(
        
           this.libraryseviceapi.UpdateScientific(scientific).then(
             re =>{
-              alert("update thanh cong");
+              alert("update successful");
               console.log(re);
             console.log(re);
             },

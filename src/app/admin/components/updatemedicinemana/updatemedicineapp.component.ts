@@ -163,7 +163,7 @@ saveMedicine(){
     console.log(medicine.illustration);
       this.librarysevicemedicineapi.UpdateMedicine(medicine).then(
         re =>{
-          alert("Update thanh cong");
+          alert("Update successful");
          
         console.log(re);
         },

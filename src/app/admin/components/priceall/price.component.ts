@@ -35,7 +35,7 @@ export class PriceAllComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAddPrice=this.formBuilder.group({ 
-     price1:'',
+     price1:1,
      date:''
       
   }),
@@ -59,7 +59,7 @@ savePrice(){
   
       this.libraryseviceapi.addPrice(prices).then(
         res =>{
-          alert("add thanh cong");
+          alert("add successful");
         console.log(res);
         window.location.reload();
         },
@@ -78,7 +78,7 @@ savePrice(){
       res =>{
         console.log(id);
         console.log('done');
-        alert('xoa thanh cong');
+        alert('successful delete');
         window.location.reload();
       },
       err =>{

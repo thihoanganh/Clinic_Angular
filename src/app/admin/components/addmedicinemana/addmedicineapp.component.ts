@@ -135,7 +135,7 @@ saveMedicine(){
     console.log(medicine.illustration);
       this.librarysevicemedicineapi.AddMedicine(medicine).then(
         re =>{
-          alert("add thanh cong");
+          alert("add successful");
          
         console.log(re);
         },

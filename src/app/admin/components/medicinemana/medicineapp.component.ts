@@ -129,32 +129,7 @@ this.libraryseviceapi.PriceList().then(
 }
 
 //
-saveScientific(){
-  var scientific:ScientificInfo=this.formAddScientific.value;
-  let formData = new FormData();
-  formData.append('file', this.file);
-  this.libraryseviceapi.UploadFile(formData).then(
-    res =>{
-      console.log(res);
-    scientific.illustration=res;
-    console.log(scientific.illustration);
-      this.libraryseviceapi.AddScientific(scientific).then(
-        re =>{
-          alert("add thanh cong");
-         
-        console.log(re);
-        },
-        err =>{
-          console.log(err);
-        }
-      )
-    },
-    err =>{
-      console.log(err);
-    }
-  )
-  
-}
+
  //search
   searchkey(){
     this.librarysevicemedicineapi.searchKey(this.keyword).then(

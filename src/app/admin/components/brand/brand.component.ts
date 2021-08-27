@@ -25,6 +25,7 @@ export class BrandComponent implements OnInit {
   id!:number;
   p:number=1;
 
+ 
   @ViewChild('closeNewStaffModal') closeNewStaffModal!: ElementRef;
   constructor(
     private libraryseviceapi:LibraryServiceApi,
@@ -55,17 +56,18 @@ export class BrandComponent implements OnInit {
 //add medicine
 saveBrand(){
   var brand:BrandInfo=this.formAddBrand.value;
-  
-      this.libraryseviceapi.AddBrand(brand).then(
-        res =>{
-          alert("add thanh cong");
-        console.log(res);
-        window.location.reload();
-        },
-        err =>{
-          console.log(err);
-        }
-      )
+  this.libraryseviceapi.AddBrand(brand).then(
+    res =>{
+      
+    alert("add successful");
+    window.location.reload();
+   
+    },
+    err =>{
+      console.log(err);
+    }
+  )
+     
   
 }
  //delete
@@ -77,7 +79,7 @@ saveBrand(){
       res =>{
         console.log(id);
         console.log('done');
-        alert('xoa thanh cong');
+        alert('successful delete');
         window.location.reload();
       },
       err =>{

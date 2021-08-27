@@ -54,7 +54,7 @@ saveOrigin(){
   
       this.libraryseviceapi.AddOrigin(origin).then(
         res =>{
-          alert("add thanh cong");
+          alert("add successful");
         console.log(res);
         window.location.reload();
         },
@@ -73,7 +73,7 @@ saveOrigin(){
       res =>{
         console.log(id);
         console.log('done');
-        alert('xoa thanh cong');
+        alert('successful delete');
         window.location.reload();
       },
       err =>{

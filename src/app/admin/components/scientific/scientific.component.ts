@@ -41,7 +41,7 @@ export class ScientificComponent implements OnInit {
   ngOnInit(): void {
     this.formAddScientific=this.formBuilder.group({ 
       name:'',
-      inventedYear:'',
+      inventedYear:'2021',
       description:'',
       illustration:'',
       quantity:0,
@@ -133,7 +133,7 @@ this.libraryseviceapi.PriceList().then(
         console.log(scientific.illustration);
           this.libraryseviceapi.AddScientific(scientific).then(
             re =>{
-              alert("add thanh cong");
+              alert("add successful");
               window.location.reload();
              
             console.log(re);

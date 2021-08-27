@@ -20,7 +20,7 @@
                     <form #imageForm=ngForm  method="post" [formGroup]="formAddPrice" (ngSubmit)="savePrice()">
                         <div class="form-group">
                             <label class="col-form-label">Price</label>
-                            <input type="text" class="form-control" formControlName="price1"  required>
+                            <input type="number" min="1" class="form-control" formControlName="price1"  required>
                           
                         </div>
                         <div class="form-group">

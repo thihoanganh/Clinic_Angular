@@ -51,7 +51,7 @@ export class ScientificDetailComponent implements OnInit {
       res =>{
         console.log(id);
         console.log('done');
-        alert('xoa thanh cong');
+        alert('successful delete');
         window.location.reload();
       },
       err =>{
